@@ -18,7 +18,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     ProductosComponent,
     LoginComponent,
     RegistrarComponent,
-    InicioComponent,
+    InicioComponent
   
   ],
   imports: [

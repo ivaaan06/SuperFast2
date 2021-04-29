@@ -7,7 +7,7 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ConsultaService {
-  private url: string = environment.HOST+ '/api/comunicacion';
+  private url: string = environment.HOST+'/api/comunicacion';
 
   private url2: string = `${environment.HOST}'/api/comunicacion`;
   constructor(private http: HttpClient) { }
