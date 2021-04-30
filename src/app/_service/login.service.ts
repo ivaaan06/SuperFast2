@@ -6,10 +6,13 @@ import { Login } from '../_model/Login';
 @Injectable({
   providedIn: 'root'
 })
+
 export class LoginService {
-  private url : string = `${environment.HOST}/admin`;
+  private url : string = `${environment.HOST}/api/admin`;
+
   constructor(private http: HttpClient) { }
-  login(usuario :string, contrasena ){
+
+  login(usuario: string, contrasena: string){
     let login : Login;
     login = new Login;
     login.Correo = usuario;
