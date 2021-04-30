@@ -11,14 +11,17 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { InicioComponent } from './pages/inicio/inicio.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { CarritoComponent } from './pages/carrito/carrito.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
     LoginComponent,
     RegistrarComponent,
-    InicioComponent
+    InicioComponent,
+    CarritoComponent
+    
   
   ],
   imports: [
@@ -28,6 +31,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

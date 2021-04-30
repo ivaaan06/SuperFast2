@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto', 'imagen_producto1','estado_producto','id_aliado','nombre_aliado','actividad_comercial','cantidad','decision'];
+  displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto','estado_producto','id_aliado','nombre_aliado','cantidad'];
   dataSource = new MatTableDataSource<Producto>();
 
   constructor(private consultaservice: ConsultaService) { }
@@ -20,6 +20,9 @@ export class ProductosComponent implements OnInit {
     this.consultaservice.retornar().subscribe(data => {
      this.dataSource = new MatTableDataSource(data);
     });
+  }
+  applyFilter(filtro: string){
+    this.dataSource.filter = filtro.trim();
   }
 
 }

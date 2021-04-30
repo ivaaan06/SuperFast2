@@ -32,11 +32,14 @@
          
           <mat-divider></mat-divider>
           <button mat-menu-item style="cursor: pointer" routerLink="/productos" (click)="sidenav.toggle()">
-            <mat-icon>api</mat-icon>
+            <mat-icon>source</mat-icon>
             <span>Consulta</span>
           </button>
-    
-    
+          <mat-divider></mat-divider>
+          <button mat-menu-item style="cursor: pointer" routerLink="/productos" (click)="sidenav.toggle()">
+            <mat-icon>shopping_cart</mat-icon>
+            <span>Carrito</span>
+          </button>
         </mat-sidenav>
         <router-outlet></router-outlet>
     </mat-sidenav-container>
