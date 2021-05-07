@@ -11,6 +11,7 @@ const routes: Routes = [
   {path: 'registrar', component: RegistrarComponent},
   {path: 'login', component: LoginComponent},
   {path: 'inicio', component: InicioComponent},
+  {path: '', component: LoginComponent},
   {path: '**', component: LoginComponent}
   
 ];

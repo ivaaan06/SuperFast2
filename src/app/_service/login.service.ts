@@ -9,16 +9,19 @@ import { Login } from '../_model/Login';
 
 export class LoginService {
   private url : string = `${environment.HOST}/api/admin`;
+  private url2: string = environment.HOST+'/api/admin';
+
 
   constructor(private http: HttpClient) { }
 
-  login(usuario: string, contrasena: string){
+  login(usuario: string, contrasena: string , rolid : string){
     let login : Login;
     login = new Login;
-    login.Correo = usuario;
+    login.correo = usuario;
     login.Contrasenia = contrasena;
+    login.AplicacionID = rolid;
     
-    return this.http.post<any>(`${this.url}/login`,login );
+    return this.http.post<any>(`${this.url2}/login`,login );
   }
   
 }

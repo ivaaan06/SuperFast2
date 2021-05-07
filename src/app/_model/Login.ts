@@ -1,4 +1,5 @@
 export class Login{
-    Correo : string;
+    correo : string;
     Contrasenia : string;
+    AplicacionID : string;
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  HOST :'http://52.67.179.68:8081'
+  HOST :'http://52.67.179.68:8081',
+  TOKEN: 'access_token' 
 };
 
 /*
