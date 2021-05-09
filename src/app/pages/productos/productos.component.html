@@ -5,51 +5,92 @@
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Placeholder">
   </mat-form-field>
 -->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" borde="1" style="margin: 0 auto;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-primary">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/productos">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/carrito">Carrito</a>
+      </li>
+    
+    </ul>
+  </div>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/perfil">
+      <mat-icon>account_box</mat-icon>
+      <span>Mi Perfil</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Cerrar Sesión</span>
+    </button>
+  </mat-menu>
+</nav>
+
+<!--Main layout-->
+<main>
+
+  <div class="container-fluid">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" borde="1" style="margin: 0 auto;">
 
  
 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> Id</th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-  
-    <ng-container matColumnDef="nombre_producto">
-      <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombre_producto}} </td>
-    </ng-container>
-  
-   
-    <ng-container matColumnDef="descripcion_producto">
-      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-      <td mat-cell *matCellDef="let element"> {{element.descripcion_producto}} </td>
-    </ng-container>
-  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
     
-    <ng-container matColumnDef="precio_producto">
-      <th mat-header-cell *matHeaderCellDef> Precio </th>
-      <td mat-cell *matCellDef="let element"> {{element.precio_producto}} </td>
-    </ng-container>
-
-      <ng-container matColumnDef="estado_producto">
-        <th mat-header-cell *matHeaderCellDef> estado </th>
-        <td mat-cell *matCellDef="let element"> {{element.estado_producto}} </td>
+      <ng-container matColumnDef="nombre_producto">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre_producto}} </td>
       </ng-container>
-      <ng-container matColumnDef="id_aliado">
-        <th mat-header-cell *matHeaderCellDef> Id aliado </th>
-        <td mat-cell *matCellDef="let element"> {{element.id_aliado}} </td>
-      </ng-container>
-      <ng-container matColumnDef="nombre_aliado">
-        <th mat-header-cell *matHeaderCellDef> Nombre aliado </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre_aliado}} </td>
-      </ng-container>
+    
      
-      <ng-container matColumnDef="cantidad">
-        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+      <ng-container matColumnDef="descripcion_producto">
+        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+        <td mat-cell *matCellDef="let element"> {{element.descripcion_producto}} </td>
       </ng-container>
     
+      
+      <ng-container matColumnDef="precio_producto">
+        <th mat-header-cell *matHeaderCellDef> Precio </th>
+        <td mat-cell *matCellDef="let element"> {{element.precio_producto}} </td>
+      </ng-container>
   
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+        <ng-container matColumnDef="estado_producto">
+          <th mat-header-cell *matHeaderCellDef> estado </th>
+          <td mat-cell *matCellDef="let element"> {{element.estado_producto}} </td>
+        </ng-container>
+        <ng-container matColumnDef="id_aliado">
+          <th mat-header-cell *matHeaderCellDef> Id aliado </th>
+          <td mat-cell *matCellDef="let element"> {{element.id_aliado}} </td>
+        </ng-container>
+        <ng-container matColumnDef="nombre_aliado">
+          <th mat-header-cell *matHeaderCellDef> Nombre aliado </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre_aliado}} </td>
+        </ng-container>
+       
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
+      
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+</main>
+

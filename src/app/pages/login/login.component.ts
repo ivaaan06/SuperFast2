@@ -39,7 +39,11 @@ export class LoginComponent implements OnInit {
       console.log(decodedToken);
       console.log(expirationDate);
       console.log(isExpired);
+      if(data != null){
       this.router.navigateByUrl('/inicio');
+      }else{
+        
+      }
     });
   }
 }

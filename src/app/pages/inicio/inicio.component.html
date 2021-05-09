@@ -1,48 +1,39 @@
-<div class="example-container">
-    <mat-toolbar color="primary" class="example-toolbar">
-
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
-            <mat-icon *ngIf="sidenav.opened">close</mat-icon>
-          </button>
-
-        <h1 class="example-app-name">Super Fast</h1>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-primary">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/productos">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/carrito">Carrito</a>
+      </li>
     
-        <span class="example-spacer"></span>
+      
+    </ul>
     
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-    
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item routerLink="/perfil">
-            <mat-icon>account_box</mat-icon>
-            <span>Mi Perfil</span>
-          </button>
-          <button mat-menu-item routerlink="/login">
-            <mat-icon>exit_to_app</mat-icon>
-            <span>Cerrar Sesión</span>
-          </button>
-        </mat-menu>
-      </mat-toolbar>
-      <mat-sidenav-container class="example-sidenav-container">
-        <mat-sidenav #sidenav style="width: 200px">
-    
-        
-         
-          <mat-divider></mat-divider>
-          <button mat-menu-item style="cursor: pointer" routerLink="/productos" (click)="sidenav.toggle()">
-            <mat-icon>source</mat-icon>
-            <span>Consulta</span>
-          </button>
-          <mat-divider></mat-divider>
-          <button mat-menu-item style="cursor: pointer" routerLink="/productos" (click)="sidenav.toggle()">
-            <mat-icon>shopping_cart</mat-icon>
-            <span>Carrito</span>
-          </button>
-        </mat-sidenav>
-        <router-outlet></router-outlet>
-    </mat-sidenav-container>
-    
-    
+  </div>
+  <div class="collapse navbar-collapse" id="account">
+    <ul class="navbar-nav ml-auto">
+     
+    </ul>
 </div>
+ 
+</nav>
+
+<!--Main layout-->
+<main>
+
+  <div class="container-fluid">
+
+   <router-outlet></router-outlet>
+  </div>
+
+</main>
