@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
@@ -13,36 +14,46 @@ export class LoginComponent implements OnInit {
   correo: string;
   contrasenia: string;
   constructor(private loginservice : LoginService,  
-              private router :Router ) { }
+              private router :Router ,
+              private snackBar : MatSnackBar) { }
   test : Date = new Date();
     focus;
     focus1;
     
 
   ngOnInit(): void {
-    //this.loginservice.login(this.correo, this.contrasenia).subscribe(data =>{
-      //console.log(data);
-    //});
+   
   }
   navegarHaciaIniciousuario(){
-    //this.loginservice.login(this.correo,this.contrasenia).subscribe(data => {
-      //console.log(data);
-    //});
     this.loginservice.login(this.correo, this.contrasenia,  "1").subscribe(data =>{
       //console.log(data);
       sessionStorage.setItem(environment.TOKEN, data);
       const helper = new JwtHelperService();
  
       const decodedToken = helper.decodeToken(data);
-      const expirationDate = helper.getTokenExpirationDate(data);
-      const isExpired = helper.isTokenExpired(data);
       console.log(decodedToken);
-      console.log(expirationDate);
-      console.log(isExpired);
-      if(data != null){
+      
+     
+      let rol = decodedToken.role;
+      
+      if(rol == 1)
       this.router.navigateByUrl('/inicio');
-      }else{
-        
+      else if(rol == 2)
+      this.router.navigateByUrl('/inicioaliado');
+      else if(rol == 3)
+      this.router.navigateByUrl('/iniciodomiciliario');
+      else if(rol == 4)
+      this.router.navigateByUrl('/inicioadmin');
+      //capturar errorq
+    },err =>{
+      //Si hay error
+      if(err.status == 401){
+        this.snackBar.open('Usuario y/o cotrasena inconrrecta', 'Advertrencia', {
+          duration: 2000,
+        });
+      } else {
+        //this.router.navigateByUrl('/inicio');
+        this.router.navigate([`/error/${err.status}/${err.statusText}`]);
       }
     });
   }
