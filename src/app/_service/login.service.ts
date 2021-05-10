@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -24,4 +25,28 @@ export class LoginService {
     return this.http.post<any>(`${this.url2}/login`,login );
   }
   
+  estaLogeado(): number{
+    let token = sessionStorage.getItem(environment.TOKEN);
+    if(token != null){
+      //decodificamos el token
+      const helper = new JwtHelperService();
+      const isExpired = helper.isTokenExpired(token); 
+      //si esta expirado
+      if(isExpired == true) {
+        //devuelta al login
+        return 2;
+      } else {
+        //aun activo el usuario
+        return 1;
+      }
+    }else{
+      //cancelar no hay nadir
+      return 0;
+    }
+  }
+  cerrarSesion(): void{
+
+  }
+
+
 }
