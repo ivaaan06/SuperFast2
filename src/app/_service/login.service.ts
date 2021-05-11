@@ -49,9 +49,16 @@ export class LoginService {
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
-    let usuario = decodedToken.unique_name;
-
-
+    let nameid=decodedToken.nameid;
+    let login : Login;
+    login = new Login;
+    login.correo = decodedToken.unique_name;
+    login.Contrasenia = decodedToken.certpublickey;
+    login.AplicacionID = "1";
+    this.http.post<any>(`${this.urlCerrarSession}`,nameid);
+    //this.http.post(this.urlCerrarSession, Login).subscribe();
+    //puede ser put
+    //return this.http.post(this.urlCerrarSession , login).subscribe();
     //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
     this.router.navigateByUrl('/login');
