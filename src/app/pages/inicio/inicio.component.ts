@@ -1,3 +1,4 @@
+import { LoginService } from './../../_service/login.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginservice : LoginService) { }
 
   ngOnInit(): void {
+  }
+
+  cerrarSesion(){ 
+    this.loginservice.cerrarSesion();
   }
 
 }

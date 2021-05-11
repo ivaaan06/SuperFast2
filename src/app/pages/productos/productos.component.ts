@@ -1,3 +1,4 @@
+import { LoginService } from './../../_service/login.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from './../../_model/Producto';
 
@@ -13,7 +14,7 @@ export class ProductosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto','estado_producto','id_aliado','nombre_aliado','cantidad'];
   dataSource = new MatTableDataSource<Producto>();
 
-  constructor(private consultaservice: ConsultaService) { }
+  constructor(private consultaservice: ConsultaService, private loginService:LoginService) { }
 
   ngOnInit(): void {
     //iniciar variables
@@ -24,5 +25,9 @@ export class ProductosComponent implements OnInit {
   applyFilter(filtro: string){
     this.dataSource.filter = filtro.trim();
   }
+ 
 
+  cerrarSesion(){ 
+    this.loginService.cerrarSesion();
+  }
 }

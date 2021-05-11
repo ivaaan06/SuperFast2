@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
@@ -13,7 +14,7 @@ export class LoginService {
   private url2: string = environment.HOST+'/api/admin';
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router :Router) { }
 
   login(usuario: string, contrasena: string , rolid : string){
     let login : Login;
@@ -45,7 +46,8 @@ export class LoginService {
     }
   }
   cerrarSesion(): void{
-
+    sessionStorage.setItem(environment.TOKEN, null);
+    this.router.navigateByUrl('/login');
   }
 
 
