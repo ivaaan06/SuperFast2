@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Login } from '../_model/Login';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { Login } from '../_model/Login';
 export class LoginService {
   private url : string = `${environment.HOST}/api/admin`;
   private url2: string = environment.HOST+'/api/admin';
-  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='
+  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1={usuario1}';
 
   constructor(private http: HttpClient, private router :Router) { }
 
@@ -49,14 +50,22 @@ export class LoginService {
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
-    let usuario = decodedToken.unique_name;
-
-
+    let nameid=decodedToken.nameid;
+    let login : Login;
+    login = new Login;
+    login.correo = decodedToken.unique_name;
+    login.Contrasenia = decodedToken.certpublickey;
+    login.AplicacionID = "1";
+    this.http.post<any>(`${this.urlCerrarSession}`,nameid);
+    //this.http.post(this.urlCerrarSession, Login).subscribe();
+    //puede ser put
+    //return this.http.post(this.urlCerrarSession , login).subscribe();
     //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
     this.router.navigateByUrl('/login');
     
   }
+
 
 
 }
