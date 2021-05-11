@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Login } from '../_model/Login';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ import { Login } from '../_model/Login';
 export class LoginService {
   private url : string = `${environment.HOST}/api/admin`;
   private url2: string = environment.HOST+'/api/admin';
-  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='
+  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1={usuario1}';
 
   constructor(private http: HttpClient, private router :Router) { }
 

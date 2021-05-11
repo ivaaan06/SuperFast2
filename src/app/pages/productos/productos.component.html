@@ -7,20 +7,22 @@
 <br>
 <main>
   <div class="container-fluid">
+
     
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" borde="1" style="margin: 0 auto;">
-
- 
-
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Id</th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
+   
+         
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
     
       <ng-container matColumnDef="nombre_producto">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td mat-cell *matCellDef="let element"> {{element.nombre_producto}} </td>
       </ng-container>
+    
+      
     
      
       <ng-container matColumnDef="descripcion_producto">
@@ -56,6 +58,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  
   </div>
 </main>
 
