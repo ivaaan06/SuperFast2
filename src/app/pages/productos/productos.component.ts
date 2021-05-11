@@ -27,7 +27,5 @@ export class ProductosComponent implements OnInit {
   }
  
 
-  cerrarSesion(){ 
-    this.loginService.cerrarSesion();
-  }
+  
 }

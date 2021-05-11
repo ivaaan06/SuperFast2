@@ -13,7 +13,5 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cerrarSesion(){ 
-    this.loginService.cerrarSesion();
-  }
+  
 }

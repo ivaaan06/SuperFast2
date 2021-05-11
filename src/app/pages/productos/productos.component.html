@@ -1,41 +1,11 @@
-
-  
-<!--
-  <mat-form-field  >
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Placeholder">
-  </mat-form-field>
--->
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-primary">
-  <a class="navbar-brand" href="#">SuperFast</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" >Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/productos">Productos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/carrito">Carrito</a>
-      </li>
-    
-    </ul>
-  </div>
-  <div class="collapse navbar-collapse" id="account">
-    <ul class="navbar-nav ml-auto">
-    
-        <li class="nav-item"><a class="nav-link" >Cerrar Sesion</a></li>
-    </ul>
+<div>
+<app-inicio></app-inicio>
 </div>
-</nav>
-
 <!--Main layout-->
-<main>
 
+<br>
+<br>
+<main>
   <div class="container-fluid">
     
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" borde="1" style="margin: 0 auto;">
@@ -87,6 +57,6 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
-
 </main>
+
 

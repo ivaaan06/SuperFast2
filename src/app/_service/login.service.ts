@@ -12,7 +12,7 @@ import { Login } from '../_model/Login';
 export class LoginService {
   private url : string = `${environment.HOST}/api/admin`;
   private url2: string = environment.HOST+'/api/admin';
-
+  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='
 
   constructor(private http: HttpClient, private router :Router) { }
 
@@ -41,13 +41,21 @@ export class LoginService {
         return 1;
       }
     }else{
-      //cancelar no hay nadir
+      //cancelar no hay nadie
       return 0;
     }
   }
   cerrarSesion(): void{
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let usuario = decodedToken.unique_name;
+
+
+    //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
     this.router.navigateByUrl('/login');
+    
   }
 
 
