@@ -1,65 +1,56 @@
 <div>
-<app-inicio></app-inicio>
-</div>
-<!--Main layout-->
-
-<br>
-<br>
-<main>
-  <div class="container-fluid">
-
-    
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" borde="1" style="margin: 0 auto;">
-   
-         
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef> Id</th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-          </ng-container>
-    
-      <ng-container matColumnDef="nombre_producto">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre_producto}} </td>
-      </ng-container>
-    
-      
-    
-     
-      <ng-container matColumnDef="descripcion_producto">
-        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-        <td mat-cell *matCellDef="let element"> {{element.descripcion_producto}} </td>
-      </ng-container>
-    
-      
-      <ng-container matColumnDef="precio_producto">
-        <th mat-header-cell *matHeaderCellDef> Precio </th>
-        <td mat-cell *matCellDef="let element"> {{element.precio_producto}} </td>
-      </ng-container>
-  
-        <ng-container matColumnDef="estado_producto">
-          <th mat-header-cell *matHeaderCellDef> estado </th>
-          <td mat-cell *matCellDef="let element"> {{element.estado_producto}} </td>
-        </ng-container>
-        <ng-container matColumnDef="id_aliado">
-          <th mat-header-cell *matHeaderCellDef> Id aliado </th>
-          <td mat-cell *matCellDef="let element"> {{element.id_aliado}} </td>
-        </ng-container>
-        <ng-container matColumnDef="nombre_aliado">
-          <th mat-header-cell *matHeaderCellDef> Nombre aliado </th>
-          <td mat-cell *matCellDef="let element"> {{element.nombre_aliado}} </td>
-        </ng-container>
-       
-        <ng-container matColumnDef="cantidad">
-          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-        </ng-container>
-      
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
+    <app-inicio></app-inicio>
+    </div>
+<body>
+  <div>
+   <h1>Productos Disponibles </h1>
   </div>
-</main>
+
+  
+  <div class="container">
+  <div class="row">
+    <div class="col-md-3 mx-auto my-5" *ngFor="let card of datos">
+       
+        <mdb-card-body>
+          <mdb-card-title>
+            <h4>{{card.id}}</h4>
+            <mdb-card-img [src]="card.image" alt="Card image cap">
+            </mdb-card-img> 
+          </mdb-card-title>
+
+          <mdb-card-text>
+            {{card.nombre_producto}}
+          </mdb-card-text>
+          <div>
+            <mdb-card-text>
+              {{card.descripcion_producto}}
+            </mdb-card-text>
+          </div>
+          <div>
+            <mdb-card-text>
+              {{card.precio_producto}}
+            </mdb-card-text>
+          </div>
+          <div>
+            <mdb-card-text>
+              {{card.cantidad}}
+            </mdb-card-text>
+          </div>
+
+          <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+        </mdb-card-body>
+    
+    </div>
+  </div>
+</div>
 
 
+
+
+
+
+
+
+
+
+</body>
