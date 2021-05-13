@@ -1,3 +1,4 @@
+
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,12 @@ import { InicioaliadoComponent } from './pages/_aliado/inicioaliado/inicioaliado
 import { InicioadminComponent } from './pages/_admin/inicioadmin/inicioadmin.component';
 import { Invalid401Component } from './pages/invalid401/invalid401.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter(){
+  let tk = sessionStorage.getItem('access_token');
+  return tk != null ? tk : '';
+}
 
 @NgModule({
   declarations: [
@@ -47,7 +54,15 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    JwtModule.forRoot({
+      config:{
+      tokenGetter : tokenGetter,
+      //que url se le quiere colocar el token automaticamente
+      allowedDomains : ["52.67.179.68:8081/api"],
+      disallowedRoutes: ["http://52.67.179.68:8081/api/admin/login"],
+    }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

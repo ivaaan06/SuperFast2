@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../_service/login.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,16 +28,18 @@ export class LoginComponent implements OnInit {
   navegarHaciaIniciousuario(){
     this.loginservice.login(this.correo, this.contrasenia,  "1").subscribe(data =>{
       //console.log(data);
-      //cifrar variables
-      environment.CORREO = this.correo;
-      environment.CONTRASENIA = this.contrasenia;
+     
+      
+    
       sessionStorage.setItem(environment.TOKEN, data);
       const helper = new JwtHelperService();
  
       const decodedToken = helper.decodeToken(data);
       console.log(decodedToken);
+       //cifrar variables
+      //environment.CORREO = CryptoJS.AES.encrypt(this.correo,decodedToken.nameid).toString();
+      //environment.CONTRASENIA = CryptoJS.AES.encrypt(this.contrasenia,decodedToken.nameid).toString();
       
-     
       let rol = decodedToken.role;
       
       if(rol == 1)

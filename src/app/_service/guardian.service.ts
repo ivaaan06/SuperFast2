@@ -20,7 +20,7 @@ export class GuardianService implements CanActivate{
         //expiro el token
       this.refresLogin();
       while(true){
-        await this.delay(300);
+        await this.delay(1500);
         respuesta = this.loginService.estaLogeado();
         if(respuesta==1){
           break;
@@ -29,8 +29,8 @@ export class GuardianService implements CanActivate{
         if(intentos == 3){
           //se intenta 3 veces sin resultados
           //borramos datos guardadados
-          sessionStorage.removeItem(environment.TOKEN);
-          this.router.navigateByUrl('/login');
+          
+          this.loginService.cerrarSesion;
           return false;
         }
       }
@@ -79,6 +79,11 @@ export class GuardianService implements CanActivate{
   }
   
   private refresLogin(){
+    let token = sessionStorage.getItem(environment.TOKEN);
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+    //let auxcorre = CryptoJS.AES.decrypt(environment.CORREO.trim(), decodedToken.nameid.trim()).toString();
+    let auxpassword
     this.loginService.login(environment.CORREO, environment.CONTRASENIA,  "1").subscribe(data =>{
       sessionStorage.setItem(environment.TOKEN, data);
     });

@@ -56,12 +56,13 @@ export class LoginService {
     login.correo = decodedToken.unique_name;
     login.Contrasenia = decodedToken.certpublickey;
     login.AplicacionID = "1";
-    this.http.post<any>(`${this.urlCerrarSession+nameid}`,login);
-    //this.http.post(this.urlCerrarSession, Login).subscribe();
+    this.http.post<any>(environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='+nameid,login);
+    
     //puede ser put
-    //return this.http.post(this.urlCerrarSession , login).subscribe();
+  
     //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
+    sessionStorage.removeItem(environment.TOKEN);
     this.router.navigateByUrl('/login');
     
   }

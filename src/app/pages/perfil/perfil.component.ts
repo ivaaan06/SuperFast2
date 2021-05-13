@@ -1,3 +1,6 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+import { environment } from './../../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PerfilusuarioService } from './../../_service/perfilusuario.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,11 +15,13 @@ export class PerfilComponent implements OnInit {
     usuario = new Usuario() ;
     usuario2 = new Usuario() ;
     confirmar : string;
-    
-
+   
   constructor(private perfilusuarioService: PerfilusuarioService, private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
+
+
+ 
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
       console.log(data);
