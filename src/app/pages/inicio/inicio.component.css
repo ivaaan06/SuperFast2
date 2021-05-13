@@ -1,3 +1,8 @@
+.loader-container{
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
 .example-container {
   display: flex;
   flex-direction: column;
@@ -15,4 +20,4 @@
   .example-spacer {
     flex: 1 1 auto;
   }
-  
+ 

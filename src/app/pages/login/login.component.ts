@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
   navegarHaciaIniciousuario(){
     this.loginservice.login(this.correo, this.contrasenia,  "1").subscribe(data =>{
       //console.log(data);
+      //cifrar variables
+      environment.CORREO = this.correo;
+      environment.CONTRASENIA = this.contrasenia;
       sessionStorage.setItem(environment.TOKEN, data);
       const helper = new JwtHelperService();
  

@@ -20,6 +20,7 @@ import { IniciodomiciliarioComponent } from './pages/_domiciliario/iniciodomicil
 import { InicioaliadoComponent } from './pages/_aliado/inicioaliado/inicioaliado.component';
 import { InicioadminComponent } from './pages/_admin/inicioadmin/inicioadmin.component';
 import { Invalid401Component } from './pages/invalid401/invalid401.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { Invalid401Component } from './pages/invalid401/invalid401.component';
     IniciodomiciliarioComponent,
     InicioaliadoComponent,
     InicioadminComponent,
-    Invalid401Component
+    Invalid401Component,
+    PerfilComponent
     
   
   ],
