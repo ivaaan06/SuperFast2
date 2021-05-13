@@ -14,6 +14,9 @@ export class ProductosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto','estado_producto','id_aliado','nombre_aliado','cantidad','imagen_producto1'];
   dataSource = new MatTableDataSource<Producto>();
   datos: Producto[];
+ 
+  
+
   
 
   constructor(private consultaservice: ConsultaService, private loginService:LoginService) { }
@@ -23,6 +26,9 @@ export class ProductosComponent implements OnInit {
     this.consultaservice.retornar().subscribe(data => {
      this.dataSource = new MatTableDataSource(data);
      this.datos=data;
+     
+     
+     
      
 
 
