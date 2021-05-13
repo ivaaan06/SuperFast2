@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
   private url : string = `${environment.HOST}/api/admin`;
   private url2: string = environment.HOST+'/api/admin';
-  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1={usuario1}';
+  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1=';
 
   constructor(private http: HttpClient, private router :Router) { }
 
@@ -29,7 +29,7 @@ export class LoginService {
   
   estaLogeado(): number{
     let token = sessionStorage.getItem(environment.TOKEN);
-    if(token != null){
+    if(token !== null){
       //decodificamos el token
       const helper = new JwtHelperService();
       const isExpired = helper.isTokenExpired(token); 
@@ -56,12 +56,13 @@ export class LoginService {
     login.correo = decodedToken.unique_name;
     login.Contrasenia = decodedToken.certpublickey;
     login.AplicacionID = "1";
-    this.http.post<any>(`${this.urlCerrarSession}`,nameid);
-    //this.http.post(this.urlCerrarSession, Login).subscribe();
+    this.http.post<any>(environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='+nameid,login);
+    
     //puede ser put
-    //return this.http.post(this.urlCerrarSession , login).subscribe();
+  
     //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
+    sessionStorage.removeItem(environment.TOKEN);
     this.router.navigateByUrl('/login');
     
   }

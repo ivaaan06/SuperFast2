@@ -11,10 +11,31 @@ export class GuardianService implements CanActivate{
 
   constructor(private loginService:LoginService, private router: Router) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     //verificamos si esta logeado
     let respuesta = this.loginService.estaLogeado();
-    if(respuesta== 1){
+    let intentos =0;
+    if(respuesta== 1 || respuesta==2){
+      if(respuesta==2){
+        //expiro el token
+      this.refresLogin();
+      while(true){
+        await this.delay(1500);
+        respuesta = this.loginService.estaLogeado();
+        if(respuesta==1){
+          break;
+        }
+        intentos++;
+        if(intentos == 3){
+          //se intenta 3 veces sin resultados
+          //borramos datos guardadados
+          
+          this.loginService.cerrarSesion;
+          return false;
+        }
+      }
+
+    }
       //esta logeado
       //extraemos el rol
       let token = sessionStorage.getItem(environment.TOKEN);
@@ -28,6 +49,8 @@ export class GuardianService implements CanActivate{
       else if(url.includes('/inicio') && rol == 1)
         return true;
       else if(url.includes('/carrito') && rol == 1)
+        return true;
+        else if(url.includes('/perfil') && rol == 1)
         return true;
       
       //admin
@@ -48,13 +71,26 @@ export class GuardianService implements CanActivate{
         this.router.navigate(['/401Invalid']);
       }
       ////////
-    }else if(respuesta == 2){
-      //expiro el token
-
     }else{
       //no esta logeada
       this.router.navigateByUrl('/login');
     }
     return false;
+  }
+  
+  private refresLogin(){
+    let token = sessionStorage.getItem(environment.TOKEN);
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+    //let auxcorre = CryptoJS.AES.decrypt(environment.CORREO.trim(), decodedToken.nameid.trim()).toString();
+    let auxpassword
+    this.loginService.login(environment.CORREO, environment.CONTRASENIA,  "1").subscribe(data =>{
+      sessionStorage.setItem(environment.TOKEN, data);
+    });
+  }
+
+  private delay(ms : number){
+    //dormir
+    return new Promise(resolve => setTimeout(resolve,ms));
   }
 }

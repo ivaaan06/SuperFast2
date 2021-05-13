@@ -12,6 +12,7 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'productos', component: ProductosComponent, canActivate:[ GuardianService]},
   {path: 'inicio', component: InicioComponent , canActivate:[ GuardianService]},
   {path: 'carrito', component: CarritoComponent ,canActivate:[ GuardianService]},
+  {path: 'perfil', component: PerfilComponent ,canActivate:[ GuardianService]},
   //sin guardian
   
   {path: 'registrar', component: RegistrarComponent},
