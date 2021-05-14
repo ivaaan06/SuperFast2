@@ -24,6 +24,63 @@
     text-align: center;
     color: rgb(12, 9, 9);
     }
+    .progress {
+      background: rgba(255,255,255,0.1);
+      justify-content: flex-start;
+      border-radius: 100px;
+      align-items: center;
+      position: relative;
+      padding: 0 2px;
+      display: flex;
+      height: 10px;
+      width: 1310px;
+      
+      
+      }
+      
+      .progress-value {
+      
+      animation: slide 1s 1 linear forwards;
+      border-radius: 100px;
+      background: rgba(8, 49, 235, 0.932);
+      height: 30px;
+      width: 100%;
+      
+      
+      
+      }
+      
+      @keyframes slide {
+      0% {
+       left: 0%;
+      opacity: 1;
+      }
+      99% {
+        left: 99%;
+        opacity: 1;
+      }
+      100% {
+        left: 100%;
+        opacity: 0;
+        display: none;
+      }
+      }
+      
+      @-webkit-keyframes slide {
+      0% {
+        left: 0%;
+      opacity: 1;
+      }
+      99% {
+        left: 99%;
+        opacity: 1;
+      }
+      100% {
+        left: 100%;
+        opacity: 0;
+        display: none;
+      }
+      }
     
     .login-form {
     text-align: center;

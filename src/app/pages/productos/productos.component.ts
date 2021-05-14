@@ -38,7 +38,8 @@ export class ProductosComponent implements OnInit {
     this.dataSource.filter = filtro.trim();
   }
   
- 
+  
+
 
   
 }
