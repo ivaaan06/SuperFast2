@@ -1,10 +1,11 @@
-import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './../../_service/login.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   correo: string;
   contrasenia: string;
+  
+  
   constructor(private loginservice : LoginService,  
               private router :Router ,
               private snackBar : MatSnackBar) { }
@@ -30,14 +33,19 @@ export class LoginComponent implements OnInit {
       //console.log(data);
      
       
-    
+      
       sessionStorage.setItem(environment.TOKEN, data);
       const helper = new JwtHelperService();
  
       const decodedToken = helper.decodeToken(data);
+     
       console.log(decodedToken);
        //cifrar variables
-      //environment.CORREO = CryptoJS.AES.encrypt(this.correo,decodedToken.nameid).toString();
+
+       
+       localStorage.setItem("email", btoa(""+this.correo));
+       localStorage.setItem("password", btoa(""+this.contrasenia));
+      
       //environment.CONTRASENIA = CryptoJS.AES.encrypt(this.contrasenia,decodedToken.nameid).toString();
       
       let rol = decodedToken.role;
@@ -63,4 +71,5 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
 }

@@ -30,7 +30,7 @@ export class GuardianService implements CanActivate{
           //se intenta 3 veces sin resultados
           //borramos datos guardadados
           
-          this.loginService.cerrarSesion;
+          this.loginService.cerrarSesion();
           return false;
         }
       }
@@ -84,7 +84,7 @@ export class GuardianService implements CanActivate{
       const decodedToken = helper.decodeToken(token);
     //let auxcorre = CryptoJS.AES.decrypt(environment.CORREO.trim(), decodedToken.nameid.trim()).toString();
     let auxpassword
-    this.loginService.login(environment.CORREO, environment.CONTRASENIA,  "1").subscribe(data =>{
+    this.loginService.login(atob( localStorage.getItem("email")), atob(localStorage.getItem("password")),  "1").subscribe(data =>{
       sessionStorage.setItem(environment.TOKEN, data);
     });
   }
