@@ -63,6 +63,8 @@ export class LoginService {
     //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
     sessionStorage.removeItem(environment.TOKEN);
+    localStorage.setItem("email",null);
+    localStorage.setItem("password",null);
     this.router.navigateByUrl('/login');
     
   }
