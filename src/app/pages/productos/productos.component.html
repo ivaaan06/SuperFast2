@@ -1,11 +1,21 @@
+<!-- Compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<!-- Minified JS library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Compiled and minified Bootstrap JavaScript -->
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
 
 
-<div>
 
-    <app-inicio></app-inicio>
-    </div>
-    
 <body>
+  <div  class="progress" >
+    <div class="progress-value" ></div>
+    
+  </div>
+  <div>
+  
+      <app-inicio></app-inicio>
+      </div>
   
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -46,7 +56,8 @@
        
 
       <div class="card border-primary mb-3" style="width:220px">
-        <img class="brochure-poster" src="{{card.imagen_producto1}}"/>
+      <!-- <img class="brochure-poster" src="{{card.imagen_producto1}}"/>--> 
+        <img class="brochure-poster" src="https://i0.wp.com/cdn-images-1.medium.com/max/1600/0*cypJWjaXsq36Ai6H.jpg"/>
         <div class="card-body">
           <h2 class="card-title">{{card.nombre_producto}}</h2>
           <p class="card-text">{{card.descripcion_producto}}</p>
