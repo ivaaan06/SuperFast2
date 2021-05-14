@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class LoginService {
   private url : string = `${environment.HOST}/api/admin`;
   private url2: string = environment.HOST+'/api/admin';
-  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1=';
+  private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1';
 
   constructor(private http: HttpClient, private router :Router) { }
 
@@ -56,7 +56,7 @@ export class LoginService {
     login.correo = decodedToken.unique_name;
     login.Contrasenia = decodedToken.certpublickey;
     login.AplicacionID = "1";
-    this.http.post<any>(environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='+nameid,login);
+    this.http.post(`${this.urlCerrarSession}=${nameid}`,login);
     
     //puede ser put
   

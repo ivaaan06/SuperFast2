@@ -31,12 +31,12 @@ export class PerfilComponent implements OnInit {
   }
 
   guardarCambios(){
-    let nombre= ((document.getElementById("confirmar") as HTMLInputElement).value);
-    let apellido= ((document.getElementById("confirmar") as HTMLInputElement).value);
-    let correo= ((document.getElementById("confirmar") as HTMLInputElement).value);
-    let documneto= ((document.getElementById("confirmar") as HTMLInputElement).value);
-    let telefono= ((document.getElementById("confirmar") as HTMLInputElement).value);
-    let password= ((document.getElementById("confirmar") as HTMLInputElement).value);
+    let nombre= ((document.getElementById("nombre") as HTMLInputElement).value);
+    let apellido= ((document.getElementById("apellido") as HTMLInputElement).value);
+    let correo= ((document.getElementById("email") as HTMLInputElement).value);
+    let documneto= ((document.getElementById("documento") as HTMLInputElement).value);
+    let telefono= ((document.getElementById("telefono") as HTMLInputElement).value);
+    let password= ((document.getElementById("password") as HTMLInputElement).value);
       
     if(nombre == "" || apellido == "" || correo == "" || documneto == "" || telefono == "" || password==""){
       this.snackBar.open('No se permiten campos vacios', 'Advertrencia', {

@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 })
 export class PerfilusuarioService {
   private url : string = `${environment.HOST}/api/Perfil`;
-  private url2: string = environment.HOST+'/api/Perfil';
+  private url2: string = environment.HOST+'/api/Perfil/PostBTN_guardar';
   
   constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class PerfilusuarioService {
   guardarUsuario(usuario :Usuario){
     console.log(usuario);
     
-    return this.http.put(environment.HOST+'/api/Perfil/PostBTN_guardar',usuario );
+    return this.http.post(`${this.url2}`,usuario );
     
   }
   
