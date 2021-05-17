@@ -25,7 +25,7 @@ export class PerfilusuarioService {
   guardarUsuario(usuario :Usuario){
     console.log(usuario);
     
-    return this.http.post(`${this.url2}`,usuario );
+    return this.http.post<any>(`${this.url2}`,usuario );
     
   }
   

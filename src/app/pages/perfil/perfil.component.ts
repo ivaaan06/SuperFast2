@@ -50,10 +50,12 @@ export class PerfilComponent implements OnInit {
     this.usuario.telefono = telefono;
     this.usuario.contrasenia = password;
       //ejecutar servicio
-      this.perfilusuarioService.guardarUsuario(this.usuario);
+      this.perfilusuarioService.guardarUsuario(this.usuario).subscribe(data =>{
         this.snackBar.open('Datos actualizados correctamente', 'Succesfull', {
           duration: 2000,
         });
+      });
+        
       }
       
     
