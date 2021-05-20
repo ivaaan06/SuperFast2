@@ -1,53 +1,73 @@
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-primary">
+  
+<!-- Compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<!-- Minified JS library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Compiled and minified Bootstrap JavaScript -->
+
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
+  
 
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-primary">
   <p><img src="favicon.ico"width="45" height="45"></p>
   <a class="navbar-brand" href="#"><b>
     SuperFast
   </b>
     </a>
-
-  
+  <form class="example" action="action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
      
       <li class="nav-item">
-      <a class="nav-link" routerLink="/productos">Productos</a>
+      <a class="nav-link" routerLink="/productos"><span class="glyphicon glyphicon-tags"></span>  Productos</a>
+      
       </li>
+      
       <li class="nav-item">
-       <a class="nav-link" routerLink="/carrito">Carrito</a>
+       <a class="nav-link" routerLink="/carrito"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a>
       </li>
 
       
     
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/perfil">Perfil</a>
+        <a class="nav-link" routerLink="/perfil"><span class="glyphicon glyphicon-user"></span> Perfil</a>
       </li>
-
+      
     </ul>
     
   </div>
+  
+  
   <div class="collapse navbar-collapse" id="account">
     <ul class="navbar-nav ml-auto">
-    <li class="nav-item"><a class="nav-link" (click)="cerrarSesion()" >Cerrar Sesion</a></li>
+    <li class="nav-item"><a class="nav-link" (click)="cerrarSesion()" ><span class="glyphicon glyphicon-saved"></span>Cerrar Sesión</a></li>
     </ul>
     
 </div>
 
+   
 </nav>
 
 <!--Main layout-->
-<main>
+<main>  
   
   <div class="container-fluid">
-
+  
    <router-outlet></router-outlet>
   </div>
+  
 
 </main>
