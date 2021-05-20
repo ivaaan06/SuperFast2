@@ -5,18 +5,20 @@
 <!-- Compiled and minified Bootstrap JavaScript -->
 <script type="text/javascript" src="jquery-3.3.1.js"></script>
 
-
-
 <body>
+  
   <div  class="progress" >
     <div class="progress-value" ></div>
     
   </div>
   <div>
-  
-      <app-inicio></app-inicio>
-      </div>
-  
+      <app-inicio>
+      </app-inicio>
+      
+   </div>
+     
+   <div class="panel panel-default">
+    <div class="panel-body">
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -47,30 +49,39 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  
+</div>
+</div>
   <div class="container">
   <div class="row">
     
     <div class="col-md-3 mx-auto my-5" *ngFor="let card of datos">
+      <div class="panel panel-default">
+        <div class="panel-body">
+      
 
-       
-
-      <div class="card border-primary mb-3" style="width:220px">
-      <!-- <img class="brochure-poster" src="{{card.imagen_producto1}}"/>--> 
-        <img class="brochure-poster" src="https://i0.wp.com/cdn-images-1.medium.com/max/1600/0*cypJWjaXsq36Ai6H.jpg"/>
+      <div class="card " style="max-width: 560px;">
+     <!--<img class="brochure-poster" src="{{card.imagen_producto1}}"/>
+           --><img class="card-img-top" src="https://i0.wp.com/cdn-images-1.medium.com/max/1600/0*cypJWjaXsq36Ai6H.jpg"/>
         <div class="card-body">
+          
           <h2 class="card-title">{{card.nombre_producto}}</h2>
-          <p class="card-text">{{card.descripcion_producto}}</p>
-          <p class="card-text"><small class="text-muted">{{card.estado_producto}}</small></p>
-          <p class="card-text"><small class="text-muted">{{card.cantidad  }}</small></p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> *{{card.descripcion_producto}}</li>
+            <li class="list-group-item">*{{card.estado_producto}}</li>
+            <li class="list-group-item">*{{card.cantidad  }}</li>
+          </ul>
+          <p class="card-text"></p>
+          <p class="card-text"><small class="text-muted"></small></p>
+          <p class="card-text"><small class="text-muted"></small></p>
           <br>
-          <button class="btn btn-primary">Comprar</button>
+          <button class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>  Comprar</button>
        
           
         </div>
       </div>
       
-        
+     </div>
+     </div>   
     
     </div>
   </div>
