@@ -7,28 +7,58 @@
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1><b>Registro</b></h1>
-				<p><img src="favicon.ico"width="70" height="70"></p>
+				<h1 class="app-title2"><b>Registro</b></h1>
+				<p><img src="favicon.ico"width="60" height="60"></p>
 			</div>
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="Correo" id="login-name">
-				<label class="login-field-icon fui-user" for="login-name"></label>
+					<input type="text" class="login-field" value="" placeholder="Nombres" id="signin-name">
+					<label class="login-field-icon fui-user" for="signin-name"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="Contraseña" id="login-pass">
+					<input type="text" class="login-field" value="" placeholder="Apellidos" id="signin-lastname">
+					<label class="login-field-icon fui-user" for="signin-lastname"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="Correo" id="signin-email">
+				<label class="login-field-icon fui-user" for="signin-email"></label>
+				</div>
+
+				<div class="control-group">
+					<input type="number" class="login-field" value="" placeholder="Telefono" id="signin-number">
+					<label class="login-field-icon fui-user" for="signin-number"></label>
+				</div>
+
+				<div class="control-group">
+					<input type="text" class="login-field" value="" placeholder="Dirección" id="signin-adress">
+					<label class="login-field-icon fui-user" for="signin-adress"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="Contraseña" id="signin-pass">
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 
         
 				<div class="control-group">
-          <input type="password" class="login-field" value="" placeholder="Repetir Contraseña" id="login-pass">
-          <label class="login-field-icon fui-lock" for="login-pass"></label>
-          </div>
+          		<input type="password" class="login-field" value="" placeholder="Repetir Contraseña" id="login-pass">
+          		<label class="login-field-icon fui-lock" for="login-pass"></label>
+          		</div>
+				
+				
+				<p>
+					<label class="container" >
+					<input type="checkbox" checked="checked">
+					<span class="checkmark "></span><a href="https://drive.google.com/file/d/1KG5suhVC_CqjwT75JYpM4BlMEq3ulbee/view?usp=sharing" target="_blank">Acepto términos y condiciones</a>
+				  </label>
+				</p>
+			
 				<a class="btn btn-primary btn-large btn-block" href="#">Registrase</a>
-				<a class="login-link" routerLink="/login">¿Ya tienes cuenta?</a>
+				<a class="login-link" routerLink="/login">¿Ya tienes una cuenta? Ingresa aquí</a>
+				
             
 			</div>
 		</div>
