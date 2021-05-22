@@ -3,7 +3,6 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Registro } from 'src/app/_model/Registro';
 import { Usuario } from 'src/app/_model/Usuario';
 import {RegistroService} from 'src/app/_service/registro.service';
 
