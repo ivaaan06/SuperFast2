@@ -6,7 +6,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -20,7 +19,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSidenavModule,
     MatDividerModule,
     MatTableModule,
-    MatFormFieldModule,
     MatSnackBarModule,
     MatProgressBarModule,
     MatProgressSpinnerModule
@@ -31,7 +29,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSidenavModule,
     MatDividerModule,
     MatTableModule,
-    MatFormFieldModule,
     MatSnackBarModule,
     MatProgressBarModule,
     MatProgressSpinnerModule

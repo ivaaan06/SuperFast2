@@ -10,7 +10,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CarritoComponent } from './pages/carrito/carrito.component';
@@ -23,6 +23,7 @@ import { InicioadminComponent } from './pages/_admin/inicioadmin/inicioadmin.com
 import { Invalid401Component } from './pages/invalid401/invalid401.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 export function tokenGetter(){
   let tk = sessionStorage.getItem('access_token');
@@ -43,9 +44,7 @@ export function tokenGetter(){
     InicioaliadoComponent,
     InicioadminComponent,
     Invalid401Component,
-    PerfilComponent
-    
-  
+    PerfilComponent  
   ],
   imports: [
     BrowserModule,
@@ -54,6 +53,7 @@ export function tokenGetter(){
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     JwtModule.forRoot({
       config:{

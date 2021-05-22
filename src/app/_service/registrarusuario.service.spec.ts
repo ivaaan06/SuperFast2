@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RegistrarusuarioService } from './registrarusuario.service';
+/*import { RegistrarusuarioService } from './registrarusuario.service';
 
 describe('RegistrarusuarioService', () => {
   let service: RegistrarusuarioService;
@@ -13,4 +13,4 @@ describe('RegistrarusuarioService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-});
+});*/
