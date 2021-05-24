@@ -4,6 +4,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Compiled and minified Bootstrap JavaScript -->
 <script type="text/javascript" src="jquery-3.3.1.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 <div  class="progress" >
@@ -22,23 +23,32 @@
       <ul class="navbar-nav mr-auto">
         
         <li class="nav-item">
-          <a class="nav-link" ><span class="glyphicon glyphicon-list-alt"></span>  Inventario</a>
+          <a class="btn btn-primary" ><span class="glyphicon glyphicon-list-alt"></span>  Inventario</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Solicitudes
+        <li class="btn-group dropright">
+          <a class="btn btn-primary dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><span class="glyphicon glyphicon-book"></span> Solicitudes
           </a>
           <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink="/aliados">Aliados</a>
-            <a class="dropdown-item" routerLink="/domiciliarios">Domiciliarios</a>
-            <a class="dropdown-item" routerLink="/aliadosaceptados">Aliados Aceptados</a>
-            <a class="dropdown-item" routerLink="/aliadosrechazados">Aliados Rechazados</a>
-            <a class="dropdown-item" routerLink="/domiciliariosaceptados">Domiciliarios Aceptados</a>
-            <a class="dropdown-item" routerLink="/domiciliariosrechazados">Domiciliarios Rechazados</a>
+            <p>
+              <a class="dropdown-item" routerLink="/aliados"class="icono-placeholder">  Aliados</a>
+            </p><p>
+              <a class="dropdown-item" routerLink="/domiciliarios"class="icono-placeholder">  Domiciliarios</a>
+            </p><p>
+              <a class="dropdown-item" routerLink="/aliadosaceptados"class="icono-placeholder">  Aliados Aceptados</a>
+            </p><p>
+              <a class="dropdown-item" routerLink="/aliadosrechazados"class="icono-placeholder">  Aliados Rechazados</a>
+            </p><p>
+              <a class="dropdown-item" routerLink="/domiciliariosaceptados"class="icono-placeholder">Domiciliarios Aceptados</a>
+            </p><p>
+               <a class="dropdown-item" routerLink="/domiciliariosrechazados"class="icono-placeholder">Domiciliarios Rechazados</a>
+            </p>
+            
+           
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ><span class="glyphicon glyphicon-list"></span> Reporte de ventas</a>
+          <a class="btn btn-primary" ><span class="glyphicon glyphicon-list"></span> Reporte de ventas</a>
         </li>
         
       </ul>
@@ -48,7 +58,7 @@
     <div class="collapse navbar-collapse" id="account">
       <ul class="navbar-nav ml-auto">
       
-          <li class="nav-item"><a class="nav-link" (click)="cerrarSesion()" ><span class="glyphicon glyphicon-saved"></span>Cerrar Sesion</a></li>
+          <li class="btn btn-primary btn-xs"><a class="nav-link" (click)="cerrarSesion()" ><span class="glyphicon glyphicon-remove-sign"></span> Cerrar Sesion</a></li>
       </ul>
   </div>
    
