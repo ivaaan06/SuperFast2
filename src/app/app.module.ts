@@ -24,6 +24,12 @@ import { Invalid401Component } from './pages/invalid401/invalid401.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { AliadosComponent } from './pages/_admin/aliados/aliados.component';
+import { DomiciliariosComponent } from './pages/_admin/domiciliarios/domiciliarios.component';
+import { AliadosrechazadosComponent } from './pages/_admin/aliadosrechazados/aliadosrechazados.component';
+import { DomiciliariosrechazadosComponent } from './pages/_admin/domiciliariosrechazados/domiciliariosrechazados.component';
+import { AliadosaceptadosComponent } from './pages/_admin/aliadosaceptados/aliadosaceptados.component';
+import { DomiciliariosaceptadosComponent } from './pages/_admin/domiciliariosaceptados/domiciliariosaceptados.component';
 
 export function tokenGetter(){
   let tk = sessionStorage.getItem('access_token');
@@ -44,7 +50,13 @@ export function tokenGetter(){
     InicioaliadoComponent,
     InicioadminComponent,
     Invalid401Component,
-    PerfilComponent  
+    PerfilComponent,
+    AliadosComponent,
+    DomiciliariosComponent,
+    AliadosrechazadosComponent,
+    DomiciliariosrechazadosComponent,
+    AliadosaceptadosComponent,
+    DomiciliariosaceptadosComponent  
   ],
   imports: [
     BrowserModule,
