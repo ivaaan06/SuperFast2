@@ -19,13 +19,13 @@ export class ConsultaService {
   }
 
   searchCharacters(query = ''):Observable<Producto[] | TrackHttpError> {
-    const filter = `${environment.HOST}/api/comunicacion/GetMostrarProductoInicioBusqueda?busqueda=${query}`;
+    const filter = `${environment.HOST}/api/comunicacion/GetMostrarProductoInicioBusqueda?busqueda=${query.toLowerCase()}`;
     return this.http.get<Producto[]>(filter)
     .pipe(catchError((err) => this.handleHttpError(err)));
   }
 
   mostrarFiltro(query=''):Observable<Producto[]>{
-    const filter = `${environment.HOST}/api/comunicacion/GetMostrarProductoInicioBusqueda?busqueda=${query}`;
+    const filter = `${environment.HOST}/api/comunicacion/GetMostrarProductoInicioBusqueda?busqueda=${query.toLowerCase()}`;
     return this.http.get<Producto[]>(filter);
   }
 

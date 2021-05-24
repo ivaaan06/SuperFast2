@@ -6,6 +6,7 @@ import { ConsultaService } from './../../_service/consulta.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { TrackHttpError } from 'src/app/_model/TrackHttpError';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-productos',
@@ -18,11 +19,13 @@ export class ProductosComponent implements OnInit {
   datos: Producto[] = [];
   
   private pageNum = 1;
-  private query: string;  
+  private query: string; 
+   
 
   constructor(private consultaservice: ConsultaService, 
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private _snackBar: MatSnackBar) {
               this.onUrlChanged();
               }
 
@@ -36,11 +39,6 @@ export class ProductosComponent implements OnInit {
 
     this.getCharactersByQuery();
   }
-
-  applyFilter(filtro: string){
-    this.dataSource.filter = filtro.trim();
-  }
-
    
   private onUrlChanged(): void {
     this.router.events
@@ -69,12 +67,22 @@ export class ProductosComponent implements OnInit {
         this.consultaservice.retornar().subscribe(data => {
           this.dataSource = new MatTableDataSource(data);
           this.datos=data;
-         });
+         });         
       }else{
         this.dataSource = new MatTableDataSource(res);
         this.datos=res;
       }
       
+      if(res.length < 1 && this.query != undefined){
+        this.openSnackBar("No se encontro '"+this.query+"' en los productos",'');
+      }
+
       }, (error:TrackHttpError) => console.log((error.friendlyMessage)));
   } 
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+        duration: 3000
+    });
+  }
 }
