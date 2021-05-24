@@ -75,7 +75,12 @@ export class GuardianService implements CanActivate{
       //domiciliario
       else if(url.includes('/iniciodomiciliario') && rol == 3)
         return true;
-      
+        else if(url.includes('/mihistorial') && rol == 3)
+        return true;
+        else if(url.includes('/mispedidos') && rol == 3)
+        return true;
+        else if(url.includes('/pedidosdisponibles') && rol == 3)
+        return true;
       
       else {
         //this.router.navigateByUrl('/401Invalid');

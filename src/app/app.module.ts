@@ -30,6 +30,11 @@ import { AliadosrechazadosComponent } from './pages/_admin/aliadosrechazados/ali
 import { DomiciliariosrechazadosComponent } from './pages/_admin/domiciliariosrechazados/domiciliariosrechazados.component';
 import { AliadosaceptadosComponent } from './pages/_admin/aliadosaceptados/aliadosaceptados.component';
 import { DomiciliariosaceptadosComponent } from './pages/_admin/domiciliariosaceptados/domiciliariosaceptados.component';
+import { PedidosdisponiblesComponent } from './pages/_domiciliario/pedidosdisponibles/pedidosdisponibles.component';
+import { MispedidosComponent } from './pages/_domiciliario/mispedidos/mispedidos.component';
+import { MihistorialComponent } from './pages/_domiciliario/mihistorial/mihistorial.component';
+import { RespuestaSolicitudesComponent } from './pages/_admin/domiciliarios/respuesta-solicitudes/respuesta-solicitudes.component';
+import { RevisionComponent } from './pages/_admin/aliadosrechazados/revision/revision.component';
 
 export function tokenGetter(){
   let tk = sessionStorage.getItem('access_token');
@@ -56,7 +61,12 @@ export function tokenGetter(){
     AliadosrechazadosComponent,
     DomiciliariosrechazadosComponent,
     AliadosaceptadosComponent,
-    DomiciliariosaceptadosComponent  
+    DomiciliariosaceptadosComponent,
+    PedidosdisponiblesComponent,
+    MispedidosComponent,
+    MihistorialComponent,
+    RespuestaSolicitudesComponent,
+    RevisionComponent
   ],
   imports: [
     BrowserModule,

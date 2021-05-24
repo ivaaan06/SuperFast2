@@ -52,17 +52,17 @@
                 <ng-container matColumnDef="acciones">
                     <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <button type="button" class="btn btn-success">Aceptar</button>
-                        <button type="button" class="btn btn-danger" >Rechazar</button>
+                        <button type="button" class="btn btn-success" (click)="Aceptar(element.id, element.hojavida)">Aceptar</button>
+                        <button type="button" class="btn btn-danger" (click)="abrirDialogo(element.id, element.hojavida)">Rechazar</button>
                       
                     </mat-cell>
                 </ng-container>
                
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            
               
             </mat-table>
-            
             <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons length="2"></mat-paginator> 
               
         </div>

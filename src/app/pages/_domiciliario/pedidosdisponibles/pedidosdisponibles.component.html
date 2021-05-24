@@ -1,4 +1,4 @@
-<app-inicioadmin></app-inicioadmin>
+<app-iniciodomiciliario></app-iniciodomiciliario>
 
 <div [hidden]="route.children.length !== 0">
 
@@ -52,7 +52,7 @@
                 <ng-container matColumnDef="acciones">
                     <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <button type="button" class="btn btn-danger" (click)="abrirDialogo(element.id, element.hojavida)" >Rechazar</button>
+                        <button type="button" class="btn btn-danger" >Rechazar</button>
                       
                     </mat-cell>
                 </ng-container>
