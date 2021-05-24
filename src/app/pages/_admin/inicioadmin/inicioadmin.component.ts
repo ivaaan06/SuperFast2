@@ -1,3 +1,5 @@
+import { GuardianService } from './../../../_service/guardian.service';
+
 import { Router } from '@angular/router';
 import { LoginService } from './../../../_service/login.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioadminComponent implements OnInit {
 
-  constructor(private loginService: LoginService,private  router : Router) { }
+  constructor(private loginService: LoginService,private  router : Router
+    ) { }
 
   ngOnInit(): void {
+  
   }
 
   cerrarSesion(){

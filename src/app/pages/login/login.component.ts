@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
   
   constructor(private loginservice : LoginService,  
               private router :Router ,
-              private snackBar : MatSnackBar) { }
+              private snackBar : MatSnackBar,
+              ) { }
   test : Date = new Date();
     focus;
     focus1;
@@ -43,8 +44,8 @@ export class LoginComponent implements OnInit {
        //cifrar variables
 
        
-       localStorage.setItem("email", btoa(""+this.correo));
-       localStorage.setItem("password", btoa(""+this.contrasenia));
+       sessionStorage.setItem("email", btoa(""+this.correo));
+       sessionStorage.setItem("password", btoa(""+this.contrasenia));
       
       //environment.CONTRASENIA = CryptoJS.AES.encrypt(this.contrasenia,decodedToken.nameid).toString();
       

@@ -58,8 +58,8 @@ export class LoginService {
     login.AplicacionID = "1";
     sessionStorage.setItem(environment.TOKEN, null);
     sessionStorage.removeItem(environment.TOKEN);
-    localStorage.setItem("email",null);
-    localStorage.setItem("password",null);
+    sessionStorage.setItem("email",null);
+    sessionStorage.setItem("password",null);
    
     
     //puede ser put
