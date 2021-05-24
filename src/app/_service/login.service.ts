@@ -15,7 +15,7 @@ export class LoginService {
   private url2: string = environment.HOST+'/api/admin';
   private urlCerrarSession:string =environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1';
 
-  constructor(private http: HttpClient, private router :Router) { }
+  constructor(private http: HttpClient) { }
 
   login(usuario: string, contrasena: string , rolid : string){
     let login : Login;
@@ -46,7 +46,7 @@ export class LoginService {
       return 0;
     }
   }
-  cerrarSesion(): void{
+  cerrarSesion(){
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
@@ -56,16 +56,16 @@ export class LoginService {
     login.correo = decodedToken.unique_name;
     login.Contrasenia = decodedToken.certpublickey;
     login.AplicacionID = "1";
-    this.http.post(`${this.urlCerrarSession}=${nameid}`,login);
-    
-    //puede ser put
-  
-    //parte grafica 
     sessionStorage.setItem(environment.TOKEN, null);
     sessionStorage.removeItem(environment.TOKEN);
     localStorage.setItem("email",null);
     localStorage.setItem("password",null);
-    this.router.navigateByUrl('/login');
+   
+    
+    //puede ser put
+    return this.http.post<any>(`${this.urlCerrarSession}=${nameid}`,login);
+    //parte grafica 
+   
     
   }
 

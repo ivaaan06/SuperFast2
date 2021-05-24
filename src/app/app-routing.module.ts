@@ -1,3 +1,9 @@
+import { DomiciliariosaceptadosComponent } from './pages/_admin/domiciliariosaceptados/domiciliariosaceptados.component';
+import { AliadosaceptadosComponent } from './pages/_admin/aliadosaceptados/aliadosaceptados.component';
+import { DomiciliariosrechazadosComponent } from './pages/_admin/domiciliariosrechazados/domiciliariosrechazados.component';
+import { AliadosrechazadosComponent } from './pages/_admin/aliadosrechazados/aliadosrechazados.component';
+import { DomiciliariosComponent } from './pages/_admin/domiciliarios/domiciliarios.component';
+import { AliadosComponent } from './pages/_admin/aliados/aliados.component';
 import { Invalid401Component } from './pages/invalid401/invalid401.component';
 import { InicioaliadoComponent } from './pages/_aliado/inicioaliado/inicioaliado.component';
 import { IniciodomiciliarioComponent } from './pages/_domiciliario/iniciodomiciliario/iniciodomiciliario.component';
@@ -18,6 +24,12 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 const routes: Routes = [
   //Admin
   {path: 'inicioadmin', component: InicioadminComponent , canActivate:[ GuardianService]},
+  {path: 'aliados', component: AliadosComponent , canActivate:[ GuardianService]},
+  {path: 'domiciliarios', component: DomiciliariosComponent , canActivate:[ GuardianService]},
+  {path: 'aliadosrechazados', component: AliadosrechazadosComponent , canActivate:[ GuardianService]},
+  {path: 'domiciliariosrechazados', component: DomiciliariosrechazadosComponent , canActivate:[ GuardianService]},
+  {path: 'aliadosaceptados', component: AliadosaceptadosComponent, canActivate:[ GuardianService]},
+  {path: 'domiciliariosaceptados', component: DomiciliariosaceptadosComponent , canActivate:[ GuardianService]},
   //Domiciliario
   {path: 'iniciodomiciliario', component: IniciodomiciliarioComponent , canActivate:[ GuardianService]},
   //Aliado

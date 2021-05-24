@@ -20,18 +20,31 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" ><span class="glyphicon glyphicon-home"></span> Home  </a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" ><span class="glyphicon glyphicon-list-alt"></span>  Inventario</a>
         </li>
-        
-      
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">Solicitudes
+          </a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/aliados">Aliados</a>
+            <a class="dropdown-item" routerLink="/domiciliarios">Domiciliarios</a>
+            <a class="dropdown-item" routerLink="/aliadosaceptados">Aliados Aceptados</a>
+            <a class="dropdown-item" routerLink="/aliadosrechazados">Aliados Rechazados</a>
+            <a class="dropdown-item" routerLink="/domiciliariosaceptados">Domiciliarios Aceptados</a>
+            <a class="dropdown-item" routerLink="/domiciliariosrechazados">Domiciliarios Rechazados</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" ><span class="glyphicon glyphicon-list"></span> Reporte de ventas</a>
+        </li>
         
       </ul>
       
     </div>
+    
     <div class="collapse navbar-collapse" id="account">
       <ul class="navbar-nav ml-auto">
       

@@ -56,7 +56,18 @@ export class GuardianService implements CanActivate{
       //admin
       else if(url.includes('/inicioadmin') && rol == 4)
         return true;
-      
+      else if(url.includes('/aliados') && rol == 4)
+        return true;
+      else if(url.includes('/domiciliarios') && rol == 4)
+        return true;
+        else if(url.includes('/aliadosrechazados') && rol == 4)
+        return true;
+      else if(url.includes('/domiciliariosrechazados') && rol == 4)
+        return true;
+        else if(url.includes('/aliadosaceptados') && rol == 4)
+        return true;
+      else if(url.includes('/domiciliariosaceptados') && rol == 4)
+        return true;
       //aliado
       else if(url.includes('/inicioaliado') && rol == 2)
         return true;
