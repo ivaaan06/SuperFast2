@@ -19,8 +19,8 @@
   </b>
     </a>
   <form class="example" action="action_page.php">
-    <input type="text" placeholder="Search.." name="search">
-    <button type="submit"><i class="fa fa-search"></i></button>
+    <input #inputSearch autofocus type="text" placeholder="Busqueda" name="search" (keyup)="onSearch(inputSearch.value)">
+    <button #inputSearch autofocus (click)="onSearch(inputSearch.value)" type="submit"><i class="fa fa-search"></i></button>
   </form>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
