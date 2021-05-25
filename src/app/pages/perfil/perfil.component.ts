@@ -26,12 +26,8 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
         
+    this.refrescar();
     
-    this.des = localStorage.getItem("email");
-    this.perfilusuarioService.getUser().subscribe(data => {
-      this.usuario= data;
-      console.log(data);
-    });
   }
 
   guardarCambios(){
@@ -48,6 +44,7 @@ export class PerfilComponent implements OnInit {
       this.snackBar.open('No se permiten campos vacios', 'Advertrencia', {
         duration: 2000,
       });
+      this.refrescar();
     }else { 
     this.usuario.nombre = nombre;
     this.usuario.apellido = apellido;
@@ -70,7 +67,13 @@ export class PerfilComponent implements OnInit {
       
     
    }   
-
+   refrescar(){
+    this.des = localStorage.getItem("email");
+    this.perfilusuarioService.getUser().subscribe(data => {
+      this.usuario= data;
+      console.log(data);
+    });
+   }
    /*cancelarCambios(){
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
