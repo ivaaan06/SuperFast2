@@ -1,3 +1,5 @@
+import { PedidosComponent } from './pages/_aliado/pedidos/pedidos.component';
+
 import { LoginService } from './_service/login.service';
 import { environment } from './../environments/environment';
 
@@ -39,6 +41,11 @@ import { RespuestaSolicitudesComponent } from './pages/_admin/domiciliarios/resp
 import { RevisionComponent } from './pages/_admin/aliadosrechazados/revision/revision.component';
 import { delay } from 'rxjs/operators';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PedidosterminadosComponent } from './pages/_aliado/pedidosterminados/pedidosterminados.component';
+import { ProductosactivosComponent } from './pages/_aliado/productosactivos/productosactivos.component';
+import { AgregarProductoComponent } from './pages/_aliado/agregar-producto/agregar-producto.component';
+import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
+
 
 export  function jwtOptionsFactory(loginService) {
   return {
@@ -105,7 +112,13 @@ export  function jwtOptionsFactory(loginService) {
     MispedidosComponent,
     MihistorialComponent,
     RespuestaSolicitudesComponent,
-    RevisionComponent
+    RevisionComponent,
+    PedidosComponent,
+    PedidosterminadosComponent,
+    ProductosactivosComponent,
+    AgregarProductoComponent,
+    EditaractivosComponent
+ 
   ],
   imports: [
     BrowserModule,
