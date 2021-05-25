@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <div  class="progress" >
 	<div class="progress-value" ></div>
@@ -19,16 +19,17 @@
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="Correo" [(ngModel)]="correo" >
+					
+				<input id="emailAddress" type="email" multiple class="icono-placeholder" value="" placeholder="                   Correo" [(ngModel)]="correo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Por favor, solo proporciona una dirección de correo Valida" >
 				<label class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="Contraseña" [(ngModel)]="contrasenia">
+				<input type="password" class="icono-placeholder" value="" placeholder="               Contraseña" [(ngModel)]="contrasenia"pattern=".{6,}"title="La contraseña no es la ingresada al registrarse">
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 
-				<a class="btn btn-primary btn-large" (click)="navegarHaciaIniciousuario()">Iniciar Sesión</a>
+				<a class="btn btn-primary btn-large" class="icono-placeholder" style="cursor: pointer" (click)="navegarHaciaIniciousuario()">       Iniciar Sesión</a>
 				<a class="login-link" href="#">Olvido su contraseña?</a>
                 <a class="login-link" routerLink="/registrar">Registrarse</a>
 			</div>

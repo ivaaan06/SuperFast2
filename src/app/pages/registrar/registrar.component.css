@@ -12,13 +12,14 @@
     padding: 0px;
     }
     .login {
-    margin: 20px auto;
-    width: 300px;
+    margin: 9px auto;
+    width: 290px;
+    
     }
     .login-screen {
     background-color: rgba(195, 220, 230, 0.856);
-    padding: 20px;
-    border-radius: 8px
+    padding: 12px;
+    border-radius: 2px
     }
     
     .app-title {
@@ -31,63 +32,64 @@
       font-size: 22px;
       padding: 0 px;
       }
-    .progress {
-      background: rgba(255,255,255,0.1);
-      justify-content: flex-start;
-      border-radius: 100px;
-      align-items: center;
-      position: relative;
-      padding: 2px;
-      display: flex;
-      height: 5px;
-      width: 1310px;
-      
-      
-      }
-      
-      .progress-value {
-      
-      animation: slide 1s 1 linear forwards;
-      border-radius: 100px;
-      background: rgba(8, 49, 235, 0.932);
-      height: 30px;
-      width: 100%;
-      
-      
-      
-      }
-      
-      @keyframes slide {
-      0% {
-       left: 0%;
-      opacity: 1;
-      }
-      99% {
-        left: 99%;
+      .progress {
+        background: rgba(255,255,255,0.1);
+        justify-content: flex-start;
+        border-radius: 100px;
+        align-items: center;
+        position: relative;
+        padding: 0 2px;
+        display: flex;
+        height: 10px;
+        width: 1310px;
+        
+        
+        }
+        
+        .progress-value {
+        
+        animation: slide 1s 1 linear forwards;
+        border-radius: 100px;
+        background: rgba(8, 49, 235, 0.932);
+        height: 30px;
+        width: 100%;
+        
+        
+        
+        }
+        
+        @keyframes slide {
+        0% {
+         left: 0%;
         opacity: 1;
-      }
-      100% {
-        left: 100%;
-        opacity: 0;
-        display: none;
-      }
-      }
-      
-      @-webkit-keyframes slide {
-      0% {
-        left: 0%;
-      opacity: 1;
-      }
-      99% {
-        left: 99%;
+        }
+        99% {
+          left: 99%;
+          opacity: 1;
+        }
+        100% {
+          left: 100%;
+          opacity: 0;
+          display: none;
+        }
+        }
+        
+        @-webkit-keyframes slide {
+        0% {
+          left: 0%;
         opacity: 1;
-      }
-      100% {
-        left: 100%;
-        opacity: 0;
-        display: none;
-      }
-      }
+        }
+        99% {
+          left: 99%;
+          opacity: 1;
+        }
+        100% {
+          left: 100%;
+          opacity: 0;
+          display: none;
+        }
+        }
+        
     
     .login-form {
     text-align: center;
@@ -149,7 +151,7 @@
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 12px;
   font-family: Arial;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -171,8 +173,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 20px;
-  width: 20px;
+  height: 18px;
+  width: 18px;
   background-color: #eee;
 }
 
@@ -211,4 +213,12 @@
   transform: rotate(45deg);
 }
 
-  
+.icono-placeholder {
+  padding: 0.2em 0.3em;
+  border-radius: 0.6em;
+  border: 1px   solid #0b259b;
+  text-align: left;
+  box-shadow: 0 2px 3px rgba(0 0 0 / 0.15);
+  width: 120;
+  font-family: "Font Awesome 5 Free"; font-weight: 900;
+}

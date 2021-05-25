@@ -1,5 +1,6 @@
 
   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- Compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <!-- Minified JS library -->
@@ -19,8 +20,8 @@
   </b>
     </a>
   <form class="example" action="action_page.php">
-    <input #inputSearch autofocus type="text" placeholder="Busqueda" name="search" (keyup)="onSearch(inputSearch.value)">
-    <button #inputSearch autofocus (click)="onSearch(inputSearch.value)" type="submit"><i class="fa fa-search"></i></button>
+    <input #inputSearch autofocus type="text" placeholder="         Busqueda   " class="icono-placeholder" name="search" (keyup)="onSearch(inputSearch.value)">
+    
   </form>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,19 +32,19 @@
     <ul class="navbar-nav mr-auto">
      
       <li class="nav-item">
-      <a class="nav-link" routerLink="/productos"><span class="glyphicon glyphicon-tags"></span>  Productos</a>
+      <a class="btn btn-primary btn-sm" routerLink="/productos"><span class="glyphicon glyphicon-tags"></span>  Productos</a>
       
       </li>
       
       <li class="nav-item">
-       <a class="nav-link" routerLink="/carrito"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a>
+       <a class="btn btn-primary btn-sm" routerLink="/carrito"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a>
       </li>
 
       
     
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/perfil"><span class="glyphicon glyphicon-user"></span> Perfil</a>
+        <a class="btn btn-primary btn-sm" routerLink="/perfil"><span class="glyphicon glyphicon-user"></span> Perfil</a>
       </li>
       
     </ul>
@@ -53,7 +54,7 @@
   
   <div class="collapse navbar-collapse" id="account">
     <ul class="navbar-nav ml-auto">
-    <li class="nav-item"><a class="nav-link" (click)="cerrarSesion()" ><span class="glyphicon glyphicon-saved"></span>Cerrar Sesión</a></li>
+    <li class="btn btn-primary btn-xs"><a class="nav-link" (click)="cerrarSesion()" ><span class="glyphicon glyphicon-saved"></span>Cerrar Sesión</a></li>
     </ul>
     
 </div>

@@ -16,9 +16,11 @@ export class InicioComponent implements OnInit {
   }
 
   cerrarSesion(){ 
+
     this.loginservice.cerrarSesion().subscribe(data =>{
       this.router.navigateByUrl('/login');
     });
+
   }
 
   onSearch(value : string){

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <app-inicioadmin></app-inicioadmin>
  
 <div [hidden]="route.children.length !== 0">
@@ -10,50 +11,50 @@
             <mat-table [dataSource]="dataSource" matSort>
 
                 <ng-container matColumnDef="nombre">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p><span class="glyphicon glyphicon-user"></span>  Nombre</p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="apellido">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p><span class="glyphicon glyphicon-user"></span>  Apellido</p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="correo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-envelope"></span> Correo </p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.correo}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="telefono">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-earphone"></span> Telefono </p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.telefono}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="documento">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Documento </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-credit-card"></span>  Documento</p>  </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.documento}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="imagenperfil">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Imagen Perfil </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-picture"></span> Imagen Perfil</p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.imagenperfil}} </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="hojavida">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Hoja de vida </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-file"></span> Hoja de vida </p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> 
                         <a href={{element.hojavida}}>Hoja de Vida</a>
                     </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="tipovehiculo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo Vehiculo </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-barcode"></span> Tipo Vehiculo </p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.tipovehiculo}} </mat-cell>
                 </ng-container>
 
 
                 <ng-container matColumnDef="acciones">
-                    <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef><p><span class="glyphicon glyphicon-cog"></span> Acciones </p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <button type="button" class="btn btn-success">Aceptar</button>
-                        <button type="button" class="btn btn-danger" >Rechazar</button>
+                        <button type="button"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span>Aceptar</button>
+                        <button type="button"  class="btn btn-danger btn-sm" > <span class="glyphicon glyphicon-remove"></span><b> Rechazar</b></button>
                       
                     </mat-cell>
                 </ng-container>
