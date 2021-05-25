@@ -8,7 +8,9 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from 
   providedIn: 'root'
 })
 export class GuardianService implements CanActivate{
-
+  
+  email : string;
+  password : string;
   constructor(private loginService:LoginService, private router: Router) { }
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
@@ -75,7 +77,12 @@ export class GuardianService implements CanActivate{
       //domiciliario
       else if(url.includes('/iniciodomiciliario') && rol == 3)
         return true;
-      
+        else if(url.includes('/mihistorial') && rol == 3)
+        return true;
+        else if(url.includes('/mispedidos') && rol == 3)
+        return true;
+        else if(url.includes('/pedidosdisponibles') && rol == 3)
+        return true;
       
       else {
         //this.router.navigateByUrl('/401Invalid');
@@ -95,7 +102,7 @@ export class GuardianService implements CanActivate{
       const decodedToken = helper.decodeToken(token);
     //let auxcorre = CryptoJS.AES.decrypt(environment.CORREO.trim(), decodedToken.nameid.trim()).toString();
     let auxpassword
-    this.loginService.login(atob( localStorage.getItem("email")), atob(localStorage.getItem("password")),  "1").subscribe(data =>{
+    this.loginService.login(atob( sessionStorage.getItem("email")), atob(sessionStorage.getItem("password")),  "1").subscribe(data =>{
       sessionStorage.setItem(environment.TOKEN, data);
     });
   }
@@ -104,4 +111,19 @@ export class GuardianService implements CanActivate{
     //dormir
     return new Promise(resolve => setTimeout(resolve,ms));
   }
+
+
+  getEmail(email : string){
+    this.email=email;
+  }
+  getPassword(password : string){
+    this.password=password;
+  }
+  setEmail(){
+    return this.email;
+  }
+  setPassword(){
+    return this.password;
+  }
+
 }

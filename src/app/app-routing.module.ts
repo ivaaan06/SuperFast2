@@ -1,3 +1,5 @@
+import { MispedidosComponent } from './pages/_domiciliario/mispedidos/mispedidos.component';
+import { MihistorialComponent } from './pages/_domiciliario/mihistorial/mihistorial.component';
 import { DomiciliariosaceptadosComponent } from './pages/_admin/domiciliariosaceptados/domiciliariosaceptados.component';
 import { AliadosaceptadosComponent } from './pages/_admin/aliadosaceptados/aliadosaceptados.component';
 import { DomiciliariosrechazadosComponent } from './pages/_admin/domiciliariosrechazados/domiciliariosrechazados.component';
@@ -19,6 +21,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { PedidosdisponiblesComponent } from './pages/_domiciliario/pedidosdisponibles/pedidosdisponibles.component';
 
 
 const routes: Routes = [
@@ -32,6 +35,9 @@ const routes: Routes = [
   {path: 'domiciliariosaceptados', component: DomiciliariosaceptadosComponent , canActivate:[ GuardianService]},
   //Domiciliario
   {path: 'iniciodomiciliario', component: IniciodomiciliarioComponent , canActivate:[ GuardianService]},
+  {path: 'mihistorial', component: MihistorialComponent , canActivate:[ GuardianService]},
+  {path: 'mispedidos', component: MispedidosComponent , canActivate:[ GuardianService]},
+  {path: 'pedidosdisponibles', component: PedidosdisponiblesComponent , canActivate:[ GuardianService]},
   //Aliado
   {path: 'inicioaliado', component: InicioaliadoComponent , canActivate:[ GuardianService]},
   //Usuario normal

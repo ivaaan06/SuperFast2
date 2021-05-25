@@ -1,3 +1,5 @@
+import { MatDialog } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { SolicitudesService } from './../../../_service/solicitudes.service';
@@ -17,15 +19,18 @@ export class AliadosComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'documento', 'imagenperfil', 'hojavida', 'tipovehiculo', 'acciones'];
   dataSource = new MatTableDataSource<Solicitud>();
 
-  constructor(public route: ActivatedRoute, private solicitudesService: SolicitudesService) { }
+  constructor(public route: ActivatedRoute, private solicitudesService: SolicitudesService,
+              public dialog: MatDialog, ) { }
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   ngOnInit(): void {
     
     this.solicitudesService.solicitudesAliados().subscribe(data =>{
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;
       
     });
   }
-
+  
 }
