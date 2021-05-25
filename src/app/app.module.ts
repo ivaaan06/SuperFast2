@@ -82,7 +82,9 @@ export  function jwtOptionsFactory(loginService) {
       }
     },
     allowedDomains : ["52.67.179.68:8081/api"],
-    disallowedRoutes: ["http://52.67.179.68:8081/api/admin/login"]
+    disallowedRoutes: ["http://52.67.179.68:8081/api/admin/login",
+    "http://52.67.179.68:8081/api/Registrar/PostInsertar_Usuario"
+    ]
   }
 }
 
