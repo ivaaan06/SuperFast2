@@ -1,3 +1,7 @@
+import { AgregarProductoComponent } from './pages/_aliado/agregar-producto/agregar-producto.component';
+
+import { PedidosterminadosComponent } from './pages/_aliado/pedidosterminados/pedidosterminados.component';
+import { PedidosComponent } from './pages/_aliado/pedidos/pedidos.component';
 import { MispedidosComponent } from './pages/_domiciliario/mispedidos/mispedidos.component';
 import { MihistorialComponent } from './pages/_domiciliario/mihistorial/mihistorial.component';
 import { DomiciliariosaceptadosComponent } from './pages/_admin/domiciliariosaceptados/domiciliariosaceptados.component';
@@ -17,11 +21,13 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
-import { ProductosComponent } from './pages/productos/productos.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PedidosdisponiblesComponent } from './pages/_domiciliario/pedidosdisponibles/pedidosdisponibles.component';
+import { ProductosactivosComponent } from './pages/_aliado/productosactivos/productosactivos.component';
+import { ProductosComponent } from './pages/productos/productos.component';
+import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
 
 
 const routes: Routes = [
@@ -40,6 +46,12 @@ const routes: Routes = [
   {path: 'pedidosdisponibles', component: PedidosdisponiblesComponent , canActivate:[ GuardianService]},
   //Aliado
   {path: 'inicioaliado', component: InicioaliadoComponent , canActivate:[ GuardianService]},
+  {path: 'pedido_s', component: PedidosComponent , canActivate:[ GuardianService]},
+  {path: 'pedido_s_terminados', component: PedidosterminadosComponent , canActivate:[ GuardianService]},
+  {path: 'agregar_productos', component: AgregarProductoComponent,canActivate:[ GuardianService]},
+  {path: 'productos_activos', component: ProductosactivosComponent, canActivate:[ GuardianService]},
+  {path: 'editar_activos/:id', component: EditaractivosComponent, canActivate:[ GuardianService]},
+  
   //Usuario normal
   {path: 'productos', component: ProductosComponent, canActivate:[ GuardianService]},
   {path: 'inicio', component: InicioComponent , canActivate:[ GuardianService]},

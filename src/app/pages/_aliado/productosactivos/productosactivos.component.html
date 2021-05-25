@@ -1,0 +1,57 @@
+<app-inicioaliado></app-inicioaliado>
+
+
+<div [hidden]="route.children.length !== 0">
+
+    <div fxLayout="column" class="p-2">
+        <div class="p-2"> 
+            
+           
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="nombre_producto">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre  </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre_producto}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="descripcion_producto">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.descripcion_producto}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="precio_producto">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.precio_producto}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="imagen_producto1">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Imagen </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.imagen_producto1}} </mat-cell>
+                </ng-container>
+
+
+                <ng-container matColumnDef="acciones">
+                    <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <button type="button" class="btn btn-info" [routerLink]="['/editar_activos',element.id]">Editar</button>
+                        <button type="button" class="btn btn-secondary">Desactivar</button>
+                      
+                    </mat-cell>
+                </ng-container>
+               
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              
+            </mat-table>
+            
+            <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons length="3"></mat-paginator> 
+              
+        </div>
+    </div>
+
+
+
+
+
+</div>
+

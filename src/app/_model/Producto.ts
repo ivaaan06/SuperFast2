@@ -9,5 +9,4 @@ export class Producto{
     nombre_aliado: string;
     actividad_comercial : any;
     cantidad : number;
-    decision : boolean;
 }

@@ -35,6 +35,7 @@ export class ProductosComponent implements OnInit {
     this.consultaservice.retornar().subscribe(data => {
      this.dataSource = new MatTableDataSource(data);
      this.datos=data;
+     console.log(data);
     });
 
     this.getCharactersByQuery();
