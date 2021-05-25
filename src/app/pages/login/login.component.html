@@ -19,12 +19,13 @@
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="icono-placeholder" value="" placeholder="                   Correo" [(ngModel)]="correo" >
+					
+				<input id="emailAddress" type="email" multiple class="icono-placeholder" value="" placeholder="                   Correo" [(ngModel)]="correo" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" title="Por favor, solo proporciona una dirección de correo Valida" >
 				<label class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="password" class="icono-placeholder" value="" placeholder="               Contraseña" [(ngModel)]="contrasenia">
+				<input type="password" class="icono-placeholder" value="" placeholder="               Contraseña" [(ngModel)]="contrasenia"pattern=".{6,}"title="La contraseña no es la ingresada al registrarse">
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 

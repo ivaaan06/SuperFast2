@@ -1,0 +1,16 @@
+.icono-placeholder {
+    padding: 0.2em 0.3em;
+    border-radius: 0.6em;
+    border: 1px   solid #0b259b;
+    text-align: left;
+    box-shadow: 0 2px 3px rgba(0 0 0 / 0.15);
+    width: 120;
+    font-family: "Font Awesome 5 Free"; font-weight: 900;
+  }
+  table {  
+    width: 100%;  
+  }  
+    
+  th.mat-sort-header-sorted {  
+    color: black;  
+  }  

@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { PerfilusuarioService } from './../../_service/perfilusuario.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/_model/Usuario';
+import { Validators } from '@angular/forms';
 
 
 @Component({
@@ -18,7 +19,10 @@ export class PerfilComponent implements OnInit {
     usuario2 = new Usuario() ;
     confirmar : string;
     des:string;
-  constructor(private perfilusuarioService: PerfilusuarioService, private snackBar : MatSnackBar) { }
+  constructor(private perfilusuarioService: PerfilusuarioService, private snackBar : MatSnackBar) { 
+    
+
+  }
 
   ngOnInit(): void {
         
@@ -37,6 +41,8 @@ export class PerfilComponent implements OnInit {
     let documneto= ((document.getElementById("documento") as HTMLInputElement).value);
     let telefono= ((document.getElementById("telefono") as HTMLInputElement).value);
     let password= ((document.getElementById("password") as HTMLInputElement).value);
+
+    
       
     if(nombre == "" || apellido == "" || correo == "" || documneto == "" || telefono == "" || password==""){
       this.snackBar.open('No se permiten campos vacios', 'Advertrencia', {
@@ -49,6 +55,10 @@ export class PerfilComponent implements OnInit {
     this.usuario.documento = documneto;
     this.usuario.telefono = telefono;
     this.usuario.contrasenia = password;
+    
+     
+
+
       //ejecutar servicio
       this.perfilusuarioService.guardarUsuario(this.usuario).subscribe(data =>{
         this.snackBar.open('Datos actualizados correctamente', 'Succesfull', {
@@ -66,6 +76,7 @@ export class PerfilComponent implements OnInit {
       this.usuario= data;
     });
   }*/
+ 
 
 }
 

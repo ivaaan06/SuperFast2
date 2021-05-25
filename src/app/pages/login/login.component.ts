@@ -61,6 +61,8 @@ export class LoginComponent implements OnInit {
       //capturar errorq
     },err =>{
       //Si hay error
+
+      
       if(err.status == 401){
         this.snackBar.open('Usuario y/o cotrasena inconrrecta', 'Advertrencia', {
           duration: 2000,
