@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
        //cifrar variables
 
        
-       sessionStorage.setItem("email", btoa(""+this.correo));
-       sessionStorage.setItem("password", btoa(""+this.contrasenia));
+       sessionStorage.setItem("email", btoa(this.correo));
+       sessionStorage.setItem("password", btoa(this.contrasenia));
       
       //environment.CONTRASENIA = CryptoJS.AES.encrypt(this.contrasenia,decodedToken.nameid).toString();
       

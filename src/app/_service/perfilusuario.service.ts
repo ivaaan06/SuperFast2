@@ -22,6 +22,9 @@ export class PerfilusuarioService {
     let id=decodedToken.nameid;
     return this.http.get<Usuario>(environment.HOST+'/api/Perfil/Getmostrarperfil?id='+id);
   }
+  recuperarPassword(correo : String){
+    return this.http.get(environment.HOST+'/api/GenerarToken/PostLB_Recuperar?TB_Correo='+correo);
+  }
   guardarUsuario(usuario :Usuario){
     console.log(usuario);
     

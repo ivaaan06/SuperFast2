@@ -26,7 +26,7 @@ import { InicioaliadoComponent } from './pages/_aliado/inicioaliado/inicioaliado
 import { InicioadminComponent } from './pages/_admin/inicioadmin/inicioadmin.component';
 import { Invalid401Component } from './pages/invalid401/invalid401.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
-import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { JwtModule, JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { AliadosComponent } from './pages/_admin/aliados/aliados.component';
 import { DomiciliariosComponent } from './pages/_admin/domiciliarios/domiciliarios.component';
@@ -39,26 +39,27 @@ import { MispedidosComponent } from './pages/_domiciliario/mispedidos/mispedidos
 import { MihistorialComponent } from './pages/_domiciliario/mihistorial/mihistorial.component';
 import { RespuestaSolicitudesComponent } from './pages/_admin/domiciliarios/respuesta-solicitudes/respuesta-solicitudes.component';
 import { RevisionComponent } from './pages/_admin/aliadosrechazados/revision/revision.component';
-import { delay } from 'rxjs/operators';
+
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { PedidosterminadosComponent } from './pages/_aliado/pedidosterminados/pedidosterminados.component';
 import { ProductosactivosComponent } from './pages/_aliado/productosactivos/productosactivos.component';
 import { AgregarProductoComponent } from './pages/_aliado/agregar-producto/agregar-producto.component';
 import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
+import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 
 
 export  function jwtOptionsFactory(loginService) {
   return {
     tokenGetter: async () => {
-      let respuesta = this.loginService.estaLogeado();
-      let intentos =0;
-      if(respuesta== 1 || respuesta==2){
-        if(respuesta==2){
+      let respuesta = loginService.estaLogeado();
+      let intentos = 0;
+      if(respuesta == 1 || respuesta == 2){
+        if(respuesta == 2){
           //expiro el token
-        this.refresLogin();
+          refresLogin();
         while(true){
-          await this.delay(1500);
-          respuesta = this.loginService.estaLogeado();
+          await delay(1500);
+          respuesta = loginService.estaLogeado();
           if(respuesta==1){
             break;
           }
@@ -67,7 +68,7 @@ export  function jwtOptionsFactory(loginService) {
             //se intenta 3 veces sin resultados
             //borramos datos guardadados
             
-            this.loginService.cerrarSesion();
+            loginService.cerrarSesion();
             return null;
           }
         }
@@ -81,14 +82,24 @@ export  function jwtOptionsFactory(loginService) {
         return null;
       }
     },
-    allowedDomains : ["52.67.179.68:8081/api"],
-    disallowedRoutes: ["http://52.67.179.68:8081/api/admin/login",
-    "http://52.67.179.68:8081/api/Registrar/PostInsertar_Usuario"
-    ]
+    allowedDomains : ["52.67.179.68:8081"],
+    disallowedRoutes: ["http://52.67.179.68:8081/api/admin/login"]
   }
 }
 
+export function delay(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+export function refresLogin(){
+  let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+  //let auxcorre = CryptoJS.AES.decrypt(environment.CORREO.trim(), decodedToken.nameid.trim()).toString();
 
+  this.loginService.login( sessionStorage.getItem("email"), sessionStorage.getItem("password"),  "1").subscribe(data =>{
+    sessionStorage.setItem(environment.TOKEN, data);
+  });
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,7 +130,8 @@ export  function jwtOptionsFactory(loginService) {
     PedidosterminadosComponent,
     ProductosactivosComponent,
     AgregarProductoComponent,
-    EditaractivosComponent
+    EditaractivosComponent,
+    RecuperarPasswordComponent
  
   ],
   imports: [
@@ -131,18 +143,18 @@ export  function jwtOptionsFactory(loginService) {
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    JwtModule.forRoot({
-      jwtOptionsProvider: {
-        provide: JWT_OPTIONS,
-        useFactory: jwtOptionsFactory,
-        deps: [LoginService]
-      }
-    })
-  ],
-  providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    LoginService
-  ],
+      JwtModule.forRoot({
+        jwtOptionsProvider: {
+          provide: JWT_OPTIONS,
+          useFactory: jwtOptionsFactory,
+          deps: [LoginService]
+        }
+      })
+    ],
+    providers: [
+      { provide: LocationStrategy, useClass: HashLocationStrategy },
+      LoginService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

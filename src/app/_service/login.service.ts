@@ -29,7 +29,7 @@ export class LoginService {
   
   estaLogeado(): number{
     let token = sessionStorage.getItem(environment.TOKEN);
-    if(token !== null){
+    if(token != null){
       //decodificamos el token
       const helper = new JwtHelperService();
       const isExpired = helper.isTokenExpired(token); 
@@ -59,7 +59,9 @@ export class LoginService {
     sessionStorage.setItem(environment.TOKEN, null);
     sessionStorage.removeItem(environment.TOKEN);
     sessionStorage.setItem("email",null);
+    sessionStorage.removeItem("email");
     sessionStorage.setItem("password",null);
+    sessionStorage.removeItem("password");
    
     
     //puede ser put

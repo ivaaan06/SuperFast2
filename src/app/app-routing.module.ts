@@ -1,3 +1,4 @@
+import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 import { AgregarProductoComponent } from './pages/_aliado/agregar-producto/agregar-producto.component';
 
 import { PedidosterminadosComponent } from './pages/_aliado/pedidosterminados/pedidosterminados.component';
@@ -50,7 +51,7 @@ const routes: Routes = [
   {path: 'pedido_s_terminados', component: PedidosterminadosComponent , canActivate:[ GuardianService]},
   {path: 'agregar_productos', component: AgregarProductoComponent,canActivate:[ GuardianService]},
   {path: 'productos_activos', component: ProductosactivosComponent, canActivate:[ GuardianService]},
-  {path: 'editar_activos/:id', component: EditaractivosComponent, canActivate:[ GuardianService]},
+  {path: 'editar_activos/:id', component: EditaractivosComponent },
   
   //Usuario normal
   {path: 'productos', component: ProductosComponent, canActivate:[ GuardianService]},
@@ -59,6 +60,7 @@ const routes: Routes = [
   {path: 'perfil', component: PerfilComponent ,canActivate:[ GuardianService]},
   //sin guardian
   
+  {path: 'recuperar', component: RecuperarPasswordComponent},
   {path: 'registrar', component: RegistrarComponent},
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent},
