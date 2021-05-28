@@ -16,7 +16,7 @@ export class GuardianService implements CanActivate{
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     //verificamos si esta logeado
     let respuesta = this.loginService.estaLogeado();
-    let intentos =0;
+    let intentos = 0;
     if(respuesta== 1 || respuesta==2){
       if(respuesta==2){
         //expiro el token
@@ -79,8 +79,7 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/pedido_s_terminados') && rol == 2)
         return true;
-        else if(url.includes('/productos_activos') && rol == 2)
-        return true;
+        
     
       
         
@@ -111,7 +110,7 @@ export class GuardianService implements CanActivate{
       const helper = new JwtHelperService();
       const decodedToken = helper.decodeToken(token);
     //let auxcorre = CryptoJS.AES.decrypt(environment.CORREO.trim(), decodedToken.nameid.trim()).toString();
-    let auxpassword
+    
     this.loginService.login(atob( sessionStorage.getItem("email")), atob(sessionStorage.getItem("password")),  "1").subscribe(data =>{
       sessionStorage.setItem(environment.TOKEN, data);
     });
