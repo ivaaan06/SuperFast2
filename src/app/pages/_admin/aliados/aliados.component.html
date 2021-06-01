@@ -53,8 +53,8 @@
                 <ng-container matColumnDef="acciones">
                     <mat-header-cell *matHeaderCellDef><p><span class="glyphicon glyphicon-cog"></span> Acciones </p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <button type="button"  class="btn btn-success btn-sm"><span class="glyphicon glyphicon-ok"></span>Aceptar</button>
-                        <button type="button"  class="btn btn-danger btn-sm" > <span class="glyphicon glyphicon-remove"></span><b> Rechazar</b></button>
+                        <button type="button" class="btn btn-success btn-sm" (click)="Aceptar(element.id, element.hojavida)"><span class="glyphicon glyphicon-ok"></span>Aceptar</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="abrirDialogo(element.id, element.hojavida)"><span class="glyphicon glyphicon-remove"></span>Rechazar</button>
                       
                     </mat-cell>
                 </ng-container>

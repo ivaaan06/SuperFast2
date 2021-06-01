@@ -54,6 +54,10 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/perfil') && rol == 1)
         return true;
+        else if(url.includes('/historial_pedidos') && rol == 1)
+        return true;
+        else if(url.includes('/historial_en_proceso') && rol == 1)
+        return true;
       
       //admin
       else if(url.includes('/inicioadmin') && rol == 4)
@@ -70,6 +74,8 @@ export class GuardianService implements CanActivate{
         return true;
       else if(url.includes('/domiciliariosaceptados') && rol == 4)
         return true;
+        else if(url.includes('/perfil_admin') && rol == 4)
+        return true;
       //aliado
       else if(url.includes('/inicioaliado') && rol == 2)
         return true;
@@ -79,7 +85,13 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/pedido_s_terminados') && rol == 2)
         return true;
-        
+        else if(url.includes('/productos_activos') && rol == 2)
+        return true;
+        else if(url.includes('/editar_activos') && rol == 2)
+        return true;
+        else if(url.includes('/productos_desactivados') && rol == 2)
+        return true;
+       
     
       
         

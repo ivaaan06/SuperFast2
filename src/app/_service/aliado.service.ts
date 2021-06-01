@@ -25,6 +25,9 @@ export class AliadoService {
   productosActivos(usuario : Usuario){
     return this.http.post<any[]>(environment.HOST+'/api/comunicacion/MostrarProducto', usuario);
   }
+  productosDesactivados(usuario : Usuario){
+    return this.http.post<any[]>(environment.HOST+'/api/comunicacion/PostMostrarProductoDesactivado', usuario);
+  }
   productoId(id : number){
     return this.http.get<Producto>(environment.HOST+'/api/Aliado/GetLmostrar?id3='+id);
   }

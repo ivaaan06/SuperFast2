@@ -58,6 +58,7 @@ export class DomiciliariosaceptadosComponent implements OnInit {
     }
     refrescar(){
       this.solicituService.DomiciliariosAceptados().subscribe(data =>{
+        console.log(data);
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort= this.sort;
         this.dataSource.paginator = this.paginator;

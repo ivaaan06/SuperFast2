@@ -65,7 +65,7 @@ export class LoginService {
    
     
     //puede ser put
-    return this.http.post<any>(`${this.urlCerrarSession}=${nameid}`,login);
+    return this.http.post<any>(`${this.urlCerrarSession}=${nameid}`,"");
     //parte grafica 
    
     

@@ -1,3 +1,4 @@
+
 import { Pedidos_s } from './../../_model/Pedido_s';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,6 +21,7 @@ export class HistorialpedidosComponent implements OnInit {
   displayedColumns: string[] = ['id_pedido', 'fecha', 'comentario_cliente', 'comentario_aliado', 'estado_pedido', 'estado_domiciliario_id', 'nombre_aliado','compras', 'valor_total'];
   dataSource = new MatTableDataSource<Pedidos_s>();
   usuario = new Usuario();
+ 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public route: ActivatedRoute, private consultaService : ConsultaService
@@ -27,14 +29,12 @@ export class HistorialpedidosComponent implements OnInit {
     private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
-    this.perfilusuarioService.getUser().subscribe(data => {
-      this.usuario= data;
-    });
+  
     this.refrescar();
   }
   refrescar(){
     
-    this.consultaService.historialPedidos(this.usuario).subscribe(data =>{
+    this.consultaService.historialPedidos().subscribe(data =>{
       console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
