@@ -58,6 +58,12 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/historial_en_proceso') && rol == 1)
         return true;
+        else if(url.includes('/dtl_pedidos') && rol == 1)
+        return true;
+        else if(url.includes('/dtl_proceso') && rol == 1)
+        return true;
+        
+        
       
       //admin
       else if(url.includes('/inicioadmin') && rol == 4)

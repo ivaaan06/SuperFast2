@@ -50,6 +50,9 @@ import { ProductodesactivoComponent } from './pages/_aliado/productodesactivo/pr
 import { PerfiladminComponent } from './pages/_admin/perfiladmin/perfiladmin.component';
 import { HistorialpedidosComponent } from './pages/historialpedidos/historialpedidos.component';
 import { HistorialenprocesoComponent } from './pages/historialenproceso/historialenproceso.component';
+import { DtlpedidosComponent } from './pages/historialpedidos/dtlpedidos/dtlpedidos.component';
+import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlproceso.component';
+import { RespuestaprocesoComponent } from './pages/historialenproceso/respuestaproceso/respuestaproceso.component';
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -139,7 +142,10 @@ export function refresLogin(){
     ProductodesactivoComponent,
     PerfiladminComponent,
     HistorialpedidosComponent,
-    HistorialenprocesoComponent
+    HistorialenprocesoComponent,
+    DtlpedidosComponent,
+    DtlprocesoComponent,
+    RespuestaprocesoComponent
  
   ],
   imports: [

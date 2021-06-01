@@ -1,3 +1,5 @@
+import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlproceso.component';
+import { DtlpedidosComponent } from './pages/historialpedidos/dtlpedidos/dtlpedidos.component';
 import { HistorialenprocesoComponent } from './pages/historialenproceso/historialenproceso.component';
 import { HistorialpedidosComponent } from './pages/historialpedidos/historialpedidos.component';
 import { ProductodesactivoComponent } from './pages/_aliado/productodesactivo/productodesactivo.component';
@@ -67,6 +69,8 @@ const routes: Routes = [
   {path: 'perfil', component: PerfilComponent ,canActivate:[ GuardianService]},
   {path: 'historial_pedidos', component: HistorialpedidosComponent ,canActivate:[ GuardianService]},
   {path: 'historial_en_proceso', component: HistorialenprocesoComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_pedidos', component: DtlpedidosComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_proceso', component: DtlprocesoComponent ,canActivate:[ GuardianService]},
   //sin guardian
   
   {path: 'recuperar', component: RecuperarPasswordComponent},

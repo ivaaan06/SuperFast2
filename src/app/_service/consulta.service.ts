@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Auxiliar } from './../_model/Auxiliar';
 import { PerfilusuarioService } from './perfilusuario.service';
 import { Pedidos_s } from './../_model/Pedido_s';
@@ -49,21 +50,27 @@ export class ConsultaService {
     return this.http.get<Producto>(`${environment.HOST}/${id}`)
     .pipe(catchError((err) => this.handleHttpError(err)));
   }
+
   historialPedidos(){
-    this.perfilusuarioService.getUser().subscribe(data => {
-      this.usuario= data;
-      console.log(data);
-    });
-    this.auxiliar.Id= this.usuario.id;
-    return this.http.post<any>(environment.HOST+'/api/comunicacion/PostObtenerComprasUsuario', this.auxiliar);  
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let nameid=decodedToken.nameid;
+    this.auxiliar.Id=nameid;
+    return this.http.post<any>(environment.HOST+'/api/comunicacion/PostObtenerComprasUsuarioEntregado', this.auxiliar);  
   }
 
   pedidosEnProceso(){
-    this.perfilusuarioService.getUser().subscribe(data => {
-      this.usuario= data;
-      console.log(data);
-    });
-    this.auxiliar.Id= this.usuario.id;
-    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerComprasUsuario', this.auxiliar.Id);
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let nameid=decodedToken.nameid;
+    this.auxiliar.Id=nameid;
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerComprasUsuario', this.auxiliar);
   }
+  cancelarPedido(comadname : string ,id :number){
+    console.log(comadname,id);
+      return this.http.get(environment.HOST+'/api/PedidosCliente/GetCancelarPedidoCliente?comandname='+comadname+'&Id_pedido='+id);
+  }
+
 }
