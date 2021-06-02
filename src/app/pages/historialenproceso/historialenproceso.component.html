@@ -1,3 +1,4 @@
+
 <!-- Compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <!-- Minified JS library -->
@@ -17,3 +18,85 @@
       
    </div>
    </body>
+
+<app-inicio></app-inicio>
+<div [hidden]="route.children.length !== 0">
+
+    <div fxLayout="column" class="p-2">
+        <div class="p-2"> 
+            
+           
+
+            <mat-table [dataSource]="dataSource" matSort>
+                
+                <ng-container matColumnDef="id_pedido">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p><span class="glyphicon glyphicon-user"></span> Pedido N°</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.id_pedido}} </mat-cell>
+                </ng-container>
+                
+                <ng-container matColumnDef="fecha">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p><span class="glyphicon glyphicon-user"></span> Fecha</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        <span>{{element.fecha | date:'yyyy-MM-dd '}}</span>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="comentario_cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-envelope"></span> Comentario Cliente </p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.comentario_cliente}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="comentario_aliado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-envelope"></span> Comentario Aliado </p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.comentario_aliado}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="estado_pedido">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-earphone"></span> Estado del Pedido</p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_ped}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="estado_domicilio_id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-credit-card"></span> Estado del domicilio</p> </mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_domicilio}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="nombre_aliado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-picture"></span> Aliado</p> </mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.nombre_aliado}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="compras">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-barcode"></span> Detalle del pedido</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        
+                        
+                        <a class="btn btn-primary btn-sm" (click)="verDetalle(element.compras)" routerLink="/dtl_proceso"><span class="glyphicon glyphicon-tags"></span> Ver detalle del pedido</a>
+
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="valor_total">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-barcode"></span> Valor Total </p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.valor_total}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="cancelar">
+                    <mat-header-cell *matHeaderCellDef> <p><span class="glyphicon glyphicon-cog"></span> Cancelar Pedido </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+
+                     
+                        <button type="button" class="btn btn-danger" (click)="abrirDialogo(element.id_pedido)" ><span class="glyphicon glyphicon-remove"></span><b>Cancelar</b></button>
+
+                      
+                    </mat-cell>
+                </ng-container>
+               
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              
+            </mat-table>
+            
+            <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons length="3"></mat-paginator> 
+              
+        </div>
+    </div>
+
+
+</div>
+

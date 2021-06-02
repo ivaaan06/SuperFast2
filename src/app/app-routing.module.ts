@@ -1,3 +1,7 @@
+import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
+import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dtlmihistorial.component';
+import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlproceso.component';
+import { DtlpedidosComponent } from './pages/historialpedidos/dtlpedidos/dtlpedidos.component';
 import { HistorialenprocesoComponent } from './pages/historialenproceso/historialenproceso.component';
 import { HistorialpedidosComponent } from './pages/historialpedidos/historialpedidos.component';
 import { ProductodesactivoComponent } from './pages/_aliado/productodesactivo/productodesactivo.component';
@@ -50,6 +54,7 @@ const routes: Routes = [
   {path: 'mihistorial', component: MihistorialComponent , canActivate:[ GuardianService]},
   {path: 'mispedidos', component: MispedidosComponent , canActivate:[ GuardianService]},
   {path: 'pedidosdisponibles', component: PedidosdisponiblesComponent , canActivate:[ GuardianService]},
+  {path: 'dtl_mihistorial', component: DtlmihistorialComponent , canActivate:[ GuardianService]},
   //Aliado
   {path: 'inicioaliado', component: InicioaliadoComponent , canActivate:[ GuardianService]},
   {path: 'pedido_s', component: PedidosComponent , canActivate:[ GuardianService]},
@@ -58,7 +63,7 @@ const routes: Routes = [
   {path: 'productos_activos', component: ProductosactivosComponent, canActivate:[ GuardianService]},
   {path: 'productos_desactivados', component: ProductodesactivoComponent, canActivate:[ GuardianService]},
   {path: 'editar_activos/:id', component: EditaractivosComponent, canActivate:[GuardianService] },
-  
+  {path: 'dtl_alipedidos', component: DtlAlipedidosComponent , canActivate:[ GuardianService]},
   
   //Usuario normal
   {path: 'productos', component: ProductosComponent, canActivate:[ GuardianService]},
@@ -67,6 +72,8 @@ const routes: Routes = [
   {path: 'perfil', component: PerfilComponent ,canActivate:[ GuardianService]},
   {path: 'historial_pedidos', component: HistorialpedidosComponent ,canActivate:[ GuardianService]},
   {path: 'historial_en_proceso', component: HistorialenprocesoComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_pedidos', component: DtlpedidosComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_proceso', component: DtlprocesoComponent ,canActivate:[ GuardianService]},
   //sin guardian
   
   {path: 'recuperar', component: RecuperarPasswordComponent},

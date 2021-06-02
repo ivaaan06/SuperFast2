@@ -7,20 +7,33 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { TrackHttpError } from 'src/app/_model/TrackHttpError';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { FormControl, Validators } from '@angular/forms';
+type RequesInfo={
+  next:string;  
+};
+var valores = document.getElementById("valMin");
+valores.addEventListener('keyup',(event) =>{
+  var inputText = event.composedPath[0].value;
+  document.querySelector('.valMax').innerHTML
+  =inputText;
+});
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
+
+
 export class ProductosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto','estado_producto','id_aliado','nombre_aliado','cantidad','imagen_producto1','precio_producto'];
   dataSource = new MatTableDataSource<Producto>();
   datos: Producto[] = [];
+  private ValorMinimo: number;
   
-  private pageNum = 1;
   private query: string; 
-   
+  info:RequesInfo = {
+    next: null,
+  };
 
   constructor(private consultaservice: ConsultaService, 
               private route: ActivatedRoute,
@@ -39,15 +52,28 @@ export class ProductosComponent implements OnInit {
     });
 
     this.getCharactersByQuery();
+    
   }
    
+  minimo = new FormControl('', [Validators.min(1), Validators.max(1000000)]);
+  getErrorMessage() {
+    if (this.minimo.hasError('min')) {
+      return 'Debes ingresar un valor mas grande';
+    }
+    if (this.minimo.hasError('max')) {
+      return 'Excede el rango de precios';
+    }
+    
+  }
+
   private onUrlChanged(): void {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => {
         this.datos = [];
-        this.pageNum = 1;
+        
         this.getCharactersByQuery();
+        
       });
   }
 
@@ -63,7 +89,6 @@ export class ProductosComponent implements OnInit {
     .searchCharacters(this.query)
     .pipe(take(1))
     .subscribe((res: any) => {
-      console.log('Response->',res);
       if(res == ""){
         this.consultaservice.retornar().subscribe(data => {
           this.dataSource = new MatTableDataSource(data);
@@ -85,9 +110,49 @@ export class ProductosComponent implements OnInit {
     //let imag =((document.getElementById("nombreimagen")as HTMLImageElement).src)
   //}
 
+  public getCharactersByMinMax(): void {
+    this.route.queryParams.pipe(take(1)).subscribe((params: ParamMap) => {
+      this.ValorMinimo= params['ValorMinimo'];
+      this.getDataFromService2();
+    });
+  }
+
+  private getDataFromService2(): void {
+    this.consultaservice
+    .filtroPrecio(this.ValorMinimo)
+    .pipe(take(1))
+    .subscribe((res: any) => {
+      if(res == ""){
+        this.consultaservice.retornar().subscribe(data => {
+          this.dataSource = new MatTableDataSource(data);
+          this.datos=data;
+         });         
+      }else{
+        this.dataSource = new MatTableDataSource(res);
+        this.datos=res;
+      }
+
+      }, (error:TrackHttpError) => console.log((error.friendlyMessage)));
+  } 
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
         duration: 3000
     });
   }
+
+  enBusqueda(values : number){
+    if(values){
+      
+      this.getCharactersByMinMax();
+      this.router.navigate(['/productos'],{
+        queryParams:{ValorMinimo:values,ValorMaximo:values*7}
+      })
+    }
+    if(values < 1){
+      this.router.navigate(['/productos']);
+    }
+  }
+  
+  
 }

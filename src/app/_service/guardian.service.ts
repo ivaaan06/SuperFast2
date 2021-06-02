@@ -58,6 +58,12 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/historial_en_proceso') && rol == 1)
         return true;
+        else if(url.includes('/dtl_pedidos') && rol == 1)
+        return true;
+        else if(url.includes('/dtl_proceso') && rol == 1)
+        return true;
+        
+        
       
       //admin
       else if(url.includes('/inicioadmin') && rol == 4)
@@ -91,7 +97,9 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/productos_desactivados') && rol == 2)
         return true;
-       
+        else if(url.includes('/dtl_alipedidos') && rol == 2)
+        return true;
+        
     
       
         
@@ -104,6 +112,9 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/pedidosdisponibles') && rol == 3)
         return true;
+        else if(url.includes('/dtl_mihistorial') && rol == 3)
+        return true;
+        
       
       else {
         //this.router.navigateByUrl('/401Invalid');

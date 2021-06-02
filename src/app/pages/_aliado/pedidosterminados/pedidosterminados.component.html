@@ -1,1 +1,75 @@
 <app-inicioaliado></app-inicioaliado>
+<div [hidden]="route.children.length !== 0">
+
+    <div fxLayout="column" class="p-2">
+        <div class="p-2"> 
+            
+           
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="id_pedido">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Pedido N </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.id_pedido}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="fecha">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p><span class="glyphicon glyphicon-calendar"></span> Fecha</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        <span>{{element.fecha | date:'yyyy-MM-dd '}}</span>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="comentario_cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-comment"></span> Comentario Cliente </p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.comentario_cliente}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="comentario_aliado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-comment"></span> Comentario Aliado </p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.comentario_aliado}} </mat-cell>
+                </ng-container>
+
+                
+            
+
+                <ng-container matColumnDef="compras">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-apple"></span> Pedido </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        
+                        <a class="btn btn-primary btn-sm" (click)="verDetalle(element.compras)" routerLink="/dtl_alipedidos"><span class="glyphicon glyphicon-tags"></span> Ver detalle del pedido</a>
+
+
+                    </mat-cell>
+                </ng-container>
+               
+  
+               
+                <ng-container matColumnDef="nombre_estado_ped">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-info-sign"></span> Estado del Pedido</p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_ped}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="cambiar">
+                    <mat-header-cell *matHeaderCellDef>Cambiar Estado</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        
+                        <mat-form-field appearance="fill">
+                            <mat-label>  Seleccione </mat-label>
+                            <mat-select [(value)]="selected">
+                              <mat-option (click)="cambiarEstado('pendiente de procesar')" value="pendiente de procesar"> Pendiente de procesar</mat-option>
+                              <mat-option (click)="cambiarEstado('aceptado')" value="aceptado">Aceptado</mat-option>
+                              <mat-option (click)="cambiarEstado('en camino')" value="en camino">En camino</mat-option>
+                              <mat-option (click)="cambiarEstado('entregado')" value="entregado">Entregado</mat-option>
+                              <mat-option (click)="cambiarEstado('rechazado')" value="rechazado">Rechazado</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+               
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons length="3"></mat-paginator> 
+              
+        </div>
+    </div>

@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { element } from 'protractor';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from './../../../../environments/environment';
@@ -28,7 +29,8 @@ export class DomiciliariosComponent implements OnInit {
   constructor(public route: ActivatedRoute, 
     private solicituService : SolicitudesService,
               public dialog: MatDialog,  
-              private router: Router
+              private router: Router,
+              private snackBar : MatSnackBar 
               ) { }
 
   ngOnInit(): void {
@@ -73,6 +75,9 @@ export class DomiciliariosComponent implements OnInit {
       let correo=decodedToken.unique_name;
       this.respuestaSolicitud.Lcorreo=correo;
         this.solicituService.RespuestaDomiciliario(this.respuestaSolicitud).subscribe(data=>{
+          this.snackBar.open('Solicitud aceptada correctamente', 'successful', {
+            duration: 2000,
+          });
         this.refrescar();
         });
   }

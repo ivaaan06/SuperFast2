@@ -50,6 +50,7 @@
                 <ng-container matColumnDef="acciones">
                     <mat-header-cell *matHeaderCellDef><p><span class="glyphicon glyphicon-cog"></span> Acciones </p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
+
                 <div   class = "btn-grupo"> 
                        <p> <button type="button"  class="btn btn-success btn-xs"><span class="glyphicon glyphicon-ok"></span> Aceptar</button>
                        </p><p><button type="button" class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span>Revision</button>
@@ -57,6 +58,11 @@
                        </p><p> <button type="button" class="btn btn-danger btn-xs" (click)="abrirDialogo(element.id, element.hojavida)" ><span class="glyphicon glyphicon-remove"></span>Rechazar</button>
                        </p>
                       </div>                     
+
+                        <button type="button" class="btn btn-danger" (click)="abrirDialogo(element.id, element.hojavida)" >Rechazar</button>
+            
+                      
+
                     </mat-cell>
                 </ng-container>
                
