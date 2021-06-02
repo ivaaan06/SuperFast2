@@ -28,13 +28,13 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="https://www.mostazatree.com/wp-content/uploads/2019/04/pizzerias-1.png"width="60" height="350" alt="First slide">
+        <img class="d-block w-100" src="https://i.ibb.co/3yyZYgY/SUPER-FAST-1.png" alt="First slide">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="https://colanta.com/aprende-de/wp-content/uploads/2019/03/Tipos-de-asados1.jpg" width="60" height="350"alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="https://www.caracteristicas.co/wp-content/uploads/2018/09/cerveza-1-e1580953502769.jpg" width="60" height="350"alt="Third slide">
+        <img class="d-block w-100" src="https://i.postimg.cc/NfWgks4c/SUPER-FAST.png" alt="Third slide">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="https://s1.1zoom.me/b5252/63/Roast_Chicken_French_fries_Vegetables_Plate_518389_3840x2160.jpg" width="60" height="350" alt="Third slide">
@@ -58,26 +58,44 @@
       <div class="panel panel-default">
         <div class="panel-body">
       
-
-      <div class="card " style="max-width: 560px;">
-     <!--<img class="brochure-poster" src="{{card.imagen_producto1}}"/>
-           --><li id="nombreimagen"name="nombreimagen"> {{card.imagen_producto1}}</li>
-        <div class="card-body">
+         
+          <div class="card " style="max-width: 560px;">
+        <img class="card-img-top" src="http://52.67.179.68/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>
+       
+        <span class="hint-star star">
+          <i class="fa fa-star yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star-half-o yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star-o yellow-color" aria-hidden="true"></i>
+        </span> 
+           <!--<img src="" class="card-img-top" alt="...">
+           <li id="nombreimagen"name="~">http://52.67.179.68/{{card.imagen_producto1.substr(2,60)}}</li>
+        
+        
+        
+          --><div class="card-body">
           
-          <h2 class="card-title">{{card.nombre_producto}}</h2>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>  <b>Descripción:</b> {{card.descripcion_producto}}</li>
-            <li class="list-group-item"><span class="glyphicon glyphicon-indent-right"></span><b>Estado:</b> {{card.estado_producto}}</li>
+          <h2 class="list-group-item active">{{card.nombre_producto}}</h2>
+            
+          <li class="list-group-item  "><span class="glyphicon glyphicon-list-alt"></span>  <b>Descripción:</b> {{card.descripcion_producto}}</li> 
+           <li class="list-group-item"><span class="glyphicon glyphicon-indent-right"></span><b>Estado:</b> {{card.estado_producto}}</li>
             <li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><b>Cantidad:</b> {{card.cantidad  }}</li>
-            <li class="list-group-item"><span class="glyphicon glyphicon-certificate"></span><b>Precio:</b> {{card.precio_producto  }}</li>
-          </ul> 
+   
+          
           <p class="card-text"></p>
           <p class="card-text"><small class="text-muted"></small></p>
           <p class="card-text"><small class="text-muted"></small></p>
           <br>
-          <button class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span>  Comprar</button>
-       
-          
+          <button class="btn btn-primary btn-sm mr-1 mb-2">
+            <!-- 		the Price -->
+              <span class="price"><b>{{card.precio_producto  }}$</b></span>
+            <!-- 		shopping cart icon-->
+              <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+            <!-- 		Buy Now / ADD to Cart-->
+              <span class="buy"><b>Add To Cart</b></span>
+            </button>
+ 
         </div>
       </div>
       
@@ -87,5 +105,6 @@
     </div>
   </div>
 </div>
+
 
 </body>
