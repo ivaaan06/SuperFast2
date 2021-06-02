@@ -1,3 +1,8 @@
+import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlproceso.component';
+import { DtlpedidosComponent } from './pages/historialpedidos/dtlpedidos/dtlpedidos.component';
+import { HistorialenprocesoComponent } from './pages/historialenproceso/historialenproceso.component';
+import { HistorialpedidosComponent } from './pages/historialpedidos/historialpedidos.component';
+import { ProductodesactivoComponent } from './pages/_aliado/productodesactivo/productodesactivo.component';
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
 import { AgregarProductoComponent } from './pages/_aliado/agregar-producto/agregar-producto.component';
 
@@ -29,6 +34,7 @@ import { PedidosdisponiblesComponent } from './pages/_domiciliario/pedidosdispon
 import { ProductosactivosComponent } from './pages/_aliado/productosactivos/productosactivos.component';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
+import { PerfiladminComponent } from './pages/_admin/perfiladmin/perfiladmin.component';
 
 
 const routes: Routes = [
@@ -40,6 +46,7 @@ const routes: Routes = [
   {path: 'domiciliariosrechazados', component: DomiciliariosrechazadosComponent , canActivate:[ GuardianService]},
   {path: 'aliadosaceptados', component: AliadosaceptadosComponent, canActivate:[ GuardianService]},
   {path: 'domiciliariosaceptados', component: DomiciliariosaceptadosComponent , canActivate:[ GuardianService]},
+  {path: 'perfil_admin', component: PerfiladminComponent ,canActivate:[ GuardianService]},
   //Domiciliario
   {path: 'iniciodomiciliario', component: IniciodomiciliarioComponent , canActivate:[ GuardianService]},
   {path: 'mihistorial', component: MihistorialComponent , canActivate:[ GuardianService]},
@@ -51,13 +58,19 @@ const routes: Routes = [
   {path: 'pedido_s_terminados', component: PedidosterminadosComponent , canActivate:[ GuardianService]},
   {path: 'agregar_productos', component: AgregarProductoComponent,canActivate:[ GuardianService]},
   {path: 'productos_activos', component: ProductosactivosComponent, canActivate:[ GuardianService]},
-  {path: 'editar_activos/:id', component: EditaractivosComponent },
+  {path: 'productos_desactivados', component: ProductodesactivoComponent, canActivate:[ GuardianService]},
+  {path: 'editar_activos/:id', component: EditaractivosComponent, canActivate:[GuardianService] },
+  
   
   //Usuario normal
   {path: 'productos', component: ProductosComponent, canActivate:[ GuardianService]},
   {path: 'inicio', component: InicioComponent , canActivate:[ GuardianService]},
   {path: 'carrito', component: CarritoComponent ,canActivate:[ GuardianService]},
   {path: 'perfil', component: PerfilComponent ,canActivate:[ GuardianService]},
+  {path: 'historial_pedidos', component: HistorialpedidosComponent ,canActivate:[ GuardianService]},
+  {path: 'historial_en_proceso', component: HistorialenprocesoComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_pedidos', component: DtlpedidosComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_proceso', component: DtlprocesoComponent ,canActivate:[ GuardianService]},
   //sin guardian
   
   {path: 'recuperar', component: RecuperarPasswordComponent},

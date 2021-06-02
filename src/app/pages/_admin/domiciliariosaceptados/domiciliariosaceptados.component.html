@@ -7,12 +7,12 @@
 
             <mat-table [dataSource]="dataSource" matSort>
 
-                <ng-container matColumnDef=" nombre">
+                <ng-container matColumnDef="nombre">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p><span class="glyphicon glyphicon-user"></span>  Nombre</p>  </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
                 </ng-container>
 
-                <ng-container matColumnDef=" apellido">
+                <ng-container matColumnDef="apellido">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> <p><span class="glyphicon glyphicon-user"></span>  Apellido</p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
                 </ng-container>

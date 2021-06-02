@@ -20,13 +20,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
+          <a class="nav-link" routerLink="/" ><span class="glyphicon glyphicon-scale"></span> Perfil </a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" routerLink="/pedido_s" ><span class="glyphicon glyphicon-scale"></span> Pedido(s) </a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" routerLink="/pedido_s_terminados" ><span class="glyphicon glyphicon-paste"></span> Pedido(s) Terminados </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/" ><span class="glyphicon glyphicon-list-alt"></span> Estadisticas de venta </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -35,6 +35,7 @@
           <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/agregar_productos">Nuevo Producto</a>
             <a class="dropdown-item" routerLink="/productos_activos">Productos Activos</a>
+            <a class="dropdown-item" routerLink="/productos_desactivados">Productos Desactivados</a>
           </div>
         </li>
       </ul>

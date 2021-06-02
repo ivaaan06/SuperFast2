@@ -1,22 +1,21 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { element } from 'protractor';
-import { PerfilusuarioService } from './../../../_service/perfilusuario.service';
-import { Usuario } from './../../../_model/Usuario';
 import { MatDialog } from '@angular/material/dialog';
+import { PerfilusuarioService } from './../../../_service/perfilusuario.service';
 import { AliadoService } from './../../../_service/aliado.service';
 import { ActivatedRoute } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { Usuario } from './../../../_model/Usuario';
 import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from './../../../_model/Producto';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-productosactivos',
-  templateUrl: './productosactivos.component.html',
-  styleUrls: ['./productosactivos.component.css']
+  selector: 'app-productodesactivo',
+  templateUrl: './productodesactivo.component.html',
+  styleUrls: ['./productodesactivo.component.css']
 })
-export class ProductosactivosComponent implements OnInit {
+export class ProductodesactivoComponent implements OnInit {
   displayedColumns: string[] = ['nombre_producto', 'descripcion_producto', 'precio_producto', 'imagen_producto1', 'acciones'];
   dataSource = new MatTableDataSource<Producto>();
   usuario = new Usuario();
@@ -24,7 +23,7 @@ export class ProductosactivosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public route: ActivatedRoute, private aliadoService : AliadoService
     ,public dialog: MatDialog, private perfilusuarioService: PerfilusuarioService,
-    private snackBar : MatSnackBar) { }
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.perfilusuarioService.getUser().subscribe(data => {
@@ -33,7 +32,7 @@ export class ProductosactivosComponent implements OnInit {
     this.refrescar();
   }
   refrescar(){
-    this.aliadoService.productosActivos(this.usuario).subscribe(data =>{
+    this.aliadoService.productosDesactivados(this.usuario).subscribe(data =>{
       console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
@@ -41,15 +40,15 @@ export class ProductosactivosComponent implements OnInit {
      
     });
   }
-
-  desactivar(producto :Producto){
-    producto.estado_producto= 2;
+  activar(producto :Producto){
+    producto.estado_producto= 1;
     this.aliadoService.actualizarProducto(producto).subscribe(data=>{
-        this.snackBar.open('Producto Desactivado', 'successful', {
+        this.snackBar.open('Producto Activado', 'successful', {
           duration: 2000,
           
         });
         this.refrescar();
   });
   }
+
 }

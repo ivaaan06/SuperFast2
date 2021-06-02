@@ -1,16 +1,18 @@
-import { Producto } from './Producto';
+
 export class DetallePedido{
-    Id_dpedido: number;
-    Pedido_id : number;
-    Cantidad : number;
-    Descripcion : string;
-    V_unitario : number;
-    V_total : number;
-    Direccion_cliente : string;
-    Telefono_cliente : string;
-    Nombreprodet : string;
-    Especprodaliado : string;
-    Compras1 : any;
-    Idpedido : number;
-    Nombre_aliado: string;
+    id_dpedido: number;
+    pedido_id : number;
+    producto_id : number;
+    cantidad : number;
+    descripcion : string;
+    v_unitario : number;
+    v_total : number;
+    direccion_cliente : string;
+    telefono_cliente : string;
+    nombreprodet : string;
+    especprodaliado : string;
+    compras1 : any;
+    idpedido : number;
+    nombre_aliado: string;
+    imagen_producto1 : any;
 }

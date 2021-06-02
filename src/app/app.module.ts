@@ -46,6 +46,13 @@ import { ProductosactivosComponent } from './pages/_aliado/productosactivos/prod
 import { AgregarProductoComponent } from './pages/_aliado/agregar-producto/agregar-producto.component';
 import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
 import { RecuperarPasswordComponent } from './pages/recuperar-password/recuperar-password.component';
+import { ProductodesactivoComponent } from './pages/_aliado/productodesactivo/productodesactivo.component';
+import { PerfiladminComponent } from './pages/_admin/perfiladmin/perfiladmin.component';
+import { HistorialpedidosComponent } from './pages/historialpedidos/historialpedidos.component';
+import { HistorialenprocesoComponent } from './pages/historialenproceso/historialenproceso.component';
+import { DtlpedidosComponent } from './pages/historialpedidos/dtlpedidos/dtlpedidos.component';
+import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlproceso.component';
+import { RespuestaprocesoComponent } from './pages/historialenproceso/respuestaproceso/respuestaproceso.component';
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -131,7 +138,14 @@ export function refresLogin(){
     ProductosactivosComponent,
     AgregarProductoComponent,
     EditaractivosComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+    ProductodesactivoComponent,
+    PerfiladminComponent,
+    HistorialpedidosComponent,
+    HistorialenprocesoComponent,
+    DtlpedidosComponent,
+    DtlprocesoComponent,
+    RespuestaprocesoComponent
  
   ],
   imports: [

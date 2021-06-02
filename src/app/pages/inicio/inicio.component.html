@@ -30,7 +30,9 @@
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-     
+      <li class="nav-item">
+        <a class="btn btn-primary btn-sm" routerLink="/perfil"><span class="glyphicon glyphicon-user"></span> Perfil</a>
+      </li>
       <li class="nav-item">
       <a class="btn btn-primary btn-sm" routerLink="/productos"><span class="glyphicon glyphicon-tags"></span>  Productos</a>
       
@@ -39,13 +41,20 @@
       <li class="nav-item">
        <a class="btn btn-primary btn-sm" routerLink="/carrito"><span class="glyphicon glyphicon-shopping-cart"></span> Carrito</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Mis pedidos
+        </a>
+      <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item" routerLink="/historial_en_proceso">Pedidos En Proceso</a>
+        <a class="dropdown-item" routerLink="/historial_pedidos">Historial pedidos</a>
+      </div>
+      </li>
 
       
     
 
-      <li class="nav-item">
-        <a class="btn btn-primary btn-sm" routerLink="/perfil"><span class="glyphicon glyphicon-user"></span> Perfil</a>
-      </li>
+      
       
     </ul>
     
