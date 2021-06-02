@@ -30,11 +30,6 @@ export class ConsultaService {
     .pipe(catchError((err) => this.handleHttpError(err)));
   }
 
-  mostrarFiltro(query=''):Observable<Producto[]>{
-    const filter = `${environment.HOST}/api/comunicacion/GetMostrarProductoInicioBusqueda?busqueda=${query.toLowerCase()}`;
-    return this.http.get<Producto[]>(filter);
-  }
-
   private handleHttpError(
     error:HttpErrorResponse
   ):Observable<TrackHttpError>{
@@ -48,6 +43,14 @@ export class ConsultaService {
 
   getDetails(id: number) {
     return this.http.get<Producto>(`${environment.HOST}/${id}`)
+    .pipe(catchError((err) => this.handleHttpError(err)));
+  }
+
+
+  //api/comunicacion/GetRangoPrecios?ValorMinimo={ValorMinimo}&ValorMaximo={ValorMaximo}
+  filtroPrecio(ValorMinimo=0,ValorMaximo=ValorMinimo*7):Observable<Producto[] | TrackHttpError>{
+    const filter = `${environment.HOST}/api/comunicacion/GetRangoPrecios?ValorMinimo=${ValorMinimo}&ValorMaximo=${ValorMaximo}`;
+    return this.http.get<Producto[]>(filter)
     .pipe(catchError((err) => this.handleHttpError(err)));
   }
 
@@ -72,5 +75,6 @@ export class ConsultaService {
     console.log(comadname,id);
       return this.http.get(environment.HOST+'/api/PedidosCliente/GetCancelarPedidoCliente?comandname='+comadname+'&Id_pedido='+id);
   }
+
 
 }
