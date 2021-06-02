@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   
   constructor(private loginservice : LoginService,  
               private router :Router ,
-              private snackBar : MatSnackBar,
+              private snackBar : MatSnackBar
               ) { }
   test : Date = new Date();
     focus;

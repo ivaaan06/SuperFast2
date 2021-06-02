@@ -31,7 +31,7 @@ export class HistorialpedidosComponent implements OnInit {
   displayedColumns: string[] = ['id_pedido', 'fecha', 'comentario_cliente', 'comentario_aliado', 'estado_pedido', 'estado_domicilio_id', 'nombre_aliado','compras', 'valor_total'];
   dataSource = new MatTableDataSource<Pedidos_s>();
   usuario = new Usuario();
-  puto="puto";
+
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
   

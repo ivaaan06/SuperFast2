@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from './../../../../environments/environment';
 import { RespuestaSolicitud } from './../../../_model/RespuestaSolicitud';
@@ -26,7 +27,8 @@ export class AliadosComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   respuestaSolicitud = new RespuestaSolicitud();
   constructor(public route: ActivatedRoute, private solicitudService: SolicitudesService,
-              public dialog: MatDialog ) { }
+              public dialog: MatDialog ,
+              private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
     
@@ -69,7 +71,10 @@ Aceptar(id: number, hojavida: string){
     let correo=decodedToken.unique_name;
     this.respuestaSolicitud.Lcorreo=correo;
       this.solicitudService.RespuestaAliado(this.respuestaSolicitud).subscribe(data=>{
-      this.refrescar();
+        this.snackBar.open('Solicitud aceptada correctamente', 'successful', {
+          duration: 2000,
+        });
+        this.refrescar();
       });
 }
  

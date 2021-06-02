@@ -1,9 +1,18 @@
+import { DomiciliarioService } from './../../../_service/domiciliario.service';
+import { DetalleService } from './../../../_service/detalle.service';
+import { ActivatedRoute } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { FormControl } from '@angular/forms';
+import { Pedidos_s } from './../../../_model/Pedido_s';
+import { DetallePedido } from './../../../_model/DetallePedido';
 import { AliadoService } from './../../../_service/aliado.service';
 import { Usuario } from './../../../_model/Usuario';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from './../../../../environments/environment';
 import { PerfilusuarioService } from './../../../_service/perfilusuario.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-pedidos',
@@ -11,24 +20,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pedidos.component.css']
 })
 export class PedidosComponent implements OnInit {
-
-  usuario = new Usuario();
-  constructor(private perfilusuarioService : PerfilusuarioService,
-    private aliadoService : AliadoService) { }
+  displayedColumns: string[] = ['id_pedido', 'fecha', 'comentario_cliente', 'comentario_aliado',  'compras', 'nombre_estado_ped','cambiar'];
+  dataSource = new MatTableDataSource<Pedidos_s>();
+  serializedDate = new FormControl((new Date()).toISOString());
+  selected = 'Cambiar';
+  private usuario = new Usuario();
+  @Output()detallePedido = Array<DetallePedido>();
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  constructor(public route: ActivatedRoute,private aliadoService: AliadoService, 
+    private detalleService:DetalleService,
+    private perfilServce : PerfilusuarioService) { }
 
   ngOnInit(): void {
-    let token = sessionStorage.getItem(environment.TOKEN);
-      const helper = new JwtHelperService();
-      const decodedToken = helper.decodeToken(token);
-     
-      console.log(decodedToken.nameid);
-      this.perfilusuarioService.getUser().subscribe(data => {
-        this.usuario= data;
-        console.log(data);
-      });
-      this.aliadoService.pedido_sAliado(this.usuario).subscribe(data2 => {
-        console.log(data2);
-      })
+    this.refrescar();
   }
-
+  refrescar(){
+    
+      this.aliadoService.pedido_sAliado().subscribe(data2 =>{
+        console.log(data2);
+        this.dataSource = new MatTableDataSource(data2);
+      this.dataSource.sort= this.sort;
+      this.dataSource.paginator = this.paginator;
+     
+      });
+    
+  
+  }
+    verDetalle(detalle : DetallePedido[]){
+      this.detallePedido = detalle;
+      this.detalleService.getDetalle(this.detallePedido);
+      this.detalleService.setAuteriorUrl('/pedido_s');
+    }
 }

@@ -30,12 +30,12 @@
 
                 <ng-container matColumnDef="estado_pedido">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-earphone"></span> Estado del Pedido</p></mat-header-cell> 
-                    <mat-cell *matCellDef="let element"> {{element.estado_pedido}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_ped}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="estado_domicilio_id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-credit-card"></span> Estado del domicilio</p> </mat-header-cell> 
-                    <mat-cell *matCellDef="let element"> {{element.estado_domicilio_id}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_domicilio}} </mat-cell>
                 </ng-container>
 
                 <ng-container matColumnDef="nombre_aliado">

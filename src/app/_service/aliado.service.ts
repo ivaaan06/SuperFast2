@@ -1,3 +1,7 @@
+import { Pedidos_s } from './../_model/Pedido_s';
+import { Auxiliar } from './../_model/Auxiliar';
+
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Producto } from './../_model/Producto';
 import { environment } from './../../environments/environment';
 import { Usuario } from './../_model/Usuario';
@@ -8,15 +12,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AliadoService {
-
+  auxiliar = new Auxiliar();
   constructor(private http: HttpClient) { }
 
-  pedido_sAliado(usuario : Usuario){
-    return this.http.post(environment.HOST+'/api/comunicacion/MostrarProducto', usuario);
+  pedido_sAliado(){
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let nameid=decodedToken.nameid;
+    this.auxiliar.Id=nameid;
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerEstadoPedido', this.auxiliar);
   }
   
-  pedido_sAliadoTerminados(usuario : Usuario){
-    return this.http.post(environment.HOST+'/api/comunicacion/PostObtenerEstadoPedidoTerminado', usuario);
+  pedido_sAliadoTerminados(){
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let nameid=decodedToken.nameid;
+    this.auxiliar.Id=nameid;
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerEstadoPedidoTerminado', this.auxiliar);
   }
 
   agregarProducto(producto : Producto){

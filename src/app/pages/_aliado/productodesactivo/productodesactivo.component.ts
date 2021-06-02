@@ -43,11 +43,12 @@ export class ProductodesactivoComponent implements OnInit {
   activar(producto :Producto){
     producto.estado_producto= 1;
     this.aliadoService.actualizarProducto(producto).subscribe(data=>{
+      this.refrescar();
         this.snackBar.open('Producto Activado', 'successful', {
           duration: 2000,
           
         });
-        this.refrescar();
+      
   });
   }
 

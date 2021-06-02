@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class DetalleService {
   detallePedido = Array<DetallePedido>();
+  anteriorUrl : string;
   constructor() { }
 
   getDetalle(detalle : DetallePedido[]){
@@ -14,5 +15,12 @@ export class DetalleService {
 
   setDetalle(){
     return this.detallePedido;
+  }
+  setAuteriorUrl(url : string){
+    this.anteriorUrl=url;
+  }
+
+  getAnteriorUrl(){
+    return this.anteriorUrl;
   }
 }

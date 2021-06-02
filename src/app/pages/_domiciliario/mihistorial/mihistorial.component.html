@@ -1,1 +1,87 @@
-<p>mihistorial works!</p>
+<app-iniciodomiciliario></app-iniciodomiciliario>
+<div [hidden]="route.children.length !== 0">
+
+    <div fxLayout="column" class="p-2">
+        <div class="p-2"> 
+            
+           
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="id_pedido">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Pedido N </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.id_pedido}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="fecha">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p><span class="glyphicon glyphicon-calendar"></span> Fecha</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        <span>{{element.fecha | date:'yyyy-MM-dd '}}</span>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="comentario_cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-comment"></span> Comentario Cliente </p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.comentario_cliente}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="comentario_aliado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-comment"></span> Comentario Aliado </p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.comentario_aliado}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="nombre_estado_ped">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-info-sign"></span> Estado del Pedido</p></mat-header-cell> 
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_ped}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="nombre_aliado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-send"></span> Aliado </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre_aliado}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="direccion_aliado">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-globe"></span>  Direccion</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.direccion_aliado}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="compras">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-apple"></span> Pedido </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        
+                        <a class="btn btn-primary btn-sm" (click)="verDetalle(element.compras)" routerLink="/dtl_mihistorial"><span class="glyphicon glyphicon-tags"></span> Ver detalle del pedido</a>
+
+
+                    </mat-cell>
+                </ng-container>
+               
+                <ng-container matColumnDef="nombre_cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-user"></span> Cliente </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre_cliente}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="direccion_cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-globe"></span> Direccion </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.direccion_cliente}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="telefono_cliente">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-phone"></span> Telefono </p></mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.telefono_cliente}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="nombre_estado_domicilio">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-shopping-cart"></span> Estado Domicilio </p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.nombre_estado_domicilio}} </mat-cell>
+                </ng-container>
+
+               
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              
+            </mat-table>
+            
+            <mat-paginator [pageSizeOptions]="[5,10,25,100]" [pageSize]="5" showFirstLastButtons length="3"></mat-paginator> 
+              
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
