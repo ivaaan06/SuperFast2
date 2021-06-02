@@ -1,6 +1,5 @@
 export class RespuestaSolicitud{
     Id : number;
-    Lcorreo : string;
-    Hoja_vida : string;
+    correo : string;
     comandname : string;
 }

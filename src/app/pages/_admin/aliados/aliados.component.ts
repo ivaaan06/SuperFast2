@@ -44,13 +44,12 @@ export class AliadosComponent implements OnInit {
       if(result.opcion == "Aceptar") {
         console.log(id);
             this.respuestaSolicitud.Id=id;
-            this.respuestaSolicitud.Hoja_vida=hojavida;
             this.respuestaSolicitud.comandname="Rechazar";
             let token = sessionStorage.getItem(environment.TOKEN);
             const helper = new JwtHelperService();
             const decodedToken = helper.decodeToken(token);
             let correo=decodedToken.unique_name;
-            this.respuestaSolicitud.Lcorreo=correo;
+            this.respuestaSolicitud.correo=correo;
             this.solicitudService.RespuestaAliado(this.respuestaSolicitud).subscribe(data=>{
               this.refrescar();
             });
@@ -63,13 +62,13 @@ export class AliadosComponent implements OnInit {
 
 Aceptar(id: number, hojavida: string){
     this.respuestaSolicitud.Id=id;
-    this.respuestaSolicitud.Hoja_vida=hojavida;
+   
     this.respuestaSolicitud.comandname="Aceptar";
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
     let correo=decodedToken.unique_name;
-    this.respuestaSolicitud.Lcorreo=correo;
+    this.respuestaSolicitud.correo=correo;
       this.solicitudService.RespuestaAliado(this.respuestaSolicitud).subscribe(data=>{
         this.snackBar.open('Solicitud aceptada correctamente', 'successful', {
           duration: 2000,

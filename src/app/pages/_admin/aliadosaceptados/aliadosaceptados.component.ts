@@ -41,13 +41,12 @@ export class AliadosaceptadosComponent implements OnInit {
       if(result.opcion == "Aceptar") {
         console.log(id);
             this.respuestaSolicitud.Id=id;
-            this.respuestaSolicitud.Hoja_vida=hojavida;
             this.respuestaSolicitud.comandname="Rechazar";
             let token = sessionStorage.getItem(environment.TOKEN);
             const helper = new JwtHelperService();
             const decodedToken = helper.decodeToken(token);
             let correo=decodedToken.unique_name;
-            this.respuestaSolicitud.Lcorreo=correo;
+            this.respuestaSolicitud.correo=correo;
             this.solicituService.RespuestaAliadosAceptados(this.respuestaSolicitud).subscribe(data=>{
               this.refrescar();
             });
