@@ -7,7 +7,8 @@ export const environment = {
   HOST :'http://52.67.179.68:8081',
   TOKEN: 'access_token' ,
   CONTRASENIA: '',
-  CORREO: ''
+  CORREO: '',
+  REINTENTOS:2
 
 
 };

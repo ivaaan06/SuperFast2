@@ -53,10 +53,10 @@
                     <mat-header-cell *matHeaderCellDef><p><span class="glyphicon glyphicon-cog"></span> Acciones </p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
 
-                       
-                        <button type="button" class="btn btn-success btn-sm" (click)="Aceptar(element.id, element.hojavida)"><span class="glyphicon glyphicon-ok"></span>Aceptar</button>
-                        <button type="button" class="btn btn-danger btn-sm" (click)="abrirDialogo(element.id, element.hojavida)"><span class="glyphicon glyphicon-remove"></span>Rechazar</button>
-  
+                        <div   class = "btn-grupo"> 
+                       <p> <button type="button" class="btn btn-success btn-xs" (click)="Aceptar(element.id, element.hojavida)"><span class="glyphicon glyphicon-ok"></span> Aceptar</button>
+                       </p><p><button type="button" class="btn btn-danger btn-xs" (click)="abrirDialogo(element.id, element.hojavida)"><span class="glyphicon glyphicon-remove"></span> Rechazar</button>
+                       </p> </div>
                     </mat-cell>
                 </ng-container>
                

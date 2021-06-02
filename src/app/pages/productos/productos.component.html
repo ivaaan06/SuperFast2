@@ -61,7 +61,7 @@
 
       <div class="card " style="max-width: 560px;">
      <!--<img class="brochure-poster" src="{{card.imagen_producto1}}"/>
-           --><img class="card-img-top" src="https://i0.wp.com/cdn-images-1.medium.com/max/1600/0*cypJWjaXsq36Ai6H.jpg"/>
+           --><li id="nombreimagen"name="nombreimagen"> {{card.imagen_producto1}}</li>
         <div class="card-body">
           
           <h2 class="card-title">{{card.nombre_producto}}</h2>
@@ -69,6 +69,7 @@
             <li class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>  <b>Descripción:</b> {{card.descripcion_producto}}</li>
             <li class="list-group-item"><span class="glyphicon glyphicon-indent-right"></span><b>Estado:</b> {{card.estado_producto}}</li>
             <li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><b>Cantidad:</b> {{card.cantidad  }}</li>
+            <li class="list-group-item"><span class="glyphicon glyphicon-certificate"></span><b>Precio:</b> {{card.precio_producto  }}</li>
           </ul> 
           <p class="card-text"></p>
           <p class="card-text"><small class="text-muted"></small></p>

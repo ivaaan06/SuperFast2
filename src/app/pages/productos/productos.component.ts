@@ -14,7 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto','estado_producto','id_aliado','nombre_aliado','cantidad','imagen_producto1'];
+  displayedColumns: string[] = ['id', 'nombre_producto', 'descripcion_producto','estado_producto','id_aliado','nombre_aliado','cantidad','imagen_producto1','precio_producto'];
   dataSource = new MatTableDataSource<Producto>();
   datos: Producto[] = [];
   
@@ -79,7 +79,11 @@ export class ProductosComponent implements OnInit {
       }
 
       }, (error:TrackHttpError) => console.log((error.friendlyMessage)));
-  } 
+  }
+  
+  //private imagen():void{
+    //let imag =((document.getElementById("nombreimagen")as HTMLImageElement).src)
+  //}
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
