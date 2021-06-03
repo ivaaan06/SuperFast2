@@ -33,12 +33,13 @@
 
                 <ng-container matColumnDef="imagenperfil">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-picture"></span> Imagen Perfil</p></mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.imagenperfil}} </mat-cell>
+                    <mat-cell *matCellDef="let element">
+                        <img class="star" src="http://52.67.179.68{{element.imagenperfil.substr(1,60)}}"width="20" height="20" />  </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="hojavida">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-file"></span> Hoja de vida </p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> 
-                        <a href={{element.hojavida}}>Hoja de Vida</a>
+                        <a href= "http://52.67.179.68/Hojas_de_vida/Hoja%20de%20vida1.pdf">Hoja de Vida</a>
                     </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="tipovehiculo">
@@ -51,9 +52,11 @@
                     <mat-header-cell *matHeaderCellDef><p><span class="glyphicon glyphicon-cog"></span> Acciones </p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
 
+
                           
 
-                        <button type="button" class="btn btn-danger" (click)="abrirDialogo(element.id, element.hojavida)" >Rechazar</button>
+
+                        <button type="button" class="btn btn-danger " (click)="abrirDialogo(element.id, element.hojavida)" ><span class="glyphicon glyphicon-remove"></span> Rechazar</button>
             
                       
 

@@ -36,7 +36,8 @@
                                         <div class="form-group row">
                                             <label class="col-lg-3 col-form-label form-control-label">Imagen</label>
                                             <div class="col-lg-9">
-                                                <input type="file" (change)="fileEvent($event)" />
+                                                <input #file type="file" accept='image/*' (change)="preview($event)" />
+                                                <img [src]="imgURL" height="200" *ngIf="imgURL">
                                             </div>
                                         </div>
                                       
