@@ -53,14 +53,15 @@ export class PedidosterminadosComponent implements OnInit {
   }
   cambiarEstado(aux : number, id_pedido : number, aliado_id: number, estado_pedido: number){
     this.estado.Id_pedido = id_pedido;
-    this.estado.Aliado_id = aliado_id;
-    this.estado.Estado_pedido = aux;
+    this.estado.idseleccion = aux;
     this.aliadoService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{
-      this.refrescar();
-      console.log(aux);   
-      
+      this.refrescar();  
+      this.reset();
     });
   
+  }
+  reset(){
+    this.selected="Seleccione"
   }
 }
 

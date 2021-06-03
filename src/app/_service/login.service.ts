@@ -65,7 +65,7 @@ export class LoginService {
    
     
     //puede ser put
-    return this.http.post<any>(`${this.urlCerrarSession}=${nameid}`,"");
+    return this.http.post(environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='+nameid,"");
     //parte grafica 
    
     

@@ -73,21 +73,10 @@
                 <ng-container matColumnDef="cambiar">
                     <mat-header-cell *matHeaderCellDef>Cambiar Estado</mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        
-                    <!--  <mat-form-field appearance="fill">
-                    <mat-label>Seleccionar</mat-label>
-                    <select matNativeControl required>
-                        <option  value="pendiente de procesar">Pendiente de Procesar</option><mat-option (click)="cambiarEstado('pendiente de procesar')"></mat-option>
-                        <option  value="aceptado">Aceptado</option><mat-option (click)="cambiarEstado('aceptado')"></mat-option>
-                        <option value="en camino">En Camino</option><mat-option (click)="cambiarEstado('en camino')"></mat-option>
-                        <option value="entregado">Entregado</option><mat-option (click)="cambiarEstado('entregado')"></mat-option>
-                        <option value="rechazado">Rechazado</option><mat-option (click)="cambiarEstado('rechazado')"></mat-option>
-                    </select>
-                    </mat-form-field>
-                        
-                     --> <mat-form-field appearance="fill">
-                            <mat-label>  Seleccione </mat-label>
-                            <mat-select [(value)]="selected">
+               
+                      <mat-form-field appearance="fill">
+                            <mat-label ID="label">  Seleccione </mat-label>
+                            <mat-select [(value)]="selected" formControlName="estados">
                                 <mat-option (click)="cambiarEstado(1,element.id_pedido,element.domiciliario_id,element.estado_domicilio_id)" value="pendiente de procesar"> Pendiente de procesar</mat-option>
                                 <mat-option (click)="cambiarEstado(2,element.id_pedido,element.domiciliario_id,element.estado_domicilio_id)" value="aceptado">Aceptado</mat-option>
                                 <mat-option (click)="cambiarEstado(3,element.id_pedido,element.domiciliario_id,element.estado_domicilio_id)" value="en camino">En camino</mat-option>
@@ -95,7 +84,7 @@
                                 <mat-option (click)="cambiarEstado(5,element.id_pedido,element.domiciliario_id,element.estado_domicilio_id)" value="rechazado">Rechazado</mat-option>
                             </mat-select>
                           </mat-form-field>
-                          
+                              
                     </mat-cell>
                 
                 </ng-container>
