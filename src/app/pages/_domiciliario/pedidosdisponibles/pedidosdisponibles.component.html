@@ -46,7 +46,7 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-apple"></span> Pedido </p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
                                    
-                        <a class="btn btn-primary btn-sm" (click)="verDetalle(element.compras)" routerLink="/dtl_mihistorial"><span class="glyphicon glyphicon-tags"></span> Ver detalle del pedido</a>
+                        <a class="btn btn-primary btn-xs" (click)="verDetalle(element.compras)" routerLink="/dtl_mihistorial"><span class="glyphicon glyphicon-tags"></span> Detalle pedido</a>
 
 
                         </mat-cell>
@@ -74,7 +74,18 @@
                     <mat-header-cell *matHeaderCellDef>Cambiar Estado</mat-header-cell>
                     <mat-cell *matCellDef="let element">
                         
-                        <mat-form-field appearance="fill">
+                    <!--  <mat-form-field appearance="fill">
+                    <mat-label>Seleccionar</mat-label>
+                    <select matNativeControl required>
+                        <option  value="pendiente de procesar">Pendiente de Procesar</option><mat-option (click)="cambiarEstado('pendiente de procesar')"></mat-option>
+                        <option  value="aceptado">Aceptado</option><mat-option (click)="cambiarEstado('aceptado')"></mat-option>
+                        <option value="en camino">En Camino</option><mat-option (click)="cambiarEstado('en camino')"></mat-option>
+                        <option value="entregado">Entregado</option><mat-option (click)="cambiarEstado('entregado')"></mat-option>
+                        <option value="rechazado">Rechazado</option><mat-option (click)="cambiarEstado('rechazado')"></mat-option>
+                    </select>
+                    </mat-form-field>
+                        
+                     --> <mat-form-field appearance="fill">
                             <mat-label>  Seleccione </mat-label>
                             <mat-select [(value)]="selected">
                               <mat-option (click)="cambiarEstado('pendiente de procesar')" value="pendiente de procesar"> Pendiente de procesar</mat-option>
@@ -86,6 +97,7 @@
                           </mat-form-field>
                           
                     </mat-cell>
+                
                 </ng-container>
                
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
