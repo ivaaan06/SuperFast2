@@ -1,3 +1,4 @@
+import { Estado_aliado } from './../../../_model/Estado_aliado';
 import { Usuario } from './../../../_model/Usuario';
 import { AliadoService } from './../../../_service/aliado.service';
 import { PerfilusuarioService } from './../../../_service/perfilusuario.service';
@@ -22,7 +23,7 @@ export class PedidosterminadosComponent implements OnInit {
   dataSource = new MatTableDataSource<Pedidos_s>();
   serializedDate = new FormControl((new Date()).toISOString());
   selected = 'Cambiar';
-  private usuario = new Usuario();
+  private estado = new Estado_aliado();
   @Output()detallePedido = Array<DetallePedido>();
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -50,7 +51,17 @@ export class PedidosterminadosComponent implements OnInit {
     this.detalleService.getDetalle(this.detallePedido);
     this.detalleService.setAuteriorUrl('/pedido_s_terminados');
   }
-
+  cambiarEstado(aux : number, id_pedido : number, aliado_id: number, estado_pedido: number){
+    this.estado.Id_pedido = id_pedido;
+    this.estado.Aliado_id = aliado_id;
+    this.estado.Estado_pedido = aux;
+    this.aliadoService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{
+      this.refrescar();
+      console.log(aux);   
+      
+    });
+  
+  }
 }
 
 
