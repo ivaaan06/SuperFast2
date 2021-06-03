@@ -48,10 +48,10 @@ export class HistorialpedidosComponent implements OnInit {
   refrescar(){
   
     this.consultaService.historialPedidos().subscribe(data =>{
+      console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;
-     
     });
   }
   verDetalle(detalle : DetallePedido[]){

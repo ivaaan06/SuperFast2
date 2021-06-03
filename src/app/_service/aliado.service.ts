@@ -1,3 +1,6 @@
+import { Estado_aliado } from './../_model/Estado_aliado';
+
+import { Estado } from './../_model/Estado';
 import { Pedidos_s } from './../_model/Pedido_s';
 import { Auxiliar } from './../_model/Auxiliar';
 
@@ -47,6 +50,10 @@ export class AliadoService {
   }
   actualizarProducto(producto:Producto){
     return this.http.post<any>(environment.HOST+'/api/Aliado/PostLBTN_GuardarCambios',producto);
+  }
+  cambiarEstadoMisPedidos(estado:Estado_aliado){
+    console.log(estado);
+    return this.http.put(environment.HOST+'/api/Pedidosaliado/PutLDDL_Categoria',estado);
   }
 
 }

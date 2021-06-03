@@ -1,3 +1,4 @@
+import { Estado } from './../../../_model/Estado';
 import { DetalleService } from './../../../_service/detalle.service';
 import { DetallePedido } from './../../../_model/DetallePedido';
 import { Usuario } from './../../../_model/Usuario';
@@ -17,6 +18,7 @@ import { Component, OnInit, Output, ViewChild } from '@angular/core';
   styleUrls: ['./mispedidos.component.css']
 })
 export class MispedidosComponent implements OnInit {
+  estado = new Estado();
   displayedColumns: string[] = ['id_pedido', 'fecha', 'comentario_cliente', 'comentario_aliado', 'nombre_estado_ped', 'nombre_aliado', 'direccion_aliado', 'compras', 'nombre_cliente','direccion_cliente','telefono_cliente','nombre_estado_domicilio','cambiar'];
   dataSource = new MatTableDataSource<Pedidos_s>();
   serializedDate = new FormControl((new Date()).toISOString());
@@ -34,6 +36,7 @@ export class MispedidosComponent implements OnInit {
     this.perfilService.getUser().subscribe(data =>{
       this.usuario=data;
       this.domiciliarioService.getMisPedidos(this.usuario).subscribe(data =>{
+        console.log(data);
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort= this.sort;
         this.dataSource.paginator = this.paginator;
@@ -41,14 +44,19 @@ export class MispedidosComponent implements OnInit {
     });
     
   }
-  verDetalle(detalle : DetallePedido[]){
+  verDetalle(detalle : DetallePedido[] ){
     this.detallePedido = detalle;
     this.detalleService.getDetalle(this.detallePedido);
     this.detalleService.setAuteriorUrl('/mispedidos');
   }
-  cambiarEstado(opcion : string){
-    console.log(opcion);
-
+  cambiarEstado(aux : number, id_pedido : number, domiciliario_id: number, estado_domicilio_id: number){
+    this.estado.Id_pedido = id_pedido;
+    this.estado.Domiciliario_id = domiciliario_id;
+    this.estado.Estado_domicilio_id = aux;
+    this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{
+      console.log(aux);   
+      this.refrescar();
+    });
     
   }
 }

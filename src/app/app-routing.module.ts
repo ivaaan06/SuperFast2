@@ -37,6 +37,7 @@ import { ProductosactivosComponent } from './pages/_aliado/productosactivos/prod
 import { ProductosComponent } from './pages/productos/productos.component';
 import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
 import { PerfiladminComponent } from './pages/_admin/perfiladmin/perfiladmin.component';
+import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,7 @@ const routes: Routes = [
   {path: 'mispedidos', component: MispedidosComponent , canActivate:[ GuardianService]},
   {path: 'pedidosdisponibles', component: PedidosdisponiblesComponent , canActivate:[ GuardianService]},
   {path: 'dtl_mihistorial', component: DtlmihistorialComponent , canActivate:[ GuardianService]},
+  {path: 'perfil_domiciliario', component: PerfildomiciliarioComponent ,canActivate:[ GuardianService]},
   //Aliado
   {path: 'inicioaliado', component: InicioaliadoComponent , canActivate:[ GuardianService]},
   {path: 'pedido_s', component: PedidosComponent , canActivate:[ GuardianService]},

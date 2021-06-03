@@ -114,6 +114,8 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/dtl_mihistorial') && rol == 3)
         return true;
+        else if(url.includes('/perfil_domiciliario') && rol == 3)
+        return true;
         
       
       else {

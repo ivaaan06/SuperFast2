@@ -55,6 +55,7 @@ import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlpr
 import { RespuestaprocesoComponent } from './pages/historialenproceso/respuestaproceso/respuestaproceso.component';
 import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dtlmihistorial.component';
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
+import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -149,7 +150,8 @@ export function refresLogin(){
     DtlprocesoComponent,
     RespuestaprocesoComponent,
     DtlmihistorialComponent,
-    DtlAlipedidosComponent
+    DtlAlipedidosComponent,
+    PerfildomiciliarioComponent
  
   ],
   imports: [

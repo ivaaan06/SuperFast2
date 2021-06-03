@@ -75,6 +75,4 @@ export class ConsultaService {
     console.log(comadname,id);
       return this.http.get(environment.HOST+'/api/PedidosCliente/GetCancelarPedidoCliente?comandname='+comadname+'&Id_pedido='+id);
   }
-
-
 }
