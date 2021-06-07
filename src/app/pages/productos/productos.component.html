@@ -50,6 +50,30 @@
     </a>
   </div>
 </div>
+
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>Precio Minimo</mat-label>
+    <input #inputSearch autofocus matInput type="number" placeholder="Minimo" class="example-right-align" [formControl]="minimo" (keyup)="enBusqueda(inputSearch.value)" id="valMin">
+    <mat-error *ngIf="minimo.invalid">{{getErrorMessage()}}</mat-error>
+    <span matPrefix>$&nbsp;</span>
+    <mat-icon matSuffix>paid</mat-icon>
+    <mat-hint>Minimo</mat-hint>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Precio Maximo</mat-label>
+    <input matInput placeholder="Maximo">
+    <mat-icon matSuffix>paid</mat-icon>
+    <mat-hint>Maximo</mat-hint>
+  </mat-form-field>
+  <a class="btn btn-primary btn-sm" routerLink="/productos"><mat-icon matSuffix>paid</mat-icon>Productos</a>
+
+  <div col-md-5 mx-auto my-7>
+    <a class="btn btn-primary btn-sm" routerLink="/carrito"><mat-icon matSuffix>paid</mat-icon>Enviar Pedido</a>
+  </div>
+  
+</div>
+
 </div>
   <div class="container">
   <div class="row">
@@ -60,7 +84,8 @@
       
          
           <div class="card " style="max-width: 560px;">
-        <img class="card-img-top" src="http://52.67.179.68/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>
+            <h2 class="list-group-item active">{{card.nombre_aliado}}</h2>
+       <!-- <img class="card-img-top" src="http://52.67.179.68/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>-->
        
         <span class="hint-star star">
           <i class="fa fa-star yellow-color" aria-hidden="true"></i>
@@ -81,13 +106,23 @@
           <li class="list-group-item  "><span class="glyphicon glyphicon-list-alt"></span>  <b>Descripción:</b> {{card.descripcion_producto}}</li> 
            <li class="list-group-item"><span class="glyphicon glyphicon-indent-right"></span><b>Estado:</b> {{card.estado_producto}}</li>
             <li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><b>Cantidad:</b> {{card.cantidad  }}</li>
-   
+            <mat-form-field class="example-full-width">
+              <mat-label>Especificaciones del Producto</mat-label>
+              <textarea #inputDescripcion autofocus matInput type="text" placeholder="cantidad" class="example-right-align" (keyup)="descripcionIngresada(inputDescripcion.value)" id="descripcion"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Cantidad del producto</mat-label>
+              <input #inputCantidad autofocus matInput type="number" placeholder="cantidad" class="example-right-align" (keyup)="cantidaIngresada(inputCantidad.value)" id="cantidad">              
+              <mat-icon matSuffix>paid</mat-icon>
+              <mat-hint>Cantidad</mat-hint>
+            </mat-form-field>
           
           <p class="card-text"></p>
           <p class="card-text"><small class="text-muted"></small></p>
           <p class="card-text"><small class="text-muted"></small></p>
           <br>
-          <button class="btn btn-primary btn-sm mr-1 mb-2">
+          
+          <button (click)="enviarCompra(card)" class="btn btn-primary btn-sm mr-1 mb-2" >
             <!-- 		the Price -->
               <span class="price"><b>{{card.precio_producto  }}$</b></span>
             <!-- 		shopping cart icon-->

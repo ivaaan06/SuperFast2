@@ -7,6 +7,7 @@ import { PerfilusuarioService } from './../../_service/perfilusuario.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/_model/Usuario';
 import { Validators } from '@angular/forms';
+import { ConstantPool } from '@angular/compiler';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class PerfilComponent implements OnInit {
     usuario2 = new Usuario() ;
     confirmar : string;
     des:string;
+    private loca:any;
   constructor(private perfilusuarioService: PerfilusuarioService, private snackBar : MatSnackBar) { 
     
 
@@ -69,10 +71,13 @@ export class PerfilComponent implements OnInit {
    }   
    refrescar(){
     this.des = localStorage.getItem("email");
+    
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
+      this.loca = data.direccion;
       console.log(data);
     });
+    console.log("dile->",this.loca)
    }
    /*cancelarCambios(){
     this.perfilusuarioService.getUser().subscribe(data => {
