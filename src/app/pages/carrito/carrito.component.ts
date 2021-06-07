@@ -1,7 +1,12 @@
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { RespuestaPedido } from './../../_model/RespuestaPedido';
+import { MatDialog } from '@angular/material/dialog';
+import { CancelarComponent } from './cancelar/cancelar.component';
 import { DetalleService } from './../../_service/detalle.service';
 import { DetallePedido } from './../../_model/DetallePedido';
 import { CarritoService } from './../../_service/carrito.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { MatTableDataSource } from '@angular/material/table';
@@ -33,8 +38,13 @@ export class CarritoComponent implements OnInit {
   displayedColumns: string[] = ['id_pedido','fecha','comentario_cliente' ,'comentario_aliado','nombre_estado_ped','nombre_estado_domicilio','nombre_aliado','compras','cancelar'];
   dataSource = new MatTableDataSource<Pedidos_s>();
   usr = new Usuario() ;
+  aux : number;
+  auxtotal : number;
   datosUsr = new Pedidos_s();
   detallePedido = Array<DetallePedido>();
+  respuetaPedido = new RespuestaPedido();
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   public barraProgreso = new Subject<string>();
   private idQuery: 1;
   private   pedidoDetal: number;
@@ -42,35 +52,67 @@ export class CarritoComponent implements OnInit {
 
   constructor(private carritoService:CarritoService,
               private perfilusuarioService: PerfilusuarioService,
-              private http: HttpClient, private detalleService: DetalleService ) { }
+              private http: HttpClient, private detalleService: DetalleService,
+              public dialog: MatDialog ) { }
 
   ngOnInit(): void {
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usr = data;
-      console.log(data);
      });
     
     this.carritoService.verProduct().subscribe(data =>{
-      this.dataSource = new MatTableDataSource(data); 
-      console.log('datos->',data);    
+      this.dataSource = new MatTableDataSource(data);  
+      this.dataSource.sort= this.sort;
+      this.dataSource.paginator = this.paginator;
     });
-    this.carritoService
-    
+    this.subTotal();
+    this.Total();
   }
+  subTotal(){
+     
+      this.carritoService.subTotalProduct().subscribe(data =>{
+        this.aux=data
+      });
+  }
+  Total(){
+    this.carritoService.verTotal().subscribe(data =>{
+      this.auxtotal=data;
+    });
+  }
+  
 
-  delteProduct(id:number){
-      this.datosUsr.id_pedido=id;
-      this.respuesta.Id=189;
-      this.respuesta.comandname="Cancelar";
-      let token = sessionStorage.getItem(environment.TOKEN);
-      const helper = new JwtHelperService();
-      const decodedToken = helper.decodeToken(token);
-        this.carritoService.delteProduct(this.respuesta).subscribe(data=>{
-        console.log("respuesta=>",data)
-        });
-  }
+
+  
   verDetalle(detalle : DetallePedido[]){
     this.detallePedido = detalle;
     this.detalleService.getDetalle(this.detallePedido);
+  }
+  cancelarPedido(id_pedido: number){
+    const dialogRef = this.dialog.open(CancelarComponent, {
+      width: '300px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result.opcion == "Aceptar") {
+            
+            this.respuetaPedido.Id_pedido = id_pedido;
+            this.respuetaPedido.comandname ="Cancelar";
+            this.carritoService.delteProduct(this.respuetaPedido).subscribe(data=>{
+              this.refrescar();
+              });
+          }else{
+            this.refrescar();
+          }
+      });
+  }
+  refrescar(){
+    this.carritoService.verProduct().subscribe(data =>{
+      this.dataSource = new MatTableDataSource(data);  
+      this.dataSource.sort= this.sort;
+      this.dataSource.paginator = this.paginator; 
+    });
+    this.subTotal();
+    this.Total();
   }
 }

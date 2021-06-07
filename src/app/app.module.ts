@@ -58,6 +58,7 @@ import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dt
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
 import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
 import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
+import { CancelarComponent } from './pages/carrito/cancelar/cancelar.component';
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -155,7 +156,8 @@ export function refresLogin(){
     PerfildomiciliarioComponent,
     PerfilaliadoComponent,
     DtlcarritoComponent,
-    ProductosComponent
+    ProductosComponent,
+    CancelarComponent
  
   ],
   imports: [

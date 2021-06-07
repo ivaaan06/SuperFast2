@@ -1,3 +1,4 @@
+import { Comentario } from './../../_model/Comentario';
 import { RespuestaprocesoComponent } from './respuestaproceso/respuestaproceso.component';
 import { DetalleService } from './../../_service/detalle.service';
 import { DetallePedido } from './../../_model/DetallePedido';
@@ -23,7 +24,7 @@ export class HistorialenprocesoComponent implements OnInit {
   detallePedido = Array<DetallePedido>();
   displayedColumns: string[] = ['id_pedido', 'fecha', 'comentario_cliente', 'comentario_aliado', 'estado_pedido', 'estado_domicilio_id', 'nombre_aliado','compras', 'valor_total', 'cancelar'];
   dataSource = new MatTableDataSource<Pedidos_s>();
-  
+  private comentario = new Comentario();
  
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -68,5 +69,19 @@ export class HistorialenprocesoComponent implements OnInit {
             this.refrescar();
           }
       });
+  }
+  enviarComentario(idpedido : number){
+    this.comentario.Id_pedido= idpedido;
+    let texto= ((document.getElementById("comentario") as HTMLInputElement).value);
+    this.comentario.Comentario_aliado=texto;
+    this.comentario.CommandName="Guardar";
+    console.log(this.comentario);
+    this.consultaService.enviarComentario(this.comentario).subscribe(data =>{
+      this.snackBar.open('Comentario Modificado', 'successful', {
+        duration: 2000,
+      });
+      this.refrescar();
+    });
+    
   }
 }
