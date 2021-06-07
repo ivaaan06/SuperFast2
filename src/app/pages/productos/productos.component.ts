@@ -1,3 +1,4 @@
+import { AddCarrito } from './../../_model/AddCarrito';
 import { LoginService } from './../../_service/login.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from './../../_model/Producto';
@@ -46,17 +47,19 @@ export class ProductosComponent implements OnInit {
               private router: Router,
               private _snackBar: MatSnackBar,
               private perfilusuarioService: PerfilusuarioService,
-              private carritoService: CarritoService) {
+              private carritoService: CarritoService,
+              private snackBar : MatSnackBar) {
               this.onUrlChanged();
               }
 
   ngOnInit(): void {
 
     //iniciar variables
+    this.cargarUsuario();
     this.consultaservice.retornar().subscribe(data => {
      this.dataSource = new MatTableDataSource(data);
      this.datos=data;
-     console.log(data);
+     
     });
     this.getCharactersByMinMax();
     this.getCharactersByQuery();
@@ -153,65 +156,40 @@ export class ProductosComponent implements OnInit {
     
   }
 
-  enviarPedido(){
-
-    this.perfilusuarioService.getUser().subscribe(data =>{
-      this.usuario = data;
-    });
-    let today = new Date(Date.parse("2012-01-26T13:51:50.417-07:00"));
-    //id_pedido','fecha','comentario_cliente' ,'comentario_aliado','nombre_estado_ped','nombre_estado_domicilio','nombre_aliado','compras','cancelar'
-    this.pedidoS.cliente_id = this.usuario.id;
-    this.pedidoS.fecha = today;
-    this.pedidoS.estado_id = 1;
-    this.pedidoS.valor_total = 10;
-    this.pedidoS.comentario_cliente = "";
-    this.pedidoS.comentario_aliado = "";
-    this.pedidoS.nombre_estado_ped = "pendiente de procesar";
-    this.pedidoS.nombre_estado_domicilio = "pendiente de procesar";  
-    this.pedidoS.estado_pedido= 1;
-    this.pedidoS.estado_domicilio_id= 1;
-
-    this.pedidoS.compras = this.detallePedido2;
-    this.pedidoS.detnombrecliente=this.usuario.nombre;
-    this.pedidoS.nombre_cliente=this.usuario.nombre;
-    this.pedidoS.direccion_cliente=this.usuario.direccion;
-    this.pedidoS.telefono_cliente=this.usuario.telefono;
-
-    this.consultaservice.enviarPedido(this.pedidoS).subscribe(data =>{
-      console.log("Datos enviados=>" , data);
-    });
-  }
+ 
   cantidaIngresada(cant: number){
     this.cantida=cant;
   }
   descripcionIngresada(description: string){
     this.descPedido=description;
   }
-  enviarCompra(detalle: Producto){
+  addProductos(detalle: Producto){
    
 
-    //cadena COMPRAS
-    this.compraDet.cantidad = this.cantida;
-    this.compraDet.compras1=null;
-    this.compraDet.descripcion= this.descPedido;
-    this.compraDet.especprodaliado=detalle.descripcion_producto;
-    this.compraDet.id_dpedido =2;
-    this.compraDet.idpedido=0;
-    //this.compraDet.imagen_producto1="";
-    this.compraDet.nombre_aliado=detalle.nombre_aliado;
-    this.compraDet.nombreprodet=detalle.nombre_producto;
-    this.compraDet.pedido_id = this.pedidoS.id_pedido;
-    this.compraDet.producto_id=detalle.id;
-    this.compraDet.v_total = this.pedidoS.det_valor_unitario*this.cantida;
-    this.compraDet.v_unitario=this.pedidoS.det_valor_unitario;
-    this.detallePedido2.push(this.compraDet);
-    
-
+    let addcarrito = new AddCarrito();
+    addcarrito.idcliente = this.usuario.id;
+    addcarrito.idaliado = detalle.id_aliado.toString();
+    addcarrito.descripcion =  this.descPedido;
+    addcarrito.cantidad = this.cantida;
+    addcarrito.productoid = detalle.id;
+    addcarrito.direccioncliente = this.usuario.direccion;
+    addcarrito.telefonocliente = this.usuario.telefono;
+    this.consultaservice.addCarrito(addcarrito).subscribe(data =>{
+      console.log(data);
+      this.snackBar.open('producto gregado a carrito', 'Advertrencia', {
+        duration: 2000,
+      });
+    });
   }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
         duration: 3000
+    });
+  }
+  cargarUsuario(){
+    this.perfilusuarioService.getUser().subscribe(data =>{
+      this.usuario = data;
     });
   }
 }
