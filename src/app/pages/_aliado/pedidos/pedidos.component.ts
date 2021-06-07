@@ -1,3 +1,5 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Comentario } from './../../../_model/Comentario';
 import { Estado_aliado } from './../../../_model/Estado_aliado';
 import { DomiciliarioService } from './../../../_service/domiciliario.service';
 import { DetalleService } from './../../../_service/detalle.service';
@@ -26,12 +28,14 @@ export class PedidosComponent implements OnInit {
   serializedDate = new FormControl((new Date()).toISOString());
   selected = 'Cambiar';
   private estado = new Estado_aliado();
+  private comentario = new Comentario();
   @Output()detallePedido = Array<DetallePedido>();
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public route: ActivatedRoute,private aliadoService: AliadoService, 
     private detalleService:DetalleService,
-    private perfilServce : PerfilusuarioService) { }
+    private perfilServce : PerfilusuarioService,
+    private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
     this.refrescar();
@@ -65,5 +69,20 @@ export class PedidosComponent implements OnInit {
     }
     reset(){
       this.selected="Seleccione"
+    }
+
+    enviarComentario(idpedido : number){
+      this.comentario.Id_pedido= idpedido;
+      let texto= ((document.getElementById("comentario") as HTMLInputElement).value);
+      this.comentario.Comentario_aliado=texto;
+      this.comentario.CommandName="Guardar";
+      console.log(this.comentario);
+      this.aliadoService.enviarComentario(this.comentario).subscribe(data =>{
+        this.snackBar.open('Comentario Modificado', 'successful', {
+          duration: 2000,
+        });
+        this.refrescar();
+      });
+      
     }
 }

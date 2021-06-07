@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
     focus;
     focus1;
     
-
+    myDate = new Date().toLocaleString("en-US");
   ngOnInit(): void {
-   
+    
+   console.log(this.myDate);
   }
   navegarHaciaIniciousuario(){
     this.loginservice.login(this.correo, this.contrasenia,  "1").subscribe(data =>{

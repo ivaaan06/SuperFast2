@@ -38,10 +38,10 @@ export class DomiciliariosComponent implements OnInit {
    
   }
 
-   abrirDialogo(id: number, hojavida: string) {
+   abrirDialogo(id: number) {
       const dialogRef = this.dialog.open(RespuestaSolicitudesComponent, {
         width: '300px',
-        data: {id: id, hojavida: hojavida}
+        data: {id: id}
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -65,9 +65,8 @@ export class DomiciliariosComponent implements OnInit {
         });
   }
   
-  Aceptar(id: number, hojavida: string){
+  Aceptar(id: number){
       this.respuestaSolicitud.Id=id;
-    
       this.respuestaSolicitud.comandname="Aceptar";
       let token = sessionStorage.getItem(environment.TOKEN);
       const helper = new JwtHelperService();

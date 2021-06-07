@@ -24,6 +24,8 @@ export class InicioaliadoComponent implements OnInit {
   }
   cerrarSesion(){
     this.loginServicio.cerrarSesion().subscribe(data=>{
+      sessionStorage.setItem(environment.TOKEN, null);
+      sessionStorage.removeItem(environment.TOKEN);
       this.router.navigateByUrl('/login');
     });
   }

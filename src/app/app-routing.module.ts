@@ -1,3 +1,4 @@
+import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
 import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dtlmihistorial.component';
 import { DtlprocesoComponent } from './pages/historialenproceso/dtlproceso/dtlproceso.component';
@@ -66,6 +67,7 @@ const routes: Routes = [
   {path: 'productos_desactivados', component: ProductodesactivoComponent, canActivate:[ GuardianService]},
   {path: 'editar_activos/:id', component: EditaractivosComponent, canActivate:[GuardianService] },
   {path: 'dtl_alipedidos', component: DtlAlipedidosComponent , canActivate:[ GuardianService]},
+  {path: 'perfil_aliado', component: PerfilaliadoComponent , canActivate:[ GuardianService]},
   
   //Usuario normal
   {path: 'productos', component: ProductosComponent, canActivate:[ GuardianService]},
