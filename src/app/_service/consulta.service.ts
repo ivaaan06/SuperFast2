@@ -72,7 +72,6 @@ export class ConsultaService {
     return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerComprasUsuario', this.auxiliar);
   }
   cancelarPedido(comadname : string ,id :number){
-    console.log(comadname,id);
       return this.http.get(environment.HOST+'/api/PedidosCliente/GetCancelarPedidoCliente?comandname='+comadname+'&Id_pedido='+id);
   }
 
