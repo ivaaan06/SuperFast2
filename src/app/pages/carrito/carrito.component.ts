@@ -1,3 +1,5 @@
+import { DetalleService } from './../../_service/detalle.service';
+import { DetallePedido } from './../../_model/DetallePedido';
 import { CarritoService } from './../../_service/carrito.service';
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -32,6 +34,7 @@ export class CarritoComponent implements OnInit {
   dataSource = new MatTableDataSource<Pedidos_s>();
   usr = new Usuario() ;
   datosUsr = new Pedidos_s();
+  detallePedido = Array<DetallePedido>();
   public barraProgreso = new Subject<string>();
   private idQuery: 1;
   private   pedidoDetal: number;
@@ -39,7 +42,7 @@ export class CarritoComponent implements OnInit {
 
   constructor(private carritoService:CarritoService,
               private perfilusuarioService: PerfilusuarioService,
-              private http: HttpClient) { }
+              private http: HttpClient, private detalleService: DetalleService ) { }
 
   ngOnInit(): void {
     this.perfilusuarioService.getUser().subscribe(data => {
@@ -65,5 +68,9 @@ export class CarritoComponent implements OnInit {
         this.carritoService.delteProduct(this.respuesta).subscribe(data=>{
         console.log("respuesta=>",data)
         });
+  }
+  verDetalle(detalle : DetallePedido[]){
+    this.detallePedido = detalle;
+    this.detalleService.getDetalle(this.detallePedido);
   }
 }

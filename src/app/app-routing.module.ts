@@ -1,3 +1,4 @@
+import { DtlcarritoComponent } from './pages/carrito/dtlcarrito/dtlcarrito.component';
 import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
 import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dtlmihistorial.component';
@@ -78,6 +79,7 @@ const routes: Routes = [
   {path: 'historial_en_proceso', component: HistorialenprocesoComponent ,canActivate:[ GuardianService]},
   {path: 'dtl_pedidos', component: DtlpedidosComponent ,canActivate:[ GuardianService]},
   {path: 'dtl_proceso', component: DtlprocesoComponent ,canActivate:[ GuardianService]},
+  {path: 'dtl_carrito', component: DtlcarritoComponent ,canActivate:[ GuardianService]},
   //sin guardian
   
   {path: 'recuperar', component: RecuperarPasswordComponent},

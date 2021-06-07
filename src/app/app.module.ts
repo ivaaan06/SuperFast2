@@ -1,3 +1,4 @@
+import { DtlcarritoComponent } from './pages/carrito/dtlcarrito/dtlcarrito.component';
 import { PedidosComponent } from './pages/_aliado/pedidos/pedidos.component';
 
 import { LoginService } from './_service/login.service';
@@ -152,7 +153,8 @@ export function refresLogin(){
     DtlmihistorialComponent,
     DtlAlipedidosComponent,
     PerfildomiciliarioComponent,
-    PerfilaliadoComponent
+    PerfilaliadoComponent,
+    DtlcarritoComponent
  
   ],
   imports: [
