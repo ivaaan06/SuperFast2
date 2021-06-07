@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { Router } from '@angular/router';
 import { LoginService } from './../../../_service/login.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,10 @@ export class IniciodomiciliarioComponent implements OnInit {
   }
   cerrarSesion(){
     this.loginService.cerrarSesion().subscribe(data=>{
+      sessionStorage.setItem(environment.TOKEN, null);
+      sessionStorage.removeItem(environment.TOKEN);
       this.router.navigateByUrl('/login');
+    
     });
   }
 }
