@@ -39,7 +39,11 @@
                 </ng-container>
                 <ng-container matColumnDef="comentario_cliente">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-envelope"></span> Comentario Cliente </p></mat-header-cell> 
-                    <mat-cell *matCellDef="let element"> {{element.comentario_cliente}} </mat-cell>
+                    <mat-cell *matCellDef="let element">  
+                         <div class="form-outline">
+                        <input class="form-control" type="text"  id="comentario" value={{element.comentario_cliente}}>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn btn-outline-secondary" type="button" (click)="enviarComentario(element.id_pedido)" value="Enviar Comentario">
+                      </div> </mat-cell>
                 </ng-container>
                 <ng-container matColumnDef="comentario_aliado">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-envelope"></span> Comentario Aliado </p></mat-header-cell> 
