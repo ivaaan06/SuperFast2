@@ -18,43 +18,44 @@
 			<div class="login-form">
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Nombres" class="icono-placeholder" type="text" id="signin-name" value={{usuario.nombre}} required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-9">
-                        <input placeholder=" Apellidos" class="icono-placeholder" type="text"  id="signin-lastname" value={{usuario.apellido}} required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-9">
-                        <input placeholder=" Documento" class="icono-placeholder" type="text"  id="signin-document" value={{usuario.documento}} required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-lg-9">
-                        <input placeholder=" Correo" class="icono-placeholder" type="email"  id="signin-email" value={{usuario.correo}} required>
+                        <input placeholder=" Nombres" class="icono-placeholder" type="text" id="signin-name" value={{usuario.nombre}} required minlength="5" maxlength="12">
                         
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Dirección" class="icono-placeholder" type="text" id="signin-adress" value={{usuario.direccion}} required>
+                        <input placeholder=" Apellidos" class="icono-placeholder" type="text"  id="signin-lastname" value={{usuario.apellido}} required minlength="5" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Telefono" class="icono-placeholder" type="text" id="signin-number" value={{usuario.telefono}} required>
+                        <input placeholder=" Documento" class="icono-placeholder" type="number"  id="signin-document" value={{usuario.documento}} required minlength="10" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Contraseña" class="icono-placeholder" type="password" id="signin-pass" value={{usuario.contrasenia}} required>
+                        <input placeholder=" Correo" class="icono-placeholder" type="email"  id="signin-email" value={{usuario.correo}} required minlength="3">
+                        
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Confirmar Contraseña" class="icono-placeholder" type="password" id="password" value="" required>
+                        <input placeholder=" Dirección" class="icono-placeholder" type="text" id="signin-adress" value={{usuario.direccion}} required minlength="7" maxlength="15">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-9">
+                        <input placeholder=" Telefono" class="icono-placeholder" type="number" id="signin-number" value={{usuario.telefono}} required minlength="10" maxlength="10">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-9">
+                        <input placeholder=" Contraseña" class="icono-placeholder" type="password" id="signin-pass" value={{usuario.contrasenia}} required minlength="2" maxlength="15">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-9">
+                        <input placeholder=" Confirmar Contraseña" class="icono-placeholder" type="password" id="password" value="" required minlength="2" maxlength="15">
                     </div>
                 </div>
 				

@@ -222,3 +222,13 @@
   width: 120;
   font-family: "Font Awesome 5 Free"; font-weight: 900;
 }
+input {
+  border: 0.5px solid currentcolor;
+}
+input:invalid {
+  border: 2px solid rgba(255, 0, 0, 0.514);
+}
+input:invalid:focus {
+  background-image: linear-gradient(rgb(22, 20, 122), rgb(211, 224, 211));
+  
+}

@@ -57,6 +57,8 @@ export class PerfilComponent implements OnInit {
 
 
       //ejecutar servicio
+
+      
       this.perfilusuarioService.guardarUsuario(this.usuario).subscribe(data =>{
         this.snackBar.open('Datos actualizados correctamente', 'Succesfull', {
           duration: 2000,
@@ -74,6 +76,7 @@ export class PerfilComponent implements OnInit {
       console.log(data);
     });
    }
+   
    /*cancelarCambios(){
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;

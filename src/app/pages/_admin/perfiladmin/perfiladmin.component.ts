@@ -2,6 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { PerfilusuarioService } from './../../../_service/perfilusuario.service';
 import { Usuario } from './../../../_model/Usuario';
 import { Component, OnInit } from '@angular/core';
+import { type } from 'os';
 
 @Component({
   selector: 'app-perfiladmin',

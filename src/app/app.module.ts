@@ -56,6 +56,7 @@ import { RespuestaprocesoComponent } from './pages/historialenproceso/respuestap
 import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dtlmihistorial.component';
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
 import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -151,12 +152,14 @@ export function refresLogin(){
     RespuestaprocesoComponent,
     DtlmihistorialComponent,
     DtlAlipedidosComponent,
-    PerfildomiciliarioComponent
+    PerfildomiciliarioComponent,
  
   ],
   imports: [
-    BrowserModule,
+  
+  BrowserModule,
     AppRoutingModule,
+    MatInputModule,
     NoopAnimationsModule,
     MaterialModule,
     HttpClientModule,

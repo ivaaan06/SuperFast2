@@ -8,4 +8,40 @@
     width: 120;
     font-family: "Font Awesome 5 Free"; font-weight: 900;
   }
-  
+  input:valid,
+textarea:valid {
+    
+    border: 2px solid green;
+    
+}
+
+input:invalid,
+textarea:invalid {
+   
+    border: 2px solid red;
+}
+.ref::before {
+  font-weight: negrita;
+  color: navy;
+  content: "El nombre debe Incluir 5 Caracteres como Minimo  ";
+} 
+.ref1::before {
+  font-weight: negrita;
+  color: navy;
+  content: "El Apellido debe Incluir 5 Caracteres como Minimo  ";
+} 
+.ref2::before {
+  font-weight: negrita;
+  color: navy;
+  content: "El Correo debe ser una dirección veridica  ";
+} 
+.ref3::before {
+  font-weight: negrita;
+  color: navy;
+  content: "El Documento No se puede editar   ";
+} 
+.ref4::before {
+  font-weight: negrita;
+  color: navy;
+  content: "Numero de telefono valido  ";
+} 
