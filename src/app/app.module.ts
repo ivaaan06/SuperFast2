@@ -56,6 +56,7 @@ import { RespuestaprocesoComponent } from './pages/historialenproceso/respuestap
 import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dtlmihistorial.component';
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
 import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
+import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -113,7 +114,6 @@ export function refresLogin(){
 @NgModule({
   declarations: [
     AppComponent,
-    ProductosComponent,
     LoginComponent,
     RegistrarComponent,
     InicioComponent,
@@ -151,7 +151,8 @@ export function refresLogin(){
     RespuestaprocesoComponent,
     DtlmihistorialComponent,
     DtlAlipedidosComponent,
-    PerfildomiciliarioComponent
+    PerfildomiciliarioComponent,
+    PerfilaliadoComponent
  
   ],
   imports: [

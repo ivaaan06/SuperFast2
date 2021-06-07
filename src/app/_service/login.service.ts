@@ -56,8 +56,7 @@ export class LoginService {
     login.correo = decodedToken.unique_name;
     login.Contrasenia = decodedToken.certpublickey;
     login.AplicacionID = "1";
-    sessionStorage.setItem(environment.TOKEN, null);
-    sessionStorage.removeItem(environment.TOKEN);
+  
     sessionStorage.setItem("email",null);
     sessionStorage.removeItem("email");
     sessionStorage.setItem("password",null);
@@ -65,7 +64,7 @@ export class LoginService {
    
     
     //puede ser put
-    return this.http.post<any>(`${this.urlCerrarSession}=${nameid}`,"");
+    return this.http.post(environment.HOST+'/api/CerrarSession/PostPage_Load?usuario1='+nameid,"");
     //parte grafica 
    
     

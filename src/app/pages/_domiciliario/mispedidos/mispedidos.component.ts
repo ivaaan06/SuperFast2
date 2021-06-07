@@ -23,6 +23,7 @@ export class MispedidosComponent implements OnInit {
   dataSource = new MatTableDataSource<Pedidos_s>();
   serializedDate = new FormControl((new Date()).toISOString());
   usuario= new Usuario();
+  selected = 'Cambiar';
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @Output()detallePedido = Array<DetallePedido>();
@@ -53,10 +54,13 @@ export class MispedidosComponent implements OnInit {
     this.estado.Id_pedido = id_pedido;
     this.estado.Domiciliario_id = domiciliario_id;
     this.estado.Estado_domicilio_id = aux;
-    this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{
-      console.log(aux);   
+    this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{ 
       this.refrescar();
+      this.reset();
     });
-    
   }
+  reset(){
+    this.selected="Seleccione"
+  }
+  
 }

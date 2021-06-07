@@ -24,7 +24,14 @@
                 </ng-container>
                 <ng-container matColumnDef="comentario_aliado">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-comment"></span> Comentario Aliado </p></mat-header-cell> 
-                    <mat-cell *matCellDef="let element"> {{element.comentario_aliado}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        <div class="form-outline">
+                            <input class="form-control" type="text"  id="comentario" value={{element.comentario_aliado}}>
+
+                         <!--   <textarea class="form-control" id="textArea" [value]="element.comentario_aliado" rows="2" ></textarea>-->
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="btn btn-outline-secondary" type="button" (click)="enviarComentario(element.id_pedido)" value="Enviar Comentario">
+                          </div>
+                       </mat-cell>
                 </ng-container>
 
                 
@@ -56,9 +63,9 @@
                             <mat-select [(value)]="selected">
                                 <mat-option (click)="cambiarEstado(1,element.id_pedido,element.aliado_id,element.estado_pedido)" value="pendiente de procesar"> Pendiente de procesar</mat-option>
                                 <mat-option (click)="cambiarEstado(2,element.id_pedido,element.aliado_id,element.estado_pedido)" value="aceptado">Aceptado</mat-option>
-                                <mat-option (click)="cambiarEstado(3,element.id_pedido,element.aliado_id,element.estado_pedido)" value="en camino">En camino</mat-option>
-                                <mat-option (click)="cambiarEstado(4,element.id_pedido,element.aliado_id,element.estado_pedido)" value="entregado">Entregado</mat-option>
-                                <mat-option (click)="cambiarEstado(5,element.id_pedido,element.aliado_id,element.estado_pedido)" value="rechazado">Rechazado</mat-option>
+                                <mat-option (click)="cambiarEstado(3,element.id_pedido,element.aliado_id,element.estado_pedido)" value="rechazado">En camino</mat-option>
+                                <mat-option (click)="cambiarEstado(4,element.id_pedido,element.aliado_id,element.estado_pedido)" value="en proceso">Entregado</mat-option>
+                                <mat-option (click)="cambiarEstado(5,element.id_pedido,element.aliado_id,element.estado_pedido)" value="terminado">Rechazado</mat-option>
                             </mat-select>
                           </mat-form-field>
                           

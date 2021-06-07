@@ -1,3 +1,4 @@
+import { Comentario } from './../_model/Comentario';
 import { Estado_aliado } from './../_model/Estado_aliado';
 
 import { Estado } from './../_model/Estado';
@@ -52,8 +53,11 @@ export class AliadoService {
     return this.http.post<any>(environment.HOST+'/api/Aliado/PostLBTN_GuardarCambios',producto);
   }
   cambiarEstadoMisPedidos(estado:Estado_aliado){
-    console.log(estado);
+ 
     return this.http.put(environment.HOST+'/api/Pedidosaliado/PutLDDL_Categoria',estado);
+  }
+  enviarComentario(comentario:Comentario){
+    return this.http.put(environment.HOST+'/api/Pedidosaliado/PutLGV_pedidos',comentario);
   }
 
 }

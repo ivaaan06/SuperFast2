@@ -18,6 +18,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./pedidosdisponibles.component.css']
 })
 export class PedidosdisponiblesComponent implements OnInit {
+  
   estado = new Estado();
   usuario= new Usuario();
   detallePedido = Array<DetallePedido>();
@@ -47,17 +48,20 @@ export class PedidosdisponiblesComponent implements OnInit {
   verDetalle(detalle : DetallePedido[]){
     this.detallePedido = detalle;
     this.detalleService.getDetalle(this.detallePedido);
-    this.detalleService.setAuteriorUrl('/pedido_s_terminados');
+    this.detalleService.setAuteriorUrl('/pedidosdisponibles');
   }
   cambiarEstado(aux : number, id_pedido : number, domiciliario_id: number, estado_domicilio_id: number){
     this.estado.Id_pedido = id_pedido;
     this.estado.Domiciliario_id = domiciliario_id;
     this.estado.Estado_domicilio_id = aux;
     this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{
-      console.log(aux);   
+        
       this.refrescar();
+      this.reset();
     });
   
   }
-
+  reset(){
+    this.selected="Seleccione"
+  }
 }

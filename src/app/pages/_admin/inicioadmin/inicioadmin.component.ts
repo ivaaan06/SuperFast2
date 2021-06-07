@@ -1,3 +1,4 @@
+import { environment } from './../../../../environments/environment';
 import { GuardianService } from './../../../_service/guardian.service';
 
 import { Router } from '@angular/router';
@@ -20,6 +21,8 @@ export class InicioadminComponent implements OnInit {
 
   cerrarSesion(){
     this.loginService.cerrarSesion().subscribe(data=>{
+      sessionStorage.setItem(environment.TOKEN, null);
+      sessionStorage.removeItem(environment.TOKEN);
       this.router.navigateByUrl('/login');
     });
   }
