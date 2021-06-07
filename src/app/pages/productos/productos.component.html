@@ -12,7 +12,7 @@
     
   </div>
   <div>
-    
+      <app-inicio></app-inicio>
    </div>
      
    <div class="panel panel-default">
@@ -50,24 +50,11 @@
 </div>
 
 <div>
-  <mat-form-field appearance="outline">
-    <mat-label>Precio Minimo</mat-label>
-    <input #inputSearch autofocus matInput type="number" placeholder="Minimo" class="example-right-align" [formControl]="minimo" (keyup)="enBusqueda(inputSearch.value)" id="valMin">
-    <mat-error *ngIf="minimo.invalid">{{getErrorMessage()}}</mat-error>
-    <span matPrefix>$&nbsp;</span>
-    <mat-icon matSuffix>paid</mat-icon>
-    <mat-hint>Minimo</mat-hint>
-  </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Precio Maximo</mat-label>
-    <input matInput placeholder="Maximo">
-    <mat-icon matSuffix>paid</mat-icon>
-    <mat-hint>Maximo</mat-hint>
-  </mat-form-field>
-  <a class="btn btn-primary btn-sm" routerLink="/productos"><mat-icon matSuffix>paid</mat-icon>Productos</a>
+
+  <a class="btn btn-primary btn-sm" routerLink="/productos">Productos</a>
 
   <div col-md-5 mx-auto my-7>
-    <a class="btn btn-primary btn-sm" routerLink="/carrito"><mat-icon matSuffix>paid</mat-icon>Enviar Pedido</a>
+    <a class="btn btn-primary btn-sm" (click)="enviarPedido()" routerLink="/carrito">Enviar Pedido</a>
   </div>
   
 </div>
@@ -83,7 +70,7 @@
          
           <div class="card " style="max-width: 560px;">
             <h2 class="list-group-item active">{{card.nombre_aliado}}</h2>
-       <!-- <img class="card-img-top" src="http://52.67.179.68/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>-->
+       <img class="card-img-top" src="http://52.67.179.68:8081/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>
        
         <span class="hint-star star">
           <i class="fa fa-star yellow-color" aria-hidden="true"></i>

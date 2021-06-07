@@ -51,9 +51,7 @@ export class ProductosComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    this.consultaservice.numeroPedidos().subscribe(canPedi =>{
-      console.log('Numero Pedidos-> ',canPedi);
-    });
+
     //iniciar variables
     this.consultaservice.retornar().subscribe(data => {
      this.dataSource = new MatTableDataSource(data);
@@ -179,7 +177,7 @@ export class ProductosComponent implements OnInit {
     this.pedidoS.direccion_cliente=this.usuario.direccion;
     this.pedidoS.telefono_cliente=this.usuario.telefono;
 
-    this.consultaservice.enviarPedido().subscribe(data =>{
+    this.consultaservice.enviarPedido(this.pedidoS).subscribe(data =>{
       console.log("Datos enviados=>" , data);
     });
   }
@@ -190,46 +188,7 @@ export class ProductosComponent implements OnInit {
     this.descPedido=description;
   }
   enviarCompra(detalle: Producto){
-    //id_aliado:number,precio_producto:number,id:number,
-    let token = sessionStorage.getItem(environment.TOKEN);
-    const helper = new JwtHelperService();
-    const decodedToken = helper.decodeToken(token);
-    let nameid=decodedToken.nameid;
-    this.auxiliar.Id=nameid;
-    const tiempoTranscurrido = Date.now();
-    const hoy = new Date(tiempoTranscurrido);
-    //id_pedido','fecha','comentario_cliente' ,'comentario_aliado','nombre_estado_ped','nombre_estado_domicilio','nombre_aliado','compras','cancelar'
-    this.pedidoS.id_pedido = 1;
-    this.pedidoS.cliente_id = nameid;
-    this.pedidoS.fecha = hoy.toISOString();
-    this.pedidoS.estado_id=1;
-    this.pedidoS.valor_total=0;
-    this.pedidoS.domiciliario_id=1;
-    this.pedidoS.comentario_cliente= this.descPedido;
-    this.pedidoS.comentario_aliado=null;
-    this.pedidoS.aliado_id = detalle.id_aliado;
-    this.pedidoS.estado_pedido=1;
-    this.pedidoS.estado_domicilio_id=1;
-    this.pedidoS.compras=[this.detallePedido2];
-    this.pedidoS.compras1=null;
-    this.pedidoS.nombre_estado_ped = "pendiente de procesar";
-    this.pedidoS.nombre_estado_domicilio = "pendiente de procesar";
-    this.pedidoS.det_valor_unitario = detalle.precio_producto;
-    this.pedidoS.det_cantidad = this.cantida;
-    this.pedidoS.nombre_aliado=detalle.nombre_aliado;
-    this.pedidoS.detnombrecliente="";
-    this.pedidoS.direccion_aliado="";
-    
-
-    this.perfilusuarioService.getUser().subscribe(data => {
-      //this.usuario= data;
-      this.pedidoS.direccion_cliente= data.direccion;
-      this.pedidoS.telefono_cliente= data.telefono;
-      this.pedidoS.nombre_cliente=data.nombre;
-      this.compraDet.direccion_cliente= data.direccion;
-      this.compraDet.telefono_cliente= data.telefono;
-      //console.log(data);
-    });
+   
 
     //cadena COMPRAS
     this.compraDet.cantidad = this.cantida;
@@ -246,31 +205,8 @@ export class ProductosComponent implements OnInit {
     this.compraDet.v_total = this.pedidoS.det_valor_unitario*this.cantida;
     this.compraDet.v_unitario=this.pedidoS.det_valor_unitario;
     this.detallePedido2.push(this.compraDet);
-    /*detalle.det_cantidad=this.cantida;
-    detalle.comentario_cliente=this.descPedido;
-    this.detallePedido2.push(detalle);    
-    console.log('Detalle ->',this.detallePedido2);
     
-    cantidad: 5
-    compras1: null
-    descripcion: "canon"
-    direccion_cliente: "crr 3 4"
-    especprodaliado: "prueba"
-    id_dpedido: 199
-    idpedido: 0
-    imagen_producto1: "~\\AliadoAppi\\imagenesproducto\\cam_domo_hik_2mpx.jpg"
-    nombre_aliado: null
-    nombreprodet: "camara"
-    pedido_id: 189
-    producto_id: 30
-    telefono_cliente: "2345678"
-    v_total: 1000000
-    v_unitario: 200000"*/
-    console.log('Detalle ->',this.pedidoS);
-    console.log('Detallepedido2 ->',this.detallePedido2);
-    this.consultaservice.enviarPedido().subscribe(envio =>{
-      console.log('se envio->',envio);
-    });
+
   }
 
   openSnackBar(message: string, action: string) {

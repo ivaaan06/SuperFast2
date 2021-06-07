@@ -84,13 +84,13 @@ export class ConsultaService {
     return this.http.get<Producto[]>(filter);
   }
 
-  enviarPedido(){
+  enviarPedido(pedidos:Pedidos_s){
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
     let nameid=decodedToken.nameid;
     this.auxiliar.Id=nameid;
-    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', this.auxiliar);
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', pedidos);
   }
   /*contProducto(especificaciones='',cantidad:number){
     return this.http.post(environment.HOST+'/api/Inicio/AgregarPedidoCarrito');

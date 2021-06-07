@@ -154,7 +154,8 @@ export function refresLogin(){
     DtlAlipedidosComponent,
     PerfildomiciliarioComponent,
     PerfilaliadoComponent,
-    DtlcarritoComponent
+    DtlcarritoComponent,
+    ProductosComponent
  
   ],
   imports: [
