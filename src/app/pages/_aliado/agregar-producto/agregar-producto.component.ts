@@ -32,7 +32,6 @@ export class AgregarProductoComponent implements OnInit {
   ngOnInit(): void {
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
-      console.log(data);
     });
   }
   fileEvent(fileInput : Event){
@@ -48,7 +47,7 @@ export class AgregarProductoComponent implements OnInit {
   }
   agregarProducto(){
 
-    console.log(this.archivos);
+  
     let nombre_producto = ((document.getElementById("nombre_producto") as HTMLInputElement).value);
     let descripcion_producto = ((document.getElementById("descripcion_producto") as HTMLInputElement).value);
     let precio = ((document.getElementById("precio") as HTMLInputElement).value);
@@ -58,7 +57,8 @@ export class AgregarProductoComponent implements OnInit {
     this.producto.nombre_producto = nombre_producto;
     this.producto.descripcion_producto = descripcion_producto;
     this.producto.precio_producto = aux;
-    this.producto.imagen_producto1 = this.archivos;
+    //this.producto.imagen_producto1 = this.archivos;
+    this.producto.imagen_producto1 = "~\\AliadoAppi\\imagenesproducto\\carne.jpg";
     this.producto.id_aliado = this.usuario.id;
     this.producto.nombre_aliado= this.usuario.nombre;
     this.producto.estado_producto =1;
