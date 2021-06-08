@@ -56,8 +56,7 @@ export class LoginService {
     login.correo = decodedToken.unique_name;
     login.Contrasenia = decodedToken.certpublickey;
     login.AplicacionID = "1";
-    sessionStorage.setItem(environment.TOKEN, null);
-    sessionStorage.removeItem(environment.TOKEN);
+  
     sessionStorage.setItem("email",null);
     sessionStorage.removeItem("email");
     sessionStorage.setItem("password",null);

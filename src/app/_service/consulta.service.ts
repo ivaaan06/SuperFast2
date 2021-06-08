@@ -75,4 +75,25 @@ export class ConsultaService {
     console.log(comadname,id);
       return this.http.get(environment.HOST+'/api/PedidosCliente/GetCancelarPedidoCliente?comandname='+comadname+'&Id_pedido='+id);
   }
+
+  numeroPedidos(){
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let nameid=decodedToken.nameid;
+    const filter = `${environment.HOST}/api/Inicio/Getmostrarcantidadtotal?idusuario=${nameid}`;
+    return this.http.get<Producto[]>(filter);
+  }
+
+  enviarPedido(){
+    let token = sessionStorage.getItem(environment.TOKEN);
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    let nameid=decodedToken.nameid;
+    this.auxiliar.Id=nameid;
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', this.auxiliar);
+  }
+  /*contProducto(especificaciones='',cantidad:number){
+    return this.http.post(environment.HOST+'/api/Inicio/AgregarPedidoCarrito');
+  }*/
 }

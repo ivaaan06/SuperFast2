@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
     focus;
     focus1;
     
-
+    myDate = new Date().toLocaleString("en-US");
   ngOnInit(): void {
-   
+    
+   console.log(this.myDate);
   }
   navegarHaciaIniciousuario(){
     this.loginservice.login(this.correo, this.contrasenia,  "1").subscribe(data =>{
@@ -63,25 +64,20 @@ export class LoginComponent implements OnInit {
       //capturar errorq
     },err =>{
       //Si hay error
-      console.log("Entro por interceptor: ");
-      console.log(err);
 
-      if(err.status == 400 && err.error.message === "Usuario o contraseña incorrecto") {
-        this.snackBar.open('Usuario y/o cotraseña inconrrecta', 'Advertrencia', {
+      
+      if(err.status == 401){
+        this.snackBar.open('Usuario y/o cotrasena inconrrecta', 'Advertrencia', {
           duration: 2000,
         });
-      }  else if(err.status == 401) {
-         this.router.navigate([`/401Invalid`]);
-      }  else if(err.status == 404) {
-          this.router.navigate([`/error/${err.status}/Recurso no encontrado`]);
-      } else if(err.status == 500) {
-          this.router.navigate([`/error/${err.status}/Eror en servidor`]);
       } else {
-          this.router.navigate([`/error/${err.status}/Erorr Inesperado`]);
+        //this.router.navigateByUrl('/inicio');
+        this.router.navigate([`/error/${err.status}/${err.statusText}`]);
       }
 
-      return EMPTY;
+
     });
   }
 
 }
+

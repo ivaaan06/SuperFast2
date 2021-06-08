@@ -57,6 +57,8 @@ import { DtlmihistorialComponent } from './pages/_domiciliario/dtlmihistorial/dt
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
 import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
 import { MatInputModule } from '@angular/material/input';
+import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
+
 
 
 export  function jwtOptionsFactory(loginService) {
@@ -153,6 +155,8 @@ export function refresLogin(){
     DtlmihistorialComponent,
     DtlAlipedidosComponent,
     PerfildomiciliarioComponent,
+    PerfilaliadoComponent
+
  
   ],
   imports: [

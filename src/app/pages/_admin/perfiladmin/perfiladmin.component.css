@@ -23,17 +23,18 @@ textarea:invalid {
 .ref::before {
   font-weight: negrita;
   color: navy;
-  content: "El nombre debe Incluir 5 Caracteres como Minimo  ";
+  content: "Nombre Editable  ";
 } 
 .ref1::before {
   font-weight: negrita;
   color: navy;
-  content: "El Apellido debe Incluir 5 Caracteres como Minimo  ";
+  content: "Apellido Editable  ";
 } 
 .ref2::before {
   font-weight: negrita;
   color: navy;
   content: "El Correo debe ser una dirección veridica  ";
+  
 } 
 .ref3::before {
   font-weight: negrita;
@@ -44,4 +45,9 @@ textarea:invalid {
   font-weight: negrita;
   color: navy;
   content: "Numero de telefono valido  ";
+} 
+.ref5::before {
+  font-weight: negrita;
+  color: navy;
+  content: "Contraseña Editable  ";
 } 

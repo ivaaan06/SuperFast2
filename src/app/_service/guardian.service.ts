@@ -99,6 +99,9 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/dtl_alipedidos') && rol == 2)
         return true;
+        else if(url.includes('/perfil_aliado') && rol == 2)
+        return true;
+        
         
     
       

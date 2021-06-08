@@ -92,4 +92,47 @@ img {width:100%;}
 	}
   }
   
- 
+  input:valid,
+  textarea:valid {
+	  
+	  border: 2px solid green;
+	  
+  }
+  
+  input:invalid,
+  textarea:invalid {
+	 
+	  border: 2px solid red;
+  }
+  .ref::before {
+	font-weight: negrita;
+	color: navy;
+	content: "Nombre Editable  ";
+  } 
+  .ref1::before {
+	font-weight: negrita;
+	color: navy;
+	content: "Apellido Editable  ";
+  } 
+  .ref2::before {
+	font-weight: negrita;
+	color: navy;
+	content: "El Correo debe ser una dirección veridica  ";
+	
+  } 
+  .ref3::before {
+	font-weight: negrita;
+	color: navy;
+	content: "El Documento No se puede editar   ";
+  } 
+  .ref4::before {
+	font-weight: negrita;
+	color: navy;
+	content: "Numero de telefono valido  ";
+  } 
+  .ref5::before {
+	font-weight: negrita;
+	color: navy;
+	content: "Contraseña Editable  ";
+  } 
+  

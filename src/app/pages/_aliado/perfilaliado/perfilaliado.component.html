@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <!-- Compiled and minified Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <!-- Minified JS library -->
@@ -9,7 +11,7 @@
     <div class="progress-value" ></div>
     </div>
 <div>
-    <app-inicio></app-inicio>
+    <app-inicioaliado></app-inicioaliado>
     </div>
     <!--Main layout-->
     
@@ -33,42 +35,42 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control item" type="text" id="nombre" value={{usuario.nombre}} minlength="5" maxlength="12" required>
+                                                    <input class="form-control" type="text" id="nombre" value={{usuario.nombre}}>
                                                     <label><span class="ref"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Apellido</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="text"  id="apellido" value={{usuario.apellido}} minlength="5" maxlength="12">
+                                                    <input class="form-control" type="text"  id="apellido" value={{usuario.apellido}}>
                                                     <label><span class="ref1"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Correo</label>
                                                 <div class="col-lg-9">
-                                                    <input  class="form-control" type="email"  id="email" value={{usuario.correo}} minlength="3">
+                                                    <input  class="form-control" type="email"  id="email" value={{usuario.correo}}>
                                                     <label><span class="ref2"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Documento</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="text" id="documento"disabled value={{usuario.documento}} size="9" maxlength="9">
+                                                    <input class="form-control" type="text" id="documento"disabled value={{usuario.documento}}>
                                                     <label><span class="ref3"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Telefono</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="number" id="telefono" value={{usuario.telefono}} size="9" maxlength="9">
+                                                    <input class="form-control" type="url" id="telefono" value={{usuario.telefono}}>
                                                     <label><span class="ref4"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Password</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="password" id="password" value={{usuario.contrasenia}} minlength="8" maxlength="12">
+                                                    <input class="form-control" type="password" id="password" value={{usuario.contrasenia}}>
                                                     <label><span class="ref5"></span></label> 
                                                 </div>
                                             </div>
@@ -77,7 +79,7 @@
                                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                                 <div class="col-lg-9">
                                                     <!--<input type="reset" class="btn btn-secondary" (click)="cancelarCambios()" value="Cancel">-->
-                                                    <input type="button" class="btn btn-primary"  (click)="guardarCambios()" value="Save Changes">
+                                                    <input type="button"  class="btn btn-primary"  (click)="guardarCambios()" value="Save Changes">
                                                 </div>
                                             </div>
                                         </form>
@@ -94,3 +96,4 @@
         
            
     </main>
+

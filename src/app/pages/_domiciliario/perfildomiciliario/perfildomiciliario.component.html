@@ -35,37 +35,44 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="text" id="nombre" value={{usuario.nombre}}>
+                                                    <input class="form-control" type="text" id="nombre" value={{usuario.nombre}} minlength="8" maxlength="12">
+                                                    <label><span class="ref"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Apellido</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="text"  id="apellido" value={{usuario.apellido}}>
+                                                    <input class="form-control" type="text"  id="apellido" value={{usuario.apellido}} minlength="8" maxlength="12">
+                                                    <label><span class="ref1"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Correo</label>
                                                 <div class="col-lg-9">
                                                     <input  class="form-control" type="email"  id="email" value={{usuario.correo}}>
+                                                    <label><span class="ref2"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Documento</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="text" id="documento"disabled value={{usuario.documento}}>
+                                                    <input class="form-control" type="text" id="documento"disabled value={{usuario.documento}} size="9" maxlength="9">
+                                                    <label><span class="ref3"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Telefono</label>
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="url" id="telefono" value={{usuario.telefono}}>
+                                                    <input class="form-control" type="url" id="telefono" value={{usuario.telefono}} size="9" maxlength="9">
+                                                    <label><span class="ref4"></span></label> 
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                                
                                                 <div class="col-lg-9">
-                                                    <input class="form-control" type="password" id="password" value={{usuario.contrasenia}}>
+                                                    <input class="form-control" type="password" id="password" value={{usuario.contrasenia}} minlength="8" maxlength="12">
+                                                    <label><span class="ref5"></span></label> 
                                                 </div>
                                             </div>
 
