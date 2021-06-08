@@ -43,10 +43,10 @@ import {RegistroService} from 'src/app/_service/registro.service';
       this.usuario.telefono = telefono;
       this.usuario.documento = nit;
       this.usuario.imagen_logo= "";
-      this.usuario.extension_logo=".png";
+      this.usuario.extension_logo="png";
       this.usuario.actividad_comercial=actComercial;
       this.usuario.rut=rut;
-      this.usuario.extension_rut=".pdf" 
+      this.usuario.extension_rut="pdf" 
       
 
       //ejecutar servicio
