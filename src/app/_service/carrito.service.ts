@@ -1,3 +1,4 @@
+import { RespuestaPedido } from './../_model/RespuestaPedido';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { JwtHelperService } from "@auth0/angular-jwt";
@@ -32,8 +33,7 @@ export class CarritoService{
       const decodedToken = helper.decodeToken(token);
       let nameid=decodedToken.nameid;
       this.auxiliar.Id=nameid;
-      const filter = `${environment.HOST}/api/Carrito/GetLmostrarpreciototal20?idusuario=${nameid}`;
-      return this.http.get<any>(filter)
+      return this.http.get<any>(environment.HOST+'/api/Carrito/GetLmostrarpreciototal20?idusuario='+nameid);
     } 
     priceDomicilio(){
       let token = sessionStorage.getItem(environment.TOKEN);
@@ -45,7 +45,7 @@ export class CarritoService{
       return this.http.get<any>(filter)
       
     }
-    delteProduct(respuesta : RespuestaSolicitud) {
+    delteProduct(respuesta : RespuestaPedido) {
       return this.http.put(environment.HOST+'/api/Carrito/PutLGV_pedidocarrito', respuesta);
       //return this.http.put(this.url+'/api/Carrito/PutLGV_pedidocarrito',Id_pedido&&comandname);
     }
@@ -60,6 +60,14 @@ export class CarritoService{
       return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerPedidoUsuario', this.auxiliar);
         //const filter = `${environment.HOST}/api/Inicio/GetDL_Productos1?idsesion=${nameid}`;
         
+    }
+    verTotal(){
+      let token = sessionStorage.getItem(environment.TOKEN);
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      let nameid=decodedToken.nameid;
+      this.auxiliar.Id=nameid;
+      return this.http.get<any>(environment.HOST+'/api/Carrito/GetLmostrarpreciototal20?idusuario='+nameid);
     }
     private handleHttpError(
         error:HttpErrorResponse

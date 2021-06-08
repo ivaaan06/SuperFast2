@@ -54,7 +54,7 @@
   <a class="btn btn-primary btn-sm" routerLink="/productos">Productos</a>
 
   <div col-md-5 mx-auto my-7>
-    <a class="btn btn-primary btn-sm" (click)="enviarPedido()" routerLink="/carrito">Enviar Pedido</a>
+    <a class="btn btn-primary btn-sm"  routerLink="/carrito">Enviar Pedido</a>
   </div>
   
 </div>
@@ -107,7 +107,7 @@
           <p class="card-text"><small class="text-muted"></small></p>
           <br>
           
-          <button (click)="enviarCompra(card)" class="btn btn-primary btn-sm mr-1 mb-2" >
+          <button (click)="addProductos(card)" class="btn btn-primary btn-sm mr-1 mb-2" >
             <!-- 		the Price -->
               <span class="price"><b>{{card.precio_producto  }}$</b></span>
             <!-- 		shopping cart icon-->

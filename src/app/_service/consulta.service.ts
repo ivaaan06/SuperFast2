@@ -1,3 +1,5 @@
+import { Comentario } from './../_model/Comentario';
+import { AddCarrito } from './../_model/AddCarrito';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Auxiliar } from './../_model/Auxiliar';
 import { PerfilusuarioService } from './perfilusuario.service';
@@ -84,13 +86,17 @@ export class ConsultaService {
     return this.http.get<Producto[]>(filter);
   }
 
-  enviarPedido(pedidos:Pedidos_s){
+  addCarrito(addCarrito:AddCarrito){
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
     let nameid=decodedToken.nameid;
     this.auxiliar.Id=nameid;
-    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', pedidos);
+ 
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', addCarrito);
+  }
+  enviarComentario(comentario:Comentario){
+    return this.http.put(environment.HOST+'/api/PedidosCliente/PutLGV_pedidocarrito0',comentario);
   }
   /*contProducto(especificaciones='',cantidad:number){
     return this.http.post(environment.HOST+'/api/Inicio/AgregarPedidoCarrito');

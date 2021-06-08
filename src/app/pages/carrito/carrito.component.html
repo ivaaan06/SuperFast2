@@ -73,7 +73,7 @@
                   <ng-container matColumnDef="cancelar">
                       <mat-header-cell *matHeaderCellDef><p><span class="glyphicon glyphicon-cog"></span> Acciones </p></mat-header-cell>
                       <mat-cell *matCellDef="let element">
-                          <button type="button" class="btn btn-danger btn-sm" (click)="delteProduct()"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
+                          <button type="button" class="btn btn-danger btn-sm" (click)="cancelarPedido(element.id_pedido)"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
                         
                       </mat-cell>
                   </ng-container>
@@ -116,14 +116,8 @@
           <mat-hint>Direccion</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Subtotal</mat-label>
-          <input matInput disabled>
-          <mat-icon matSuffix>paid</mat-icon>
-          <mat-hint>Subtotal Compra</mat-hint>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
           <mat-label>Total</mat-label>
-          <input matInput disabled>
+          <input matInput disabled>{{auxtotal}}
           <mat-icon matSuffix>paid</mat-icon>
           <mat-hint>Total Compra</mat-hint>
         </mat-form-field>
