@@ -1,3 +1,5 @@
+import { Comentario } from './../_model/Comentario';
+import { AddCarrito } from './../_model/AddCarrito';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Auxiliar } from './../_model/Auxiliar';
 import { PerfilusuarioService } from './perfilusuario.service';
@@ -72,7 +74,6 @@ export class ConsultaService {
     return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerComprasUsuario', this.auxiliar);
   }
   cancelarPedido(comadname : string ,id :number){
-    console.log(comadname,id);
       return this.http.get(environment.HOST+'/api/PedidosCliente/GetCancelarPedidoCliente?comandname='+comadname+'&Id_pedido='+id);
   }
 
@@ -85,13 +86,17 @@ export class ConsultaService {
     return this.http.get<Producto[]>(filter);
   }
 
-  enviarPedido(){
+  addCarrito(addCarrito:AddCarrito){
     let token = sessionStorage.getItem(environment.TOKEN);
     const helper = new JwtHelperService();
     const decodedToken = helper.decodeToken(token);
     let nameid=decodedToken.nameid;
     this.auxiliar.Id=nameid;
-    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', this.auxiliar);
+ 
+    return this.http.post<Pedidos_s[]>(environment.HOST+'/api/Inicio/AgregarPedidosCarrito', addCarrito);
+  }
+  enviarComentario(comentario:Comentario){
+    return this.http.put(environment.HOST+'/api/PedidosCliente/PutLGV_pedidocarrito0',comentario);
   }
   /*contProducto(especificaciones='',cantidad:number){
     return this.http.post(environment.HOST+'/api/Inicio/AgregarPedidoCarrito');

@@ -12,9 +12,12 @@
     
   </div>
   <div>
+
       <app-inicio>
       </app-inicio>
       
+      
+
    </div>
      
    <div class="panel panel-default">
@@ -50,6 +53,18 @@
     </a>
   </div>
 </div>
+
+<div>
+
+  <a class="btn btn-primary btn-sm" routerLink="/productos">Productos</a>
+
+  <div col-md-5 mx-auto my-7>
+    <a class="btn btn-primary btn-sm"  routerLink="/carrito">Enviar Pedido</a>
+  </div>
+  
+</div>
+
+
 </div>
   <div class="container">
   <div class="row">
@@ -60,7 +75,12 @@
       
          
           <div class="card " style="max-width: 560px;">
+
         <img class="card-img-top" src="http://52.67.179.68:8081/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>
+
+            <h2 class="list-group-item active">{{card.nombre_aliado}}</h2>
+       <img class="card-img-top" src="http://52.67.179.68:8081/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>
+
        
         <span class="hint-star star">
           <i class="fa fa-star yellow-color" aria-hidden="true"></i>
@@ -87,7 +107,12 @@
           <p class="card-text"><small class="text-muted"></small></p>
           <p class="card-text"><small class="text-muted"></small></p>
           <br>
+
           <button class="btn btn-primary btn-sm mr-1 mb-2">
+
+          
+          <button (click)="addProductos(card)" class="btn btn-primary btn-sm mr-1 mb-2" >
+
             <!-- 		the Price -->
               <span class="price"><b>{{card.precio_producto  }}$</b></span>
             <!-- 		shopping cart icon-->
@@ -95,7 +120,7 @@
             <!-- 		Buy Now / ADD to Cart-->
               <span class="buy"><b>Add To Cart</b></span>
             </button>
- 
+          </button>
         </div>
       </div>
       

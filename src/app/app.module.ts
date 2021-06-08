@@ -1,3 +1,4 @@
+import { DtlcarritoComponent } from './pages/carrito/dtlcarrito/dtlcarrito.component';
 import { PedidosComponent } from './pages/_aliado/pedidos/pedidos.component';
 
 import { LoginService } from './_service/login.service';
@@ -13,6 +14,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
+import { PagRegistroComponent } from './pages/pagRegistros/pagRegistros.component';
+import { RegistrarAliadoComponent } from './pages/registrarAliado/registrarAliado.component';
+import { RegistrarDomiciliarioComponent } from './pages/registrarDomiciliario/registrarDomiciliario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InicioComponent } from './pages/inicio/inicio.component';
@@ -58,6 +62,7 @@ import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipe
 import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
 import { MatInputModule } from '@angular/material/input';
 import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
+import { CancelarComponent } from './pages/carrito/cancelar/cancelar.component';
 
 
 
@@ -119,6 +124,9 @@ export function refresLogin(){
     ProductosComponent,
     LoginComponent,
     RegistrarComponent,
+    PagRegistroComponent,
+    RegistrarAliadoComponent,
+    RegistrarDomiciliarioComponent,
     InicioComponent,
     CarritoComponent,
     Not404Component,
@@ -155,7 +163,10 @@ export function refresLogin(){
     DtlmihistorialComponent,
     DtlAlipedidosComponent,
     PerfildomiciliarioComponent,
-    PerfilaliadoComponent
+    PerfilaliadoComponent,
+    DtlcarritoComponent,
+    ProductosComponent,
+    CancelarComponent
 
  
   ],

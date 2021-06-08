@@ -62,6 +62,8 @@ export class GuardianService implements CanActivate{
         return true;
         else if(url.includes('/dtl_proceso') && rol == 1)
         return true;
+        else if(url.includes('/dtl_carrito') && rol == 1)
+        return true;
         
         
       

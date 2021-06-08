@@ -62,6 +62,6 @@ export class PedidosdisponiblesComponent implements OnInit {
   
   }
   reset(){
-    this.selected="Seleccione"
+    this.selected="Seleccione";
   }
 }

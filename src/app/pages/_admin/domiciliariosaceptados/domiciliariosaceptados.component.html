@@ -34,7 +34,11 @@
                 <ng-container matColumnDef="imagenperfil">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-picture"></span> Imagen Perfil</p></mat-header-cell>
                     <mat-cell *matCellDef="let element">
+
                         <img class="star" src="http://52.67.179.68:8081{{element.imagenperfil.substr(1,60)}}"width="20" height="20" />  </mat-cell>
+
+                          
+
                 </ng-container>
                 <ng-container matColumnDef="hojavida">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-file"></span> Hoja de vida </p> </mat-header-cell>
