@@ -14,6 +14,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
+import { PagRegistroComponent } from './pages/pagRegistros/pagRegistros.component';
+import { RegistrarAliadoComponent } from './pages/registrarAliado/registrarAliado.component';
+import { RegistrarDomiciliarioComponent } from './pages/registrarDomiciliario/registrarDomiciliario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InicioComponent } from './pages/inicio/inicio.component';
@@ -117,6 +120,9 @@ export function refresLogin(){
     AppComponent,
     LoginComponent,
     RegistrarComponent,
+    PagRegistroComponent,
+    RegistrarAliadoComponent,
+    RegistrarDomiciliarioComponent,
     InicioComponent,
     CarritoComponent,
     Not404Component,

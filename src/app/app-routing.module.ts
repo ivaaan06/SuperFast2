@@ -31,6 +31,9 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrarComponent } from './pages/registrar/registrar.component';
+import { PagRegistroComponent } from './pages/pagRegistros/pagRegistros.component';
+import { RegistrarAliadoComponent } from './pages/registrarAliado/registrarAliado.component';
+import { RegistrarDomiciliarioComponent } from './pages/registrarDomiciliario/registrarDomiciliario.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PerfilComponent } from './pages/perfil/perfil.component';
@@ -84,6 +87,9 @@ const routes: Routes = [
   
   {path: 'recuperar', component: RecuperarPasswordComponent},
   {path: 'registrar', component: RegistrarComponent},
+  {path: 'pagRegistros', component: PagRegistroComponent},
+  {path: 'registrarAliado', component: RegistrarAliadoComponent},
+  {path: 'registrarDomiciliario', component: RegistrarDomiciliarioComponent},
   {path: 'login', component: LoginComponent},
   {path: '', component: LoginComponent},
   {path: '401Invalid', component: Invalid401Component},
