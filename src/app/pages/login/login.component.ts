@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
     myDate = new Date().toLocaleString("en-US");
   ngOnInit(): void {
     
-   console.log(this.myDate);
+   
   }
   navegarHaciaIniciousuario(){
     this.loginservice.login(this.correo, this.contrasenia,  "1").subscribe(data =>{
-      //console.log(data);
+      
      
       
       
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
  
       const decodedToken = helper.decodeToken(data);
      
-      console.log(decodedToken);
+      
        //cifrar variables
 
        

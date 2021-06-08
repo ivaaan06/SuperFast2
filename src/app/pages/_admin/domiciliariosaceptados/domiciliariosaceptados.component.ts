@@ -38,7 +38,7 @@ export class DomiciliariosaceptadosComponent implements OnInit {
   
       dialogRef.afterClosed().subscribe(result => {
         if(result.opcion == "Aceptar") {
-          console.log(id);
+          
               this.respuestaSolicitud.Id=id;
              
               this.respuestaSolicitud.comandname="Rechazar";
@@ -51,14 +51,14 @@ export class DomiciliariosaceptadosComponent implements OnInit {
                 this.refrescar();
               });
             }else{
-              console.log("cancelar")
+              
               this.refrescar();
             }
         });
     }
     refrescar(){
       this.solicituService.DomiciliariosAceptados().subscribe(data =>{
-        console.log(data);
+        
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort= this.sort;
         this.dataSource.paginator = this.paginator;

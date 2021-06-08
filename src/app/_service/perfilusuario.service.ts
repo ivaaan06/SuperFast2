@@ -26,7 +26,7 @@ export class PerfilusuarioService {
     return this.http.get(environment.HOST+'/api/GenerarToken/PostLB_Recuperar?TB_Correo='+correo);
   }
   guardarUsuario(usuario :Usuario){
-    console.log(usuario);
+    
     
     return this.http.post<any>(`${this.url2}`,usuario );
     

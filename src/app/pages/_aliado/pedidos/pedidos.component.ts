@@ -43,7 +43,7 @@ export class PedidosComponent implements OnInit {
   refrescar(){
     
       this.aliadoService.pedido_sAliado().subscribe(data2 =>{
-        console.log(data2);
+        
         this.dataSource = new MatTableDataSource(data2);
       this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;
@@ -76,7 +76,6 @@ export class PedidosComponent implements OnInit {
       let texto= ((document.getElementById("comentario") as HTMLInputElement).value);
       this.comentario.Comentario_aliado=texto;
       this.comentario.CommandName="Guardar";
-      console.log(this.comentario);
       this.aliadoService.enviarComentario(this.comentario).subscribe(data =>{
         this.snackBar.open('Comentario Modificado', 'successful', {
           duration: 2000,

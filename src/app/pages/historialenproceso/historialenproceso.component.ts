@@ -39,7 +39,7 @@ export class HistorialenprocesoComponent implements OnInit {
   refrescar(){
    
     this.consultaService.pedidosEnProceso().subscribe(data =>{
-      console.log(data);
+      
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;
@@ -65,7 +65,7 @@ export class HistorialenprocesoComponent implements OnInit {
               this.refrescar();
             });
           }else{
-            console.log("cancelar")
+            
             this.refrescar();
           }
       });
@@ -75,7 +75,7 @@ export class HistorialenprocesoComponent implements OnInit {
     let texto= ((document.getElementById("comentario") as HTMLInputElement).value);
     this.comentario.Comentario_aliado=texto;
     this.comentario.CommandName="Guardar";
-    console.log(this.comentario);
+    
     this.consultaService.enviarComentario(this.comentario).subscribe(data =>{
       this.snackBar.open('Comentario Modificado', 'successful', {
         duration: 2000,

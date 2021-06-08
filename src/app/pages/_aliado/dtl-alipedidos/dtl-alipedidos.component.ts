@@ -26,13 +26,13 @@ export class DtlAlipedidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.detallePedido2= this.detalleService.setDetalle();
-    console.log(this.detallePedido2);
+    
     this.dataSource2 = new MatTableDataSource(this.detallePedido2);
     this.dataSource2.sort= this.sort;
     this.dataSource2.paginator = this.paginator;
   }
   regresar(){
-    console.log(this.detalleService.getAnteriorUrl());
+    
     if(this.detalleService.getAnteriorUrl() == null){
       this.router.navigateByUrl('/pedidosdisponibles');
     }else{

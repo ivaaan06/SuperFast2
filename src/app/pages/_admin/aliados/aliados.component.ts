@@ -42,7 +42,7 @@ export class AliadosComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result.opcion == "Aceptar") {
-        console.log(id);
+        
             this.respuestaSolicitud.Id=id;
             this.respuestaSolicitud.comandname="Rechazar";
             let token = sessionStorage.getItem(environment.TOKEN);
@@ -54,7 +54,7 @@ export class AliadosComponent implements OnInit {
               this.refrescar();
             });
           }else{
-            console.log("cancelar")
+            
             this.refrescar();
           }
       });

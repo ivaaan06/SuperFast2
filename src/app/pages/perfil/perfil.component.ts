@@ -78,9 +78,9 @@ export class PerfilComponent implements OnInit {
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
       this.loca = data.direccion;
-      console.log(data);
+      
     });
-    console.log("dile->",this.loca)
+    
    }
    
    /*cancelarCambios(){

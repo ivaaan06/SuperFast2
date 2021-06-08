@@ -62,7 +62,7 @@ constructor(private perfilusuarioService: PerfilusuarioService, private snackBar
     this.des = localStorage.getItem("email");
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
-      console.log(data);
+     
     });
    }
 }

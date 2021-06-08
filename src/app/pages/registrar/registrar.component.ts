@@ -52,7 +52,7 @@ export class RegistrarComponent implements OnInit {
       this.registroService.barraProgreso.next("2");
       this.router.navigate(['/login']);
     }, err =>{
-      console.log(err);
+      
       this.openSnackBar("Capturar Error",'Error');
     });
       

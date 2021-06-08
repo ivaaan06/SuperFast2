@@ -37,7 +37,7 @@ export class MispedidosComponent implements OnInit {
     this.perfilService.getUser().subscribe(data =>{
       this.usuario=data;
       this.domiciliarioService.getMisPedidos(this.usuario).subscribe(data =>{
-        console.log(data);
+        
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.sort= this.sort;
         this.dataSource.paginator = this.paginator;

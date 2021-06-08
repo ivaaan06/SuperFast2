@@ -52,12 +52,12 @@ import {RegistroService} from 'src/app/_service/registro.service';
       //ejecutar servicio
       this.registroService.barraProgreso.next("1");
       this.registroService.registroAliado(this.usuario).subscribe(data =>{
-        console.log("datos de aliado registrado->",data);
+        
         this.openSnackBar('Aliado registrado satisfactoriamente','Info');
         this.registroService.barraProgreso.next("2");
         this.router.navigate(['/login']);
       }, err =>{
-        console.log(err);
+        
         this.openSnackBar("Capturar Error",'Error');
       });
         
