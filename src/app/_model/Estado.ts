@@ -1,5 +1,5 @@
 export class Estado{
-    Id_pedido : number;
-    Domiciliario_id : number;
-    Estado_domicilio_id : number;
+    Id_pedido : any;
+    Domiciliario_id : any;
+    Estado_domicilio_id : any;
 }

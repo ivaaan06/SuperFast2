@@ -27,18 +27,18 @@ export class ProductosactivosComponent implements OnInit {
     private snackBar : MatSnackBar) { }
 
   ngOnInit(): void {
-    this.perfilusuarioService.getUser().subscribe(data => {
-      this.usuario= data;
+    this.perfilusuarioService.getUser().subscribe(data =>{
+      this.usuario =  data;
+      this.refrescar();
     });
-    this.refrescar();
+    
   }
   refrescar(){
     this.aliadoService.productosActivos(this.usuario).subscribe(data =>{
-     
+      console.log()
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;
-     
     });
   }
 

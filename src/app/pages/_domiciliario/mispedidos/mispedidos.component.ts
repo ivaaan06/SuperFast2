@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Estado } from './../../../_model/Estado';
 import { DetalleService } from './../../../_service/detalle.service';
 import { DetallePedido } from './../../../_model/DetallePedido';
@@ -28,7 +29,7 @@ export class MispedidosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @Output()detallePedido = Array<DetallePedido>();
   constructor(public route: ActivatedRoute,private domiciliarioService : DomiciliarioService,
-    private perfilService: PerfilusuarioService, private detalleService:DetalleService) { }
+    private perfilService: PerfilusuarioService, private detalleService:DetalleService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.refrescar();
@@ -54,7 +55,11 @@ export class MispedidosComponent implements OnInit {
     this.estado.Id_pedido = id_pedido;
     this.estado.Domiciliario_id = domiciliario_id;
     this.estado.Estado_domicilio_id = aux;
+    console.log(this.estado);
     this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{ 
+      this.snackBar.open('Estado del pedido actualizado', 'successful', {
+        duration: 2000,
+      });
       this.refrescar();
       this.reset();
     });

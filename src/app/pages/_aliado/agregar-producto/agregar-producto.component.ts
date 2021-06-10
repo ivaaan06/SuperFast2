@@ -1,3 +1,4 @@
+import { AddProducto } from './../../../_model/AddProducto';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PerfilusuarioService } from './../../../_service/perfilusuario.service';
 import { Usuario } from './../../../_model/Usuario';
@@ -18,12 +19,13 @@ export class AgregarProductoComponent implements OnInit {
   public archivos: string ;
   public previsualizacion: string;
   usuario = new Usuario();
-  producto = new Producto();
+  producto = new AddProducto();
   nombre : string;
   public imagePath;
   imgURL: any;
   public message: string;
   sellersPermitFile: any;
+  private extencion : any;
   //base64s
   sellersPermitString: string;
   constructor(private sanitizer: DomSanitizer,private aliadoService : AliadoService,
@@ -52,25 +54,26 @@ export class AgregarProductoComponent implements OnInit {
     let descripcion_producto = ((document.getElementById("descripcion_producto") as HTMLInputElement).value);
     let precio = ((document.getElementById("precio") as HTMLInputElement).value);
     let aux = Number(precio);
-    this.producto.id = null;
-    this.producto.actividad_comercial = null;
-    this.producto.nombre_producto = nombre_producto;
-    this.producto.descripcion_producto = descripcion_producto;
-    this.producto.precio_producto = aux;
+    
+    this.producto.Nombre_Producto = nombre_producto.toString();
+    this.producto.Descripcion_producto = descripcion_producto.toString();
+    this.producto.Precio_producto = aux.toString();
     //this.producto.imagen_producto1 = this.archivos;
-    this.producto.imagen_producto1 = "~\\AliadoAppi\\imagenesproducto\\carne.jpg";
-    this.producto.id_aliado = this.usuario.id;
-    this.producto.nombre_aliado= this.usuario.nombre;
-    this.producto.estado_producto =1;
-    this.refrescarFormulario();
+    this.producto.Imagen_producto = this.sellersPermitString;
+    
+    this.producto.extension = this.extencion;
+    this.producto.Id = this.usuario.id.toString();
+    console.log(this.producto);
+    
     try{
       //ejecutar servicio
       this.aliadoService.agregarProducto(this.producto).subscribe(data =>{
+        
         this.snackBar.open('Producto agregado correctamente', 'successful', {
           duration: 2000,
           
         });
-        
+        this.refrescarFormulario();
       });
     }catch(e){
       console.log('ERROR', e);
@@ -140,6 +143,10 @@ export class AgregarProductoComponent implements OnInit {
       alert('invalid format');
       return;
     }
+    this.extencion = file.type.slice(6);
+    let auxestencion = "."+this.extencion ; 
+    this.extencion=auxestencion;
+   
     reader.onloadend = this._handleReaderLoaded.bind(this);
     reader.readAsDataURL(file);
   }
@@ -148,12 +155,12 @@ export class AgregarProductoComponent implements OnInit {
     var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
     //this.imageSrc = base64result;
     this.sellersPermitString = base64result;
-    this.log();
+    
   }
 
   log() { 
     // for debug
-    console.log('base64', this.sellersPermitString);
+    console.log('extencion', this.sellersPermitString);
 
   }
  

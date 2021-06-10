@@ -1,3 +1,4 @@
+import { Producto2 } from './../../../../_model/Productos2';
 import { Usuario } from './../../../../_model/Usuario';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Producto } from './../../../../_model/Producto';
@@ -21,7 +22,7 @@ export class EditaractivosComponent implements OnInit {
 
   //base64s
   sellersPermitString: string;
-  producto = new Producto();
+  producto = new Producto2();
   constructor(private route : ActivatedRoute, private aliadoService : AliadoService,  
     private snackBar : MatSnackBar,private router: Router) { }
 
@@ -56,10 +57,11 @@ export class EditaractivosComponent implements OnInit {
     let aux = Number(precio);
     this.producto.precio_producto = aux;
     console.log(this.producto.imagen_producto1);
-    if(this.archivos == null){
+    if(this.sellersPermitString == null){
       this.producto.imagen_producto1 = this.ig;
      }else{
-       this.producto.imagen_producto1 = this.archivos;
+       this.producto.imagen_producto1 = this.sellersPermitString;
+       this.producto.extension = ".jpg";
      }
 
 
@@ -76,7 +78,7 @@ export class EditaractivosComponent implements OnInit {
   }
   refrescarFormulario(){
     this.aliadoService.productoId(this.id).subscribe(data =>{
-      this.producto= data;
+      this.producto = data;
       this.ig= this.producto.imagen_producto1;
     });
   }

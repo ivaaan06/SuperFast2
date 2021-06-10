@@ -44,7 +44,9 @@
 
                 <ng-container matColumnDef="compras">
                     <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-apple"></span> Pedido </p></mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.compras}} </mat-cell>
+                    <mat-cell *matCellDef="let element"> 
+                        <a class="btn btn-primary btn-sm" (click)="verDetalle(element.compras)" routerLink="/dtl_mihistorial"><span class="glyphicon glyphicon-tags"></span> Ver detalle del pedido</a>
+                    </mat-cell>
                 </ng-container>
                
                 <ng-container matColumnDef="nombre_cliente">

@@ -26,10 +26,12 @@ export class ProductodesactivoComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.perfilusuarioService.getUser().subscribe(data => {
-      this.usuario= data;
+    
+    this.perfilusuarioService.getUser().subscribe(data =>{
+      this.usuario =  data;
+      this.refrescar()
     });
-    this.refrescar();
+    
   }
   refrescar(){
     this.aliadoService.productosDesactivados(this.usuario).subscribe(data =>{

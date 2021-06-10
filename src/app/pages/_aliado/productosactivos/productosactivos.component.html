@@ -28,17 +28,11 @@
                 <ng-container matColumnDef="imagen_producto1">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Imagen </mat-header-cell>
                      <mat-cell *matCellDef="let element"> 
-                        <img class="star" src="https://storage.googleapis.com/portalfruticola/2020/02/7dfa8b68-mix-frutas-y-verduras-adobestock_53144147.jpeg"width="30" height="30"/>  </mat-cell>
+                        <img class="star" src="http://52.67.179.68:8081/{{element.imagen_producto1.substr(2,60)}}"width="30" height="30"/>  </mat-cell>
                   </ng-container>     
                 
-                    <mat-cell *matCellDef="let element" id = "imgaux" value="javascript:imgurl({{element.imagen_producto1}})">  </mat-cell>
-              <ng-container matColumnDef="imagen_producto1">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Imagen </mat-header-cell>
-                     <mat-cell *matCellDef="let element"> 
-                        <img class="star" src="https://storage.googleapis.com/portalfruticola/2020/02/7dfa8b68-mix-frutas-y-verduras-adobestock_53144147.jpeg"width="30" height="30"/>  </mat-cell>
-                
-
-                </ng-container>
+                    <!--<mat-cell *matCellDef="let element" id = "imgaux" value="javascript:imgurl({{element.imagen_producto1}})">  </mat-cell>-->
+             
 
 
                 <ng-container matColumnDef="acciones">

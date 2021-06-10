@@ -1,3 +1,6 @@
+
+import { PerfilusuarioService } from './perfilusuario.service';
+import { AddProducto } from './../_model/AddProducto';
 import { Comentario } from './../_model/Comentario';
 import { Estado_aliado } from './../_model/Estado_aliado';
 
@@ -17,7 +20,8 @@ import { Injectable } from '@angular/core';
 })
 export class AliadoService {
   auxiliar = new Auxiliar();
-  constructor(private http: HttpClient) { }
+  private usuario = new Usuario();
+  constructor(private http: HttpClient,private perfilService : PerfilusuarioService) { }
 
   pedido_sAliado(){
     let token = sessionStorage.getItem(environment.TOKEN);
@@ -37,17 +41,20 @@ export class AliadoService {
     return this.http.post<Pedidos_s[]>(environment.HOST+'/api/comunicacion/PostObtenerEstadoPedidoTerminado', this.auxiliar);
   }
 
-  agregarProducto(producto : Producto){
+  agregarProducto(producto : AddProducto){
     return this.http.post(environment.HOST+'/api/Aliado/PostLBTN_guardarproducto', producto);
   }
-  productosActivos(usuario : Usuario){
-    return this.http.post<any[]>(environment.HOST+'/api/comunicacion/MostrarProducto', usuario);
+  productosActivos(usuario: Usuario){
+        return this.http.post<any[]>(environment.HOST+'/api/comunicacion/MostrarProducto', usuario);
+      
   }
-  productosDesactivados(usuario : Usuario){
+    
+  productosDesactivados(usuario:Usuario){
+    
     return this.http.post<any[]>(environment.HOST+'/api/comunicacion/PostMostrarProductoDesactivado', usuario);
   }
   productoId(id : number){
-    return this.http.get<Producto>(environment.HOST+'/api/Aliado/GetLmostrar?id3='+id);
+    return this.http.get<any>(environment.HOST+'/api/Aliado/GetLmostrar?id3='+id);
   }
   actualizarProducto(producto:Producto){
     return this.http.post<any>(environment.HOST+'/api/Aliado/PostLBTN_GuardarCambios',producto);

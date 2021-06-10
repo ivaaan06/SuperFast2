@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Estado } from './../../../_model/Estado';
 import { DetalleService } from './../../../_service/detalle.service';
 import { DetallePedido } from './../../../_model/DetallePedido';
@@ -29,7 +30,7 @@ export class PedidosdisponiblesComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public route: ActivatedRoute,private domiciliarioService : DomiciliarioService,
-    private detalleService: DetalleService) { }
+    private detalleService: DetalleService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     
@@ -37,7 +38,6 @@ export class PedidosdisponiblesComponent implements OnInit {
   }
   refrescar(){
     this.domiciliarioService.getPedidosDisponibles().subscribe(data=>{
-      console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;
@@ -55,7 +55,9 @@ export class PedidosdisponiblesComponent implements OnInit {
     this.estado.Domiciliario_id = domiciliario_id;
     this.estado.Estado_domicilio_id = aux;
     this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{
-        
+      this.snackBar.open('Estado del pedido actualizado', 'successful', {
+        duration: 2000,
+      });
       this.refrescar();
       this.reset();
     });
