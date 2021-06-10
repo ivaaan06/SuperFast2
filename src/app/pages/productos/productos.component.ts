@@ -167,6 +167,7 @@ export class ProductosComponent implements OnInit {
    
 
     let addcarrito = new AddCarrito();
+    addcarrito.valorunitario = detalle.precio_producto;
     addcarrito.idcliente = this.usuario.id;
     addcarrito.idaliado = detalle.id_aliado.toString();
     addcarrito.descripcion =  this.descPedido;
