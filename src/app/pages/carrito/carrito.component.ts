@@ -117,7 +117,7 @@ export class CarritoComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.opcion === 'Aceptar') {
+      if (result.opcion == 'Aceptar') {
             this.respuetaPedido.Id_pedido = id_pedido;
             this.respuetaPedido.comandname = 'Cancelar';
             this.carritoService.delteProduct(this.respuetaPedido).subscribe(data => {

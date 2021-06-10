@@ -86,7 +86,7 @@ export class ProductosComponent implements OnInit {
     .pipe(take(1))
     .subscribe((res: any) => {
       console.log('Response->', res);
-      if (res === ''){
+      if (res == ''){
         this.consultaservice.retornar().subscribe(data => {
           this.dataSource = new MatTableDataSource(data);
           this.datos = data;
@@ -95,7 +95,7 @@ export class ProductosComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.datos = res;
       }
-      if (res.length < 1 && this.query !== undefined){
+      if (res.length < 1 && this.query != undefined){
         this.openSnackBar("No se encontro '" + this.query + "' en los productos",'');
       }
 
@@ -114,7 +114,7 @@ export class ProductosComponent implements OnInit {
     .filtroPrecio(this.ValorMinimo)
     .pipe(take(1))
     .subscribe((res: any) => {
-      if (res === ''){
+      if (res == ''){
         this.consultaservice.retornar().subscribe(data => {
           this.dataSource = new MatTableDataSource(data);
           this.datos = data;
