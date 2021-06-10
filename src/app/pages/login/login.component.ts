@@ -52,15 +52,14 @@ export class LoginComponent implements OnInit {
       //environment.CONTRASENIA = CryptoJS.AES.encrypt(this.contrasenia,decodedToken.nameid).toString();
       
       let rol = decodedToken.role;
-      
       if(rol == 1)
-      this.router.navigateByUrl('/inicio');
+      this.router.navigateByUrl('/productos');
       else if(rol == 2)
-      this.router.navigateByUrl('/inicioaliado');
+      this.router.navigateByUrl('/perfil_aliado');
       else if(rol == 3)
-      this.router.navigateByUrl('/iniciodomiciliario');
+      this.router.navigateByUrl('/perfil_domiciliario');
       else if(rol == 4)
-      this.router.navigateByUrl('/inicioadmin');
+      this.router.navigateByUrl('/perfil_admin');
       //capturar errorq
     },err =>{
       //Si hay error
