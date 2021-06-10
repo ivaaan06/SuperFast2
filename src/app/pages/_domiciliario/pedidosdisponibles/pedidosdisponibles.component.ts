@@ -38,6 +38,7 @@ export class PedidosdisponiblesComponent implements OnInit {
   }
   refrescar(){
     this.domiciliarioService.getPedidosDisponibles().subscribe(data=>{
+
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.sort= this.sort;
       this.dataSource.paginator = this.paginator;

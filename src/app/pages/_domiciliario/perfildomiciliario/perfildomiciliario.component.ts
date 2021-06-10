@@ -47,6 +47,7 @@ constructor(private perfilusuarioService: PerfilusuarioService, private snackBar
 
       //ejecutar servicio
       this.perfilusuarioService.guardarUsuario(this.usuario).subscribe(data =>{
+        this.refrescar();
         this.snackBar.open('Datos actualizados correctamente', 'Succesfull', {
           duration: 2000,
         });
@@ -60,7 +61,7 @@ constructor(private perfilusuarioService: PerfilusuarioService, private snackBar
     this.des = localStorage.getItem("email");
     this.perfilusuarioService.getUser().subscribe(data => {
       this.usuario= data;
-      console.log(data);
+      
     });
    }
 }

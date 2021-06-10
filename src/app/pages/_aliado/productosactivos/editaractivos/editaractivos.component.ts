@@ -40,12 +40,7 @@ export class EditaractivosComponent implements OnInit {
     let file =(<HTMLInputElement>fileInput.target).files[0];
     this.archivos = file.name;
    
-    /*const imagen = event.target.files[0];
-    this.extraerBase64(imagen).then((imagen : any)=>{
-      this.previsualizacion = imagen.base;
-      console.log(imagen)
-    });
-    this.archivos.push(imagen);*/
+    
   }
   actualizarProducto(){
     let nombre_producto = ((document.getElementById("nombre_producto") as HTMLInputElement).value);
@@ -56,8 +51,10 @@ export class EditaractivosComponent implements OnInit {
     this.producto.descripcion_producto = descripcion_producto;
     let aux = Number(precio);
     this.producto.precio_producto = aux;
-    console.log(this.producto.imagen_producto1);
+    
     if(this.sellersPermitString == null){
+
+  
       this.producto.imagen_producto1 = this.ig;
      }else{
        this.producto.imagen_producto1 = this.sellersPermitString;
@@ -66,7 +63,7 @@ export class EditaractivosComponent implements OnInit {
 
 
     this.aliadoService.actualizarProducto(this.producto).subscribe(data=>{
-      console.log(this.producto.imagen_producto1)
+      
         this.snackBar.open('Producto actualizado correctamente', 'successful', {
           duration: 2000,
           

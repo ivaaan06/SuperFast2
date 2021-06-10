@@ -44,7 +44,7 @@ export class DomiciliariosrechazadosComponent implements OnInit {
    
          dialogRef.afterClosed().subscribe(result => {
            if(result.opcion == "Aceptar") {
-             console.log(id);
+             
                  this.respuestaSolicitud.Id=id;
                
                  this.respuestaSolicitud.comandname="Revision";

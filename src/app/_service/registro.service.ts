@@ -18,7 +18,7 @@ export class RegistroService {
   constructor(private http: HttpClient) { }
 
   registroUsuario(usuario: Usuario){
-    console.log(usuario);
+  
     return this.http.post<string>(`${this.url}`, usuario)
   }
 

@@ -24,7 +24,7 @@ export class DtlprocesoComponent implements OnInit {
 
   ngOnInit(): void {
     this.detallePedido2= this.detalleService.setDetalle();
-    console.log(this.detallePedido2);
+    
     this.dataSource2 = new MatTableDataSource(this.detallePedido2);
     this.dataSource2.sort= this.sort;
     this.dataSource2.paginator = this.paginator;

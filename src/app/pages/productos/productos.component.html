@@ -50,12 +50,24 @@
 </div>
 
 <div>
+  <div class="col-md-3 mx-auto my-5"></div>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Valor minimo</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Valor Maximo</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><a class="btn btn-primary btn-sm" routerLink="/productos">Filtro Valores</a></td>
+    <td>
+      <div col-md-5 mx-auto my-7>
+      <a class="btn btn-primary btn-sm"  routerLink="/carrito"><mat-icon matSuffix>add_shopping_cart</mat-icon>{{this.numPedido}}</a>
+      </div>
+    </td>
+  </tr></table> 
 
-  <a class="btn btn-primary btn-sm" routerLink="/productos">Productos</a>
-
-  <div col-md-5 mx-auto my-7>
-    <a class="btn btn-primary btn-sm"  routerLink="/carrito">Enviar Pedido</a>
-  </div>
   
 </div>
 
@@ -86,15 +98,16 @@
           <h2 class="list-group-item active">{{card.nombre_producto}}</h2>
             
           <li class="list-group-item  "><span class="glyphicon glyphicon-list-alt"></span>  <b>Descripción:</b> {{card.descripcion_producto}}</li> 
-           <li class="list-group-item"><span class="glyphicon glyphicon-indent-right"></span><b>Estado:</b> {{card.estado_producto}}</li>
-            <li class="list-group-item"><span class="glyphicon glyphicon-th-large"></span><b>Cantidad:</b> {{card.cantidad  }}</li>
+
+
+          
             <mat-form-field class="example-full-width">
               <mat-label>Especificaciones del Producto</mat-label>
-              <textarea #inputDescripcion autofocus matInput type="text" placeholder="cantidad" class="example-right-align" (keyup)="descripcionIngresada(inputDescripcion.value)" id="descripcion"></textarea>
+              <textarea #inputDescripcion autofocus matInput type="text" placeholder="Especificación" class="example-right-align" (keyup)="descripcionIngresada(inputDescripcion.value)" id="descripcion"></textarea>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Cantidad del producto</mat-label>
-              <input #inputCantidad autofocus matInput type="number" placeholder="cantidad" class="example-right-align" (keyup)="cantidaIngresada(inputCantidad.value)" id="cantidad">              
+              <input #inputCantidad autofocus matInput type="number" placeholder="cantidad" class="example-right-align" (keyup)="cantidaIngresada(inputCantidad.value)" id="cantidad" min="1" pattern="^[0-9]+">              
               <mat-icon matSuffix>paid</mat-icon>
               <mat-hint>Cantidad</mat-hint>
             </mat-form-field>

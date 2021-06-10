@@ -39,7 +39,7 @@ export class ProductosComponent implements OnInit {
   private detallePedido2 = Array<DetallePedido>();
   private cantida:number;
   private descPedido:string;
-  private numPedido :number; 
+  public numPedido: any;
   auxiliar = new Auxiliar();
 
   constructor(private consultaservice: ConsultaService, 
@@ -60,6 +60,9 @@ export class ProductosComponent implements OnInit {
      this.dataSource = new MatTableDataSource(data);
      this.datos=data;
      
+    });
+    this.consultaservice.numeroPedidos().subscribe(data => {
+      this.numPedido = data;
     });
     this.getCharactersByMinMax();
     this.getCharactersByQuery();
@@ -127,7 +130,7 @@ export class ProductosComponent implements OnInit {
     .filtroPrecio(this.ValorMinimo)
     .pipe(take(1))
     .subscribe((res: any) => {
-      console.log('Response->',res);
+      
       if(res == ""){
         this.consultaservice.retornar().subscribe(data => {
           this.dataSource = new MatTableDataSource(data);
@@ -146,7 +149,7 @@ export class ProductosComponent implements OnInit {
   //}
 
   enBusqueda(value : string){
-    console.log(value)
+    
     if(value){
       this.router.navigate(['/productos'],{
         queryParams:{ValorMinimo:value}
@@ -167,6 +170,7 @@ export class ProductosComponent implements OnInit {
    
 
     let addcarrito = new AddCarrito();
+    addcarrito.valorunitario = detalle.precio_producto;
     addcarrito.idcliente = this.usuario.id;
     addcarrito.idaliado = detalle.id_aliado.toString();
     addcarrito.descripcion =  this.descPedido;
@@ -175,7 +179,7 @@ export class ProductosComponent implements OnInit {
     addcarrito.direccioncliente = this.usuario.direccion;
     addcarrito.telefonocliente = this.usuario.telefono;
     this.consultaservice.addCarrito(addcarrito).subscribe(data =>{
-      console.log(data);
+      
       this.snackBar.open('producto gregado a carrito', 'Advertrencia', {
         duration: 2000,
       });

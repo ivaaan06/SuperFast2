@@ -41,6 +41,7 @@ export class CarritoComponent implements OnInit {
   usr = new Usuario() ;
   aux : number;
   auxtotal : number;
+  auxtotDomicilio: any;
   datosUsr = new Pedidos_s();
   detallePedido = Array<DetallePedido>();
   respuetaPedido = new RespuestaPedido();
@@ -68,6 +69,7 @@ export class CarritoComponent implements OnInit {
     });
     this.subTotal();
     this.Total();
+    this.totalDomicilio();
   }
   subTotal(){
      
@@ -81,7 +83,11 @@ export class CarritoComponent implements OnInit {
     });
   }
   
-
+  totalDomicilio(){
+   this.carritoService.verTotDomicilio().subscribe(data => {
+    this.auxtotDomicilio = data;
+   }); 
+  }
 
   
   verDetalle(detalle : DetallePedido[]){
@@ -115,6 +121,7 @@ export class CarritoComponent implements OnInit {
     });
     this.subTotal();
     this.Total();
+    this.totalDomicilio();
   }
 
 }

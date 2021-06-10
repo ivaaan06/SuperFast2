@@ -40,12 +40,7 @@ export class AgregarProductoComponent implements OnInit {
     let file =(<HTMLInputElement>fileInput.target).files[0];
     this.archivos = file.name;
    
-    /*const imagen = event.target.files[0];
-    this.extraerBase64(imagen).then((imagen : any)=>{
-      this.previsualizacion = imagen.base;
-      console.log(imagen)
-    });
-    this.archivos.push(imagen);*/
+    
   }
   agregarProducto(){
 
@@ -76,7 +71,7 @@ export class AgregarProductoComponent implements OnInit {
         this.refrescarFormulario();
       });
     }catch(e){
-      console.log('ERROR', e);
+      
     }
   }
   extraerBase64 = async ($event:any) => new Promise((resolve, reject) =>{

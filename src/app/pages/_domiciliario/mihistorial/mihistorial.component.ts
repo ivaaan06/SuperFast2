@@ -32,7 +32,7 @@ export class MihistorialComponent implements OnInit {
   }
   refrescar(){
     this.domiciliarioService.getMiHistorial().subscribe(data =>{
-      console.log(data);
+     
     });
   }
   verDetalle(detalle : DetallePedido[]){

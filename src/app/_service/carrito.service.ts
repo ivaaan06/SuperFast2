@@ -69,6 +69,14 @@ export class CarritoService{
       this.auxiliar.Id=nameid;
       return this.http.get<any>(environment.HOST+'/api/Carrito/GetLmostrarpreciototal20?idusuario='+nameid);
     }
+    verTotDomicilio(){
+      let token = sessionStorage.getItem(environment.TOKEN);
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      let nameid=decodedToken.nameid;
+      this.auxiliar.Id=nameid;
+      return this.http.get<any>(environment.HOST+'/api/Carrito/GetLmostrarpreciodomicilio?idusuario='+nameid);
+    }
     private handleHttpError(
         error:HttpErrorResponse
       ):Observable<TrackHttpError>{
