@@ -27,10 +27,9 @@
               <mat-table [dataSource]="dataSource" matSort>
   
                   <ng-container matColumnDef="id_pedido">
-                      <mat-header-cell *matHeaderCellDef mat-sort-header> <p><span class="glyphicon glyphicon-user"></span>N Pedido</p> </mat-header-cell>
-                      <mat-cell *matCellDef="let element"> {{element.id_pedido}} </mat-cell>
-                  </ng-container>
-  
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p><span class="glyphicon glyphicon-user"></span>N Pedido</p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element" id="id_pedido" value="{{element.id_pedido}}">{{element.id_pedido}}</mat-cell>
+                 </ng-container>
                   <ng-container matColumnDef="fecha">
                       <mat-header-cell *matHeaderCellDef mat-sort-header> <p><span class="glyphicon glyphicon-user"></span>Fecha</p> </mat-header-cell>
                       <mat-cell *matCellDef="let element"> 
@@ -111,24 +110,29 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Domicilio Usuario</mat-label>
-          <input matInput type="number" class="example-right-align"  id="valMin" disabled>{{usr.direccion}}
+          <input matInput class="form-control" type="text" id="dirUsuario" value={{usr.direccion}} >
           <mat-icon matSuffix>paid</mat-icon>
           <mat-hint>Direccion</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>Total</mat-label>
-          <input matInput disabled>{{auxtotal}}
+          <mat-label>Sub Total</mat-label>
+          <input matInput id="subTotal" value={{auxtotal}} disabled>
           <mat-icon matSuffix>paid</mat-icon>
-          <mat-hint>Total Compra</mat-hint>
+          <mat-hint>Sub Total Compra</mat-hint>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Total Domicilio</mat-label>
-          <input matInput disabled>{{auxtotDomicilio}}
+          <input matInput  id="totDomicilio" value={{auxtotDomicilio}} disabled>
           <mat-icon matSuffix>paid</mat-icon>
           <mat-hint>Costo Domicilio</mat-hint>
         </mat-form-field>
-        <a class="btn btn-primary btn-sm" routerLink="/productos"><mat-icon matSuffix>paid</mat-icon>Productos</a>
-        
+        <mat-form-field appearance="outline">
+          <mat-label>Total Compra Producto/s</mat-label>
+          <input matInput disabled>{{totalCompra}}
+          <mat-icon matSuffix>paid</mat-icon>
+          <mat-hint>TOTAL</mat-hint>
+        </mat-form-field>
+        <button class="btn btn-primary btn-sm" (click)="compraPedido()" ><mat-icon matSuffix>paid</mat-icon>Comprar Productos</button>      
       </div>
     </div>
   
