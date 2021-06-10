@@ -63,9 +63,9 @@
                             <mat-select [(value)]="selected">
                                 <mat-option (click)="cambiarEstado(1,element.id_pedido,element.aliado_id,element.estado_pedido)" value="pendiente de procesar"> Pendiente de procesar</mat-option>
                                 <mat-option (click)="cambiarEstado(2,element.id_pedido,element.aliado_id,element.estado_pedido)" value="aceptado">Aceptado</mat-option>
-                                <mat-option (click)="cambiarEstado(3,element.id_pedido,element.aliado_id,element.estado_pedido)" value="en camino">En camino</mat-option>
-                                <mat-option (click)="cambiarEstado(4,element.id_pedido,element.aliado_id,element.estado_pedido)" value="entregado">Entregado</mat-option>
-                                <mat-option (click)="cambiarEstado(5,element.id_pedido,element.aliado_id,element.estado_pedido)" value="rechazado">Rechazado</mat-option>
+                                <mat-option (click)="cambiarEstado(3,element.id_pedido,element.aliado_id,element.estado_pedido)" value="rechazado">Rechazado</mat-option>
+                                <mat-option (click)="cambiarEstado(4,element.id_pedido,element.aliado_id,element.estado_pedido)" value="en proceso">En Proceso</mat-option>
+                                <mat-option (click)="cambiarEstado(5,element.id_pedido,element.aliado_id,element.estado_pedido)" value="terminado">Terminado</mat-option>
                             </mat-select>
                           </mat-form-field>
                           
