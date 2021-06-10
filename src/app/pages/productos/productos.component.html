@@ -50,12 +50,24 @@
 </div>
 
 <div>
+  <div class="col-md-3 mx-auto my-5"></div>
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Valor minimo</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><mat-form-field class="example-full-width">
+      <mat-label>Valor Maximo</mat-label>
+      <input matInput>
+    </mat-form-field></td>
+    <td><a class="btn btn-primary btn-sm" routerLink="/productos">Filtro Valores</a></td>
+    <td>
+      <div col-md-5 mx-auto my-7>
+      <a class="btn btn-primary btn-sm"  routerLink="/carrito"><mat-icon matSuffix>add_shopping_cart</mat-icon>{{this.numPedido}}</a>
+      </div>
+    </td>
+  </tr></table> 
 
-  <a class="btn btn-primary btn-sm" routerLink="/productos">Productos</a>
-
-  <div col-md-5 mx-auto my-7>
-    <a class="btn btn-primary btn-sm"  routerLink="/carrito">Enviar Pedido</a>
-  </div>
   
 </div>
 

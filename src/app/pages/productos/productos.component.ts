@@ -39,7 +39,7 @@ export class ProductosComponent implements OnInit {
   private detallePedido2 = Array<DetallePedido>();
   private cantida:number;
   private descPedido:string;
-  private numPedido :number; 
+  public numPedido: any;
   auxiliar = new Auxiliar();
 
   constructor(private consultaservice: ConsultaService, 
@@ -60,6 +60,9 @@ export class ProductosComponent implements OnInit {
      this.dataSource = new MatTableDataSource(data);
      this.datos=data;
      
+    });
+    this.consultaservice.numeroPedidos().subscribe(data => {
+      this.numPedido = data;
     });
     this.getCharactersByMinMax();
     this.getCharactersByQuery();
