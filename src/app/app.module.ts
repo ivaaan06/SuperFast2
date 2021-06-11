@@ -63,6 +63,7 @@ import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomicil
 import { MatInputModule } from '@angular/material/input';
 import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
 import { CancelarComponent } from './pages/carrito/cancelar/cancelar.component';
+import { PrincipalComponent } from './pages/principal/principal.component';
 
 
 
@@ -166,7 +167,8 @@ export function refresLogin(){
     PerfilaliadoComponent,
     DtlcarritoComponent,
     ProductosComponent,
-    CancelarComponent
+    CancelarComponent,
+    PrincipalComponent
 
  
   ],

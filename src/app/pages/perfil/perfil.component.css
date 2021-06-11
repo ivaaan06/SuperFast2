@@ -123,7 +123,7 @@ img {width:100%;}
   .ref3::before {
 	font-weight: negrita;
 	color: navy;
-	content: "El Documento No se puede editar   ";
+	content: "El Documento debe ser veridico  ";
   } 
   .ref4::before {
 	font-weight: negrita;

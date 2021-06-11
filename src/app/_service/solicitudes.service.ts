@@ -29,10 +29,10 @@ export class SolicitudesService {
     return this.http.get<Solicitud[]>(environment.HOST+'/api/comunicacion/GetMostrarSolicitudAliadoRechazado');
   }
   DomiciliariosAceptados(){
-    return this.http.get<any[]>(environment.HOST+'/api/comunicacion/GetMostrarSolicitudAliadoAceptado');
+    return this.http.get<any[]>(environment.HOST+'/api/comunicacion/GetMostrarSolicitudDomiciliarioAceptado');
   }
   AliadosAceptados(){
-    return this.http.get<Solicitud[]>(environment.HOST+'/api/comunicacion/GetMostrarSolicitudDomiciliarioAceptado');
+    return this.http.get<Solicitud[]>(environment.HOST+'/api/comunicacion/GetMostrarSolicitudAliadoAceptado');
   }
   //respuesta a solicitudes
   RespuestaDomiciliario(respuesta : RespuestaSolicitud){

@@ -16,7 +16,14 @@ import {RegistroService} from 'src/app/_service/registro.service';
     
     usuario = new RegAliado() ;
     des:string;
-  
+    public pdfPath;
+    pdfURL: any;
+    public message: string;
+    sellersPermitFile: any;
+
+  //base64s
+  sellersPermitString: string;
+
     constructor(private registroService: RegistroService,
                 private router: Router,
                 private _snackBar: MatSnackBar) { }
@@ -25,7 +32,6 @@ import {RegistroService} from 'src/app/_service/registro.service';
     }
   
     guardarCambios(){
-      let rut = ((document.getElementById("signin-rut") as HTMLInputElement).value);
       let nombreComercial= ((document.getElementById("signin-name") as HTMLInputElement).value);
       let correo= ((document.getElementById("signin-email") as HTMLInputElement).value);
       let direccion= ((document.getElementById("signin-adress") as HTMLInputElement).value);
@@ -49,9 +55,9 @@ import {RegistroService} from 'src/app/_service/registro.service';
       this.usuario.telefono = telefono;
       this.usuario.documento = nit;
       this.usuario.imagen_logo= "";
-      this.usuario.extension_logo="png";
+      this.usuario.extension_logo="jpg";
       this.usuario.actividad_comercial=actComercial;
-      this.usuario.rut=rut;
+      this.usuario.rut=this.sellersPermitString;
       this.usuario.extension_rut="pdf" 
       
 
@@ -62,9 +68,6 @@ import {RegistroService} from 'src/app/_service/registro.service';
         this.openSnackBar('Aliado registrado satisfactoriamente','Info');
         this.registroService.barraProgreso.next("2");
         this.router.navigate(['/login']);
-      }, err =>{
-        
-        this.openSnackBar("Capturar Error",'Error');
       });
         
       
@@ -74,7 +77,57 @@ import {RegistroService} from 'src/app/_service/registro.service';
       this._snackBar.open(message, action, {
           duration: 3000
       });
+    }preview(event: any): void {
+      let files: FileList = event.target.files;
+  
+      if(files.length == 0)
+        return;
+  
+        var mimeType = files[0].type;
+        if (mimeType.match(/pdf\/*/) == null) {
+          this.message = "Only pdf are supported.";
+          return;
+        }
+  
+        var reader = new FileReader();
+        this.pdfPath = files;
+        reader.readAsDataURL(files[0]); 
+        reader.onload = (_event) => { 
+          this.pdfURL = reader.result; 
+        }
+        
+        this.picked(event);
     }
+  
+  
+    public picked(event) {
+          let fileList: FileList = event.target.files;
+          const file: File = fileList[0];
+          this.sellersPermitFile = file;
+          this.handleInputChange(file); //turn into base64   
+    }
+  
+    handleInputChange(files) {
+      var file = files;
+      var pattern = /pdf-*/;
+      var reader = new FileReader();
+      if (!file.type.match(pattern)) {
+        alert('invalid format');
+        return;
+      }
+      reader.onloadend = this._handleReaderLoaded.bind(this);
+      reader.readAsDataURL(file);
+    }
+    _handleReaderLoaded(e) {
+      let reader = e.target;
+      var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+      //this.imageSrc = base64result;
+      this.sellersPermitString = base64result;
+      
+
+    }
+  
+
     validacioncontrasenia( value: string){
       let contrasenia= ((document.getElementById("signin-pass") as HTMLInputElement).value);
       let confirmarcontrasenia= ((document.getElementById("password")as HTMLInputElement).value);
@@ -90,7 +143,7 @@ import {RegistroService} from 'src/app/_service/registro.service';
        });
       }
     }
-  
+    
   }
   
   export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -108,4 +161,3 @@ import {RegistroService} from 'src/app/_service/registro.service';
   
     matcher = new MyErrorStateMatcher();
   }
-  

@@ -18,48 +18,52 @@
 			<div class="login-form">
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Hoja de Vida" class="icono-placeholder" type="text" id="signin-hv" value={{usuario.archivo}} required>
+                        
+                        <span style="color:red;" *ngIf="message">{{message}} </span>
+                        <span class="badge badge-light" aling="left">Hoja de vida</span>
+                        <input #file type="file" accept='pdf/*' (change)="preview($event)" />
+
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Nombres" class="icono-placeholder" type="text" id="signin-name" value={{usuario.nombre}} required>
+                        <input placeholder=" Nombres" class="icono-placeholder" type="text" id="signin-name" value={{usuario.nombre}} required minlength="5" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Apellidos" class="icono-placeholder" type="text"  id="signin-lastname" value={{usuario.apellido}} required>
+                        <input placeholder=" Apellidos" class="icono-placeholder" type="text"  id="signin-lastname" value={{usuario.apellido}} required minlength="5" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Documento" class="icono-placeholder" type="text"  id="signin-document" value={{usuario.documento}} required>
+                        <input placeholder=" Documento" class="icono-placeholder" type="text"  id="signin-document" value={{usuario.documento}} required size="10" minlength="10" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Correo" class="icono-placeholder" type="email"  id="signin-email" value={{usuario.correo}} required>
+                        <input placeholder=" Correo" class="icono-placeholder" type="email"  id="signin-email" value={{usuario.correo}} required minlength="3">
                         
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Telefono" class="icono-placeholder" type="text" id="signin-number" value={{usuario.telefono}} required>
+                        <input placeholder=" Telefono" class="icono-placeholder" type="text" id="signin-number" value={{usuario.telefono}} required size="10" minlength="10" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Tipo Vehiculo" class="icono-placeholder" type="text" id="signin-vehiculo" value={{usuario.tipovehiculo}} required>
+                        <input placeholder=" Tipo Vehiculo" class="icono-placeholder" type="text" id="signin-vehiculo" value={{usuario.tipovehiculo}} required minlength="4" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Contraseña" class="icono-placeholder" type="password" id="signin-pass" value={{usuario.contrasenia}} required>
+                        <input placeholder=" Contraseña" class="icono-placeholder" type="password" id="signin-pass" value={{usuario.contrasenia}} required minlength="8" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Confirmar Contraseña" class="icono-placeholder" type="password" id="password" value="" required>
+                        <input #pass2 autofocus placeholder=" Confirmar Contraseña" class="icono-placeholder" type="password" id="password" (keyup)="validacioncontrasenia(pass2.value) "  required minlength="8" maxlength="12">
                     </div>
                 </div>
 				
@@ -67,6 +71,7 @@
 					<input type="checkbox" checked="checked">
 					<span class="checkmark "></span><a href="https://drive.google.com/file/d/1KG5suhVC_CqjwT75JYpM4BlMEq3ulbee/view?usp=sharing" target="_blank">Acepto términos y condiciones</a>
 				  </label>
+				
 				
                 <div class="form-group row">
                     <div class="col-lg-9">

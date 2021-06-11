@@ -35,20 +35,22 @@
                 </ng-container>
 
                 <ng-container matColumnDef="imagenperfil">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-picture"></span> Imagen Perfil</p> </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-picture"></span> Imagen Perfil</p> </mat-header-cell> 
                     <mat-cell *matCellDef="let element"> 
-                        <img class="star" src="http://52.67.179.68:8081/{{element.imagenperfil.substr(1,60)}}"width="20" height="20"/>  </mat-cell>
-                    
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1200px-User_icon_2.svg.png"width="20" height="20" /> 
+
+                    </mat-cell>
+
                 </ng-container>
-                <ng-container matColumnDef="hojavida">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-file"></span> Hoja de vida </p> </mat-header-cell>
+                <ng-container matColumnDef="rut">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header><p> <span class="glyphicon glyphicon-file"></span>RUT </p> </mat-header-cell>
                     <mat-cell *matCellDef="let element"> 
-                        <a href= "http://52.67.179.68:8081/{{element.hojavida.substr(2,60)}}">Hoja de Vida</a>
+                        <a href= "http://52.67.179.68:8081/{{element.rut.substr(2,60)}}">RUT</a>
                     </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="tipovehiculo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-barcode"></span> Tipo Vehiculo </p> </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.tipovehiculo}} </mat-cell>
+                <ng-container matColumnDef="actividadcomercial">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> <p> <span class="glyphicon glyphicon-barcode"></span> Actividad Comercial </p> </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.actividadcomercial}} </mat-cell>
                 </ng-container>
 
 
