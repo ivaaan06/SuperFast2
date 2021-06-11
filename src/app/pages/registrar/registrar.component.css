@@ -229,6 +229,14 @@ input:invalid {
   border: 2px solid rgba(255, 0, 0, 0.514);
 }
 input:invalid:focus {
-  background-image: linear-gradient(rgb(22, 20, 122), rgb(211, 224, 211));
+  border: 2px solid rgba(0, 255, 0, 0.651);
   
+  
+}
+.ocultar {
+  display: none;
+}
+
+.mostrar {
+  display: block;
 }

@@ -18,22 +18,22 @@
 			<div class="login-form">
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Nombre Comercial" class="icono-placeholder" type="text" id="signin-name" value={{usuario.nombre}} required>
+                        <input placeholder=" Nombre Comercial" class="icono-placeholder" type="text" id="signin-name" value={{usuario.nombre}} required minlength="5" maxlength="12"  >
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" NIT" class="icono-placeholder" type="text"  id="signin-document" value={{usuario.documento}} required>
+                        <input placeholder=" NIT" class="icono-placeholder" type="text"  id="signin-document" value={{usuario.documento}} required minlength="10" size="10" maxlength="10" >
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Actividad Comercial" class="icono-placeholder" type="text"  id="signin-actComercial" value={{usuario.actividad_comercial}} required>
+                        <input placeholder=" Actividad Comercial" class="icono-placeholder" type="text"  id="signin-actComercial" value={{usuario.actividad_comercial}} required minlength="5" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" RUT" class="icono-placeholder" type="text"  id="signin-rut" value={{usuario.rut}} required>
+                        <input placeholder=" RUT" class="icono-placeholder" type="file" name="userfile" accept="application/pdf"  id="signin-rut" value={{usuario.rut}} required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -44,22 +44,22 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Dirección" class="icono-placeholder" type="text" id="signin-adress" value={{usuario.direccion}} required>
+                        <input placeholder=" Dirección" class="icono-placeholder" type="text" id="signin-adress" value={{usuario.direccion}} required minlength="3" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Telefono" class="icono-placeholder" type="text" id="signin-number" value={{usuario.telefono}} required>
+                        <input placeholder=" Telefono" class="icono-placeholder" type="text" id="signin-number" value={{usuario.telefono}} required size="10" minlength="10" maxlength="10">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Contraseña" class="icono-placeholder" type="password" id="signin-pass" value={{usuario.contrasenia}} required>
+                        <input placeholder=" Contraseña" class="icono-placeholder" type="password" id="signin-pass" value={{usuario.contrasenia}} required minlength="8" maxlength="12">
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-9">
-                        <input placeholder=" Confirmar Contraseña" class="icono-placeholder" type="password" id="password" value="" required>
+                        <input #pass2 autofocus placeholder=" Confirmar Contraseña" class="icono-placeholder" type="password" id="password" (keyup)="validacioncontrasenia(pass2.value) " required minlength="8" maxlength="12">
                     </div>
                 </div>
 				

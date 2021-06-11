@@ -33,6 +33,12 @@ import {RegistroService} from 'src/app/_service/registro.service';
       let contrasenia= ((document.getElementById("signin-pass") as HTMLInputElement).value);
       let nit = ((document.getElementById("signin-document") as HTMLInputElement).value);
       let actComercial = ((document.getElementById("signin-actComercial") as HTMLInputElement).value);  
+      let confirmarcontrasenia= ((document.getElementById("password")as HTMLInputElement).value);
+    if(contrasenia != confirmarcontrasenia ){
+      this._snackBar.open('Las Contraseñas NO Coinsiden', 'Advertencia', {
+        duration: 2000,
+      });
+    }else{
   
       this.usuario.nombre1 = "foto";
       this.usuario.nombre2 = "rut";
@@ -63,10 +69,26 @@ import {RegistroService} from 'src/app/_service/registro.service';
         
       
     }
+  }
     openSnackBar(message: string, action: string) {
       this._snackBar.open(message, action, {
           duration: 3000
       });
+    }
+    validacioncontrasenia( value: string){
+      let contrasenia= ((document.getElementById("signin-pass") as HTMLInputElement).value);
+      let confirmarcontrasenia= ((document.getElementById("password")as HTMLInputElement).value);
+      if(contrasenia != '' && confirmarcontrasenia != ''){
+        if(contrasenia== confirmarcontrasenia){
+         this._snackBar.open('Las Contraseñas Coinsiden', 'Advertencia', {
+           duration: 2000,
+         });
+        }
+      }else{
+       this._snackBar.open('Las Contraseñas NO Coinsiden', 'Advertencia', {
+         duration: 2000,
+       });
+      }
     }
   
   }

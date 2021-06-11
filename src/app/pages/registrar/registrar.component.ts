@@ -31,9 +31,14 @@ export class RegistrarComponent implements OnInit {
     let telefono= ((document.getElementById("signin-number") as HTMLInputElement).value);
     let contrasenia= ((document.getElementById("signin-pass") as HTMLInputElement).value);
     let documento = ((document.getElementById("signin-document") as HTMLInputElement).value);
-
-
-    this.usuario.id_rol=1;
+    
+    let confirmarcontrasenia= ((document.getElementById("password")as HTMLInputElement).value);
+    if(contrasenia != confirmarcontrasenia ){
+      this._snackBar.open('Las Contraseñas NO Coinsiden', 'Advertencia', {
+        duration: 2000,
+      });
+    }else{
+      this.usuario.id_rol=1;
     this.usuario.nombre = nombre;
     this.usuario.apellido = apellido;
     this.usuario.correo = correo;
@@ -44,6 +49,12 @@ export class RegistrarComponent implements OnInit {
     this.usuario.imagenperfil= "imagen";
     this.usuario.auditoria="papita";
     this.usuario.aprobacion=15;
+     
+    
+   
+
+    
+    
       
     //ejecutar servicio
     this.registroService.barraProgreso.next("1");
@@ -58,11 +69,31 @@ export class RegistrarComponent implements OnInit {
       
     
   }
+}
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
         duration: 3000
     });
   }
+   validacioncontrasenia( value: string){
+    let contrasenia= ((document.getElementById("signin-pass") as HTMLInputElement).value);
+    let confirmarcontrasenia= ((document.getElementById("password")as HTMLInputElement).value);
+    if(contrasenia != '' && confirmarcontrasenia != ''){
+      if(contrasenia== confirmarcontrasenia){
+       this._snackBar.open('Las Contraseñas Coinsiden', 'Advertencia', {
+         duration: 2000,
+       });
+      }
+    }else{
+     this._snackBar.open('Las Contraseñas NO Coinsiden', 'Advertencia', {
+       duration: 2000,
+     });
+    }
+  }
+
+
+
+
 
 }
 
@@ -81,3 +112,6 @@ export class InputErrorStateMatcherExample {
 
   matcher = new MyErrorStateMatcher();
 }
+
+ 
+
