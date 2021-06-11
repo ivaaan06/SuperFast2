@@ -52,7 +52,7 @@ export class DomiciliarioService {
     return this.http.post<Pedidos_s[]>(this.url+'/api/comunicacion/PostObtenerMiPedidosEntregadosDomiciliario',this.auxiliar);
   }
   cambiarEstadoMisPedidos(estado:Estado){
-    console.log(estado);
+    
     return this.http.put(this.url+'/api/Domiciliario/PutDDL_Estado',estado);
   }
 }

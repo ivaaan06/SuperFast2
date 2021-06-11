@@ -55,7 +55,7 @@ export class MispedidosComponent implements OnInit {
     this.estado.Id_pedido = id_pedido;
     this.estado.Domiciliario_id = domiciliario_id;
     this.estado.Estado_domicilio_id = aux;
-    console.log(this.estado);
+    
     this.domiciliarioService.cambiarEstadoMisPedidos(this.estado).subscribe(data =>{ 
       this.snackBar.open('Estado del pedido actualizado', 'successful', {
         duration: 2000,
