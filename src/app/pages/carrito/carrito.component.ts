@@ -146,7 +146,7 @@ export class CarritoComponent implements OnInit {
     this.comprarPedido.Id_pedido = iddelpedido;
     this.comprarPedido.Estado_pedido = "0";
     this.comprarPedido.Valor_total = this.totalCompra.toString();
-    console.log('la compra producto=>', this.comprarPedido);
+    
     this.carritoService.compraCarrito(this.comprarPedido).subscribe(data => {
      this.snackBar.open('Pedido/s enviado/s', '', {
           duration: 2000,
