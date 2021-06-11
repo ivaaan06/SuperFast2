@@ -1,0 +1,127 @@
+
+
+<body>
+  
+  <div  class="progress" >
+    <div class="progress-value" ></div>
+    
+  </div>
+  <div>
+      
+    <nav id="home" class="navbar navbar-expand-lg scrolling-navbar " style="background-color: rgba(108, 141, 233, 0.1);">
+		<div class="container">
+			<a class="navbar-brand" href="#"><img src="favicon.ico"width="45" height="45" style="background-color: rgba(37, 35, 170, 0.1);">Super Fast</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+			
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <form class="example" action="action_page.php">
+                                <input #inputSearch autofocus type="text" placeholder="         Busqueda   " class="icono-placeholder" name="search" (keyup)="onSearch(inputSearch.value)">
+                                
+                              </form>
+                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                        </li>
+						<li class="nav-item active">
+							<a class="nav-link" routerLink="/principal">Inicio<span class="sr-only">(current)</span></a>
+						</li>
+                        <li class="nav-item active">
+						  <a class="nav-link" routerLink="/login" >Ingreso <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" routerLink="/pagRegistros">Registro <span class="sr-only">(current)</span></a>
+						</li>
+						
+						<li class="nav-item">
+					</ul>
+                      
+				
+				</div>
+		</div>
+	</nav>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Compiled and minified Bootstrap CSS -->
+
+  
+
+
+  
+ 
+
+   </div>
+     
+  
+  <div class="container">
+  <div class="row">
+    
+    <div class="col-md-3 mx-auto my-5" *ngFor="let card of datos">
+      <div class="panel panel-default">
+        <div class="panel-body">
+      
+         
+          <div class="card " style="max-width: 560px;">
+            <h2 class="list-group-item active">{{card.nombre_aliado}}</h2>
+       <img class="card-img-top" src="http://52.67.179.68:8081/{{card.imagen_producto1.substr(2,60)}}"width="90" height="150"/>
+       
+        <span class="hint-star star">
+          <i class="fa fa-star yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star-half-o yellow-color" aria-hidden="true"></i>
+          <i class="fa fa-star-o yellow-color" aria-hidden="true"></i>
+        </span> 
+     
+        
+          <div class="card-body">
+          
+          <h2 class="list-group-item active">{{card.nombre_producto}}</h2>
+            
+          <li class="list-group-item  "><span class="glyphicon glyphicon-list-alt"></span>  <b>Descripción:</b> {{card.descripcion_producto}}</li> 
+
+
+          
+            <mat-form-field class="example-full-width">
+              <mat-label>Especificaciones del Producto</mat-label>
+              <textarea #inputDescripcion autofocus matInput type="text" placeholder="Especificación" class="example-right-align" (keyup)="descripcionIngresada(inputDescripcion.value)" id="descripcion"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" >
+              <mat-label> <span class="glyphicon glyphicon-usd"></span> Cantidad del producto</mat-label>
+              <input  #inputCantidad autofocus matInput type="number"  placeholder="cantidad" class="example-right-align" (keyup)="cantidaIngresada(inputCantidad.value)" id="cantidad" min="1" pattern="^[0-9]+" >              
+              
+              <mat-hint>Cantidad</mat-hint>
+            </mat-form-field>
+          
+          <p class="card-text"></p>
+          <p class="card-text"><small class="text-muted"></small></p>
+          <p class="card-text"><small class="text-muted"></small></p>
+          <br>
+          
+          <button routerLink="/login" class="btn btn-primary btn-sm mr-1 mb-2" >
+            <!-- 		the Price -->
+              <span class="price"><b>{{card.precio_producto  }}$</b></span>
+            <!-- 		shopping cart icon-->
+              <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+            <!-- 		Buy Now / ADD to Cart-->
+              <span class="buy"><b>Add To Cart</b></span>
+            </button>
+            
+ 
+        </div>
+      </div>
+      
+     </div>
+     </div>   
+    
+    </div>
+  </div>
+</div>
+
+
+</body>

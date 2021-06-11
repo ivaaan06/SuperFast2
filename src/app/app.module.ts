@@ -64,6 +64,7 @@ import { MatInputModule } from '@angular/material/input';
 import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
 import { CancelarComponent } from './pages/carrito/cancelar/cancelar.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { ProductosinicioComponent } from './pages/productosinicio/productosinicio.component';
 
 
 
@@ -168,7 +169,8 @@ export function refresLogin(){
     DtlcarritoComponent,
     ProductosComponent,
     CancelarComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    ProductosinicioComponent
 
  
   ],

@@ -1,3 +1,4 @@
+import { ProductosinicioComponent } from './pages/productosinicio/productosinicio.component';
 import { DtlcarritoComponent } from './pages/carrito/dtlcarrito/dtlcarrito.component';
 import { PerfilaliadoComponent } from './pages/_aliado/perfilaliado/perfilaliado.component';
 import { DtlAlipedidosComponent } from './pages/_aliado/dtl-alipedidos/dtl-alipedidos.component';
@@ -84,7 +85,8 @@ const routes: Routes = [
   {path: 'dtl_pedidos', component: DtlpedidosComponent ,canActivate:[ GuardianService]},
   {path: 'dtl_proceso', component: DtlprocesoComponent ,canActivate:[ GuardianService]},
   {path: 'dtl_carrito', component: DtlcarritoComponent ,canActivate:[ GuardianService]},
-  //sin guardian
+  // sin guardian
+  {path: 'productos_inicio', component: ProductosinicioComponent},
   {path: 'principal', component: PrincipalComponent},
   {path: 'recuperar', component: RecuperarPasswordComponent},
   {path: 'registrar', component: RegistrarComponent},
@@ -96,7 +98,6 @@ const routes: Routes = [
   {path: '401Invalid', component: Invalid401Component},
   {path: 'error/:status/:statusText', component: Error500Component},
   {path: '**', component: Not404Component}
-  
 ];
 
 @NgModule({
