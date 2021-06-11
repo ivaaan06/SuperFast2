@@ -43,6 +43,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { EditaractivosComponent } from './pages/_aliado/productosactivos/editaractivos/editaractivos.component';
 import { PerfiladminComponent } from './pages/_admin/perfiladmin/perfiladmin.component';
 import { PerfildomiciliarioComponent } from './pages/_domiciliario/perfildomiciliario/perfildomiciliario.component';
+import { PrincipalComponent } from './pages/principal/principal.component';
 
 
 const routes: Routes = [
@@ -84,7 +85,7 @@ const routes: Routes = [
   {path: 'dtl_proceso', component: DtlprocesoComponent ,canActivate:[ GuardianService]},
   {path: 'dtl_carrito', component: DtlcarritoComponent ,canActivate:[ GuardianService]},
   //sin guardian
-  
+  {path: 'principal', component: PrincipalComponent},
   {path: 'recuperar', component: RecuperarPasswordComponent},
   {path: 'registrar', component: RegistrarComponent},
   {path: 'pagRegistros', component: PagRegistroComponent},

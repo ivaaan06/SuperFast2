@@ -20,7 +20,7 @@ import { RevisionComponent } from './revision/revision.component';
 export class AliadosrechazadosComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'documento', 'imagenperfil', 'hojavida', 'tipovehiculo', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'documento', 'imagenperfil', 'rut', 'actividadcomercial', 'acciones'];
   dataSource = new MatTableDataSource<Solicitud>();
   respuestaSolicitud = new RespuestaSolicitud();
   @ViewChild(MatPaginator) paginator: MatPaginator;

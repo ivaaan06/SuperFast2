@@ -13,7 +13,16 @@ import {RegistroService} from 'src/app/_service/registro.service';
     styleUrls: ['./registrarDomiciliario.component.css']
   })
   export class RegistrarDomiciliarioComponent implements OnInit {
-    
+
+    public pdfPath;
+    pdfURL: any;
+    public message: string;
+  
+  sellersPermitFile: any;
+
+  //base64s
+  sellersPermitString: string;
+
     usuario = new RegDomiciliario() ;
     des:string;
   
@@ -34,7 +43,7 @@ import {RegistroService} from 'src/app/_service/registro.service';
       let documento = ((document.getElementById("signin-document") as HTMLInputElement).value);
       let tipVehi = ((document.getElementById("signin-vehiculo") as HTMLInputElement).value);
   
-      this.usuario.archivo=hv;
+      this.usuario.archivo=this.sellersPermitString;
       this.usuario.nombre = nombre;
       this.usuario.apellido = apellido;
       this.usuario.correo = correo;
@@ -63,6 +72,57 @@ import {RegistroService} from 'src/app/_service/registro.service';
           duration: 3000
       });
     }
+
+    preview(event: any): void {
+      let files: FileList = event.target.files;
+  
+      if(files.length == 0)
+        return;
+  
+        var mimeType = files[0].type;
+        if (mimeType.match(/pdf\/*/) == null) {
+          this.message = "Only pdf are supported.";
+          return;
+        }
+  
+        var reader = new FileReader();
+        this.pdfPath = files;
+        reader.readAsDataURL(files[0]); 
+        reader.onload = (_event) => { 
+          this.pdfURL = reader.result; 
+        }
+        
+        this.picked(event);
+    }
+  
+  
+    public picked(event) {
+          let fileList: FileList = event.target.files;
+          const file: File = fileList[0];
+          this.sellersPermitFile = file;
+          this.handleInputChange(file); //turn into base64   
+    }
+  
+    handleInputChange(files) {
+      var file = files;
+      var pattern = /pdf-*/;
+      var reader = new FileReader();
+      if (!file.type.match(pattern)) {
+        alert('invalid format');
+        return;
+      }
+      reader.onloadend = this._handleReaderLoaded.bind(this);
+      reader.readAsDataURL(file);
+    }
+    _handleReaderLoaded(e) {
+      let reader = e.target;
+      var base64result = reader.result.substr(reader.result.indexOf(',') + 1);
+      //this.imageSrc = base64result;
+      this.sellersPermitString = base64result;
+      
+    }
+  
+
   
   }
   
@@ -80,5 +140,6 @@ import {RegistroService} from 'src/app/_service/registro.service';
     ]);
   
     matcher = new MyErrorStateMatcher();
+    
   }
   

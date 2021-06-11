@@ -21,7 +21,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class AliadosComponent implements OnInit {
 
-  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'documento', 'imagenperfil', 'hojavida', 'tipovehiculo', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'correo', 'telefono', 'documento', 'imagenperfil', 'rut', 'actividadcomercial', 'acciones'];
   dataSource = new MatTableDataSource<Solicitud>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
