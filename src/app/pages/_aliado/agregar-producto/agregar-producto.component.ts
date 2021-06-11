@@ -49,30 +49,37 @@ export class AgregarProductoComponent implements OnInit {
     let descripcion_producto = ((document.getElementById("descripcion_producto") as HTMLInputElement).value);
     let precio = ((document.getElementById("precio") as HTMLInputElement).value);
     let aux = Number(precio);
-    
-    this.producto.Nombre_Producto = nombre_producto.toString();
-    this.producto.Descripcion_producto = descripcion_producto.toString();
-    this.producto.Precio_producto = aux.toString();
-    //this.producto.imagen_producto1 = this.archivos;
-    this.producto.Imagen_producto = this.sellersPermitString;
-    
-    this.producto.extension = this.extencion;
-    this.producto.Id = this.usuario.id.toString();
-    console.log(this.producto);
-    
-    try{
-      //ejecutar servicio
-      this.aliadoService.agregarProducto(this.producto).subscribe(data =>{
-        
-        this.snackBar.open('Producto agregado correctamente', 'successful', {
-          duration: 2000,
-          
-        });
-        this.refrescarFormulario();
+    if (nombre_producto == "" || descripcion_producto == "" || precio == "" || this.sellersPermitString == null){
+      this.snackBar.open('No se permiten campos vacios', 'Advertencia', {
+        duration: 2000,
+
       });
-    }catch(e){
-      
+    }else{
+      this.producto.Nombre_Producto = nombre_producto.toString();
+      this.producto.Descripcion_producto = descripcion_producto.toString();
+      this.producto.Precio_producto = aux.toString();
+      //this.producto.imagen_producto1 = this.archivos;
+      this.producto.Imagen_producto = this.sellersPermitString;
+    
+     this.producto.extension = this.extencion;
+      this.producto.Id = this.usuario.id.toString();
+      try{
+        //ejecutar servicio
+        this.aliadoService.agregarProducto(this.producto).subscribe(data =>{
+          
+          this.snackBar.open('Producto agregado correctamente', 'successful', {
+            duration: 2000,
+            
+          });
+          this.refrescarFormulario();
+        });
+      }catch(e){
+        
+      }
     }
+    
+    
+   
   }
   extraerBase64 = async ($event:any) => new Promise((resolve, reject) =>{
     try{
@@ -99,6 +106,7 @@ export class AgregarProductoComponent implements OnInit {
 
   refrescarFormulario(){
     this.nombre="";
+    this.imgURL="";
   }
   preview(event: any): void {
     let files: FileList = event.target.files;
@@ -152,13 +160,10 @@ export class AgregarProductoComponent implements OnInit {
     this.sellersPermitString = base64result;
     
   }
-
-  log() { 
-    // for debug
-    console.log('extencion', this.sellersPermitString);
-
-  }
+  
  
+
+  
 
 }
 

@@ -5,4 +5,5 @@ export class AddProducto{
     Descripcion_producto:any;
     Precio_producto:any;
     Id:any;
+    id_producto:any;
 }
