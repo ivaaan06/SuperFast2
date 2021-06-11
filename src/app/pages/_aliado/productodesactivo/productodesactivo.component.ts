@@ -9,6 +9,7 @@ import { Usuario } from './../../../_model/Usuario';
 import { MatTableDataSource } from '@angular/material/table';
 import { Producto } from './../../../_model/Producto';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { RespuestaSolicitud } from 'src/app/_model/RespuestaSolicitud';
 
 @Component({
   selector: 'app-productodesactivo',
@@ -19,6 +20,7 @@ export class ProductodesactivoComponent implements OnInit {
   displayedColumns: string[] = ['nombre_producto', 'descripcion_producto', 'precio_producto', 'imagen_producto1', 'acciones'];
   dataSource = new MatTableDataSource<Producto>();
   usuario = new Usuario();
+  respuesta = new RespuestaSolicitud();
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(public route: ActivatedRoute, private aliadoService : AliadoService
@@ -43,8 +45,10 @@ export class ProductodesactivoComponent implements OnInit {
     });
   }
   activar(producto :Producto){
-    producto.estado_producto= 1;
-    this.aliadoService.actualizarProducto(producto).subscribe(data=>{
+    this.respuesta.Id = producto.id;
+    this.respuesta.comandname = "Activar";
+
+    this.aliadoService.activarProducto(this.respuesta).subscribe(data=>{
       this.refrescar();
         this.snackBar.open('Producto Activado', 'successful', {
           duration: 2000,

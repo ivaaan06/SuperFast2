@@ -14,6 +14,7 @@ import { environment } from './../../environments/environment';
 import { Usuario } from './../_model/Usuario';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { RespuestaSolicitud } from '../_model/RespuestaSolicitud';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +57,7 @@ export class AliadoService {
   productoId(id : number){
     return this.http.get<any>(environment.HOST+'/api/Aliado/GetLmostrar?id3='+id);
   }
-  actualizarProducto(producto:Producto){
+  actualizarProducto(producto:AddProducto){
     return this.http.post<any>(environment.HOST+'/api/Aliado/PostLBTN_GuardarCambios',producto);
   }
   cambiarEstadoMisPedidos(estado:Estado_aliado){
@@ -66,5 +67,10 @@ export class AliadoService {
   enviarComentario(comentario:Comentario){
     return this.http.put(environment.HOST+'/api/Pedidosaliado/PutLGV_pedidos',comentario);
   }
-
+  activarProducto(respuesta : RespuestaSolicitud){
+    return this.http.post(environment.HOST+'/api/Aliado/PostLGV_Productosdesactivado',respuesta);
+  }
+  desactivarProducto(respuesta: RespuestaSolicitud){
+    return this.http.post(environment.HOST+'/api/Aliado/PostDesactivarOEditarProductos',respuesta);
+  }
 }

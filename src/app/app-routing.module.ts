@@ -92,7 +92,7 @@ const routes: Routes = [
   {path: 'registrarAliado', component: RegistrarAliadoComponent},
   {path: 'registrarDomiciliario', component: RegistrarDomiciliarioComponent},
   {path: 'login', component: LoginComponent},
-  {path: '', component: LoginComponent},
+  {path: '', component: PrincipalComponent},
   {path: '401Invalid', component: Invalid401Component},
   {path: 'error/:status/:statusText', component: Error500Component},
   {path: '**', component: Not404Component}
